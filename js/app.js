@@ -199,6 +199,30 @@ class App {
         if (window.lucide) {
             window.lucide.createIcons();
         }
+
+        // Telemetry Injection for EndView
+        if (this.state.view === 'end') {
+            setTimeout(() => {
+                const tempoCPU = performance.now();
+                const memoriaBytes = performance.memory ? performance.memory.usedJSHeapSize : 0;
+                const memoriaMB = (memoriaBytes / (1024 * 1024)).toFixed(2);
+                
+                const panel = document.getElementById("ads-computacional-painel");
+                if (panel) {
+                    panel.innerHTML = `
+                        <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 16px; margin-top: 20px; color: #fff; text-align: left; backdrop-filter: blur(10px);">
+                            <h4 style="color: #4ff; margin-top: 0; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; font-size: 12px;">Telemetria Computacional (ADS)</h4>
+                            <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px;"><b>Por favor, tire um print desta tela e envie ao pesquisador.</b></p>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2;">
+                                <li><span style="opacity: 0.5;">CPU (Script Execution):</span> <b style="color: #4ff;">${tempoCPU.toFixed(2)} ms</b></li>
+                                <li><span style="opacity: 0.5;">RAM Usage (Tab):</span> <b style="color: #4ff;">${memoriaMB} MB</b></li>
+                                <li><span style="opacity: 0.5;">Timestamp:</span> ${new Date().toLocaleTimeString()}</li>
+                            </ul>
+                        </div>
+                    `;
+                }
+            }, 600);
+        }
     }
 }
 

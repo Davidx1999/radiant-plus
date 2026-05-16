@@ -8,7 +8,7 @@ export const HeaderRadiant = (view = 'catalog') => {
                 <div class="flex items-center gap-6">
                     <!-- Logo (Volta para o Início) -->
                     <div class="cursor-pointer hover:opacity-80 transition-all" onclick="window.app.goToCatalog()">
-                        <img src="./assets/RADIANT PLUS.png" alt="RADIANT PLUS" class="h-8 object-contain" />
+                        <img src="assets/radiant-plus.png" alt="RADIANT PLUS" class="h-8 object-contain" />
                     </div>
 
                     ${!isSettings ? `
