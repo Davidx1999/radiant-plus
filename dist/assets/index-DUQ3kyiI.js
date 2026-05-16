@@ -68,7 +68,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 <!-- CTA -->
                 <div class="pt-2">
                     <button
-                        onclick="window.app.prepareTest('radiant')"
+                        onclick="window.app.prepareTest('dark')"
                         class="w-full py-5 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-black rounded-xl transition-all shadow-2xl uppercase tracking-widest text-base flex items-center justify-center gap-3"
                     >
                         Avançar para a Tarefa
