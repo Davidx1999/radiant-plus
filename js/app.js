@@ -13,11 +13,11 @@ class App {
     constructor() {
         this.appElement = document.getElementById('app');
         this.bodyElement = document.getElementById('main-body');
-
-        // Direto para o Radiant Plus
+        
+        // Retorna ao Setup Inicial
         this.state = {
-            view: 'catalog', // Começa no catálogo
-            pattern: 'radiant', // Força Radiant
+            view: 'setup', 
+            pattern: null, 
             darkStep: 1,
             radiantStep: 1,
             isDarkMenuOpen: false,
@@ -28,7 +28,7 @@ class App {
             },
             featuredIndex: 0,
             endMessage: '',
-            cliquesCount: 0 // Contador de cliques para telemetria
+            cliquesCount: 0 
         };
 
         window.app = this;
@@ -58,13 +58,13 @@ class App {
 
     setState(newState) {
         // Incrementar cliques se for uma mudança de passo ou view
-        if (newState.radiantStep || newState.view) {
+        if (newState.radiantStep || newState.darkStep || newState.view) {
             this.state.cliquesCount++;
         }
 
         const viewChanged = newState.view && newState.view !== this.state.view;
         const patternChanged = newState.pattern && newState.pattern !== this.state.pattern;
-
+        
         this.state = { ...this.state, ...newState };
         this.render();
 
@@ -120,7 +120,7 @@ class App {
             if (btn) {
                 const isOtherSelected = this.state.darkChecks.surveyValue === 'other';
                 const isSurveyValid = this.state.darkChecks.surveyValue && (!isOtherSelected || (value && value.trim().length > 0));
-
+                
                 btn.disabled = !isSurveyValid;
                 if (isSurveyValid) {
                     btn.className = "w-full py-4 font-bold rounded-lg transition-all bg-brand-surface hover:bg-brand-border text-brand-white border border-brand-border cursor-pointer shadow-lg";
@@ -141,8 +141,8 @@ class App {
 
         const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse";
         const mapeamentoDados = new URLSearchParams();
-
-        // IDs Reais do Forms (Placeholder 1111... devem ser trocados pelos IDs de entry. do usuário)
+        
+        // IDs Reais do Forms
         mapeamentoDados.append("entry.2102430702", variante);
         mapeamentoDados.append("entry.1764065739", tempoCPU.toFixed(2));
         mapeamentoDados.append("entry.2082699570", ramEmMB);
@@ -153,8 +153,8 @@ class App {
             mode: "no-cors",
             body: mapeamentoDados
         })
-            .then(() => console.log("Dados salvos automaticamente na planilha!"))
-            .catch((erro) => console.error("Erro na telemetria:", erro));
+        .then(() => console.log("Dados salvos automaticamente na planilha!"))
+        .catch((erro) => console.error("Erro na telemetria:", erro));
     }
 
     finishLab(message) {
@@ -168,24 +168,23 @@ class App {
     }
 
     resetLab() {
-        // Reinicia no catálogo do Radiant para o modo local
         this.setState({
-            view: 'catalog',
-            pattern: 'radiant',
-            radiantStep: 1,
+            pattern: null,
+            view: 'setup',
+            endMessage: '',
             cliquesCount: 0
         });
     }
 
     render() {
         this.appElement.innerHTML = '';
-
+        
         // Background color logic
         if (this.state.pattern === 'radiant' && this.state.view !== 'setup' && this.state.view !== 'instruction') {
-            this.bodyElement.style.backgroundColor = '#0a090c'; // Force Radiant Dark
+            this.bodyElement.style.backgroundColor = '#0a090c'; 
             this.bodyElement.className = 'text-radiant-white min-h-screen flex flex-col font-sans transition-colors duration-500';
         } else {
-            this.bodyElement.style.backgroundColor = '#0a0a0a'; // Force Brand BG
+            this.bodyElement.style.backgroundColor = '#0a0a0a'; 
             this.bodyElement.className = 'text-brand-white min-h-screen flex flex-col font-sans transition-colors duration-500';
         }
 
@@ -200,11 +199,11 @@ class App {
 
         const main = document.createElement('main');
         main.className = 'flex-grow';
-
+        
         if (this.state.view === 'settings') {
             main.className = 'flex-grow flex flex-col';
         }
-
+        
         let contentHtml = '';
         switch (this.state.view) {
             case 'setup':
@@ -214,8 +213,8 @@ class App {
                 contentHtml = InstructionView(this.state.pattern);
                 break;
             case 'catalog':
-                contentHtml = this.state.pattern === 'dark'
-                    ? CatalogDark(categories, fictionalTitles, featuredContent, this.state.featuredIndex)
+                contentHtml = this.state.pattern === 'dark' 
+                    ? CatalogDark(categories, fictionalTitles, featuredContent, this.state.featuredIndex) 
                     : CatalogRadiant(categories, fictionalTitles, featuredContent, this.state.featuredIndex);
                 break;
             case 'settings':
@@ -235,13 +234,13 @@ class App {
             window.lucide.createIcons();
         }
 
-        // Telemetry Injection for EndView (Local Display)
+        // Telemetry Injection for EndView
         if (this.state.view === 'end') {
             setTimeout(() => {
                 const tempoCPU = performance.now();
                 const memoriaBytes = performance.memory ? performance.memory.usedJSHeapSize : 0;
                 const memoriaMB = (memoriaBytes / (1024 * 1024)).toFixed(2);
-
+                
                 const panel = document.getElementById("ads-computacional-painel");
                 if (panel) {
                     panel.innerHTML = `
