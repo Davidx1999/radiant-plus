@@ -68,7 +68,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 <!-- CTA -->
                 <div class="pt-2">
                     <button
-                        onclick="window.app.prepareTest('radiant')"
+                        onclick="window.app.prepareTest('dark')"
                         class="w-full py-5 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-black rounded-xl transition-all shadow-2xl uppercase tracking-widest text-base flex items-center justify-center gap-3"
                     >
                         Avançar para a Tarefa
@@ -77,7 +77,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 </div>
 
                 <div class="text-center opacity-20 hover:opacity-40 transition-opacity pt-2">
-                    <p class="text-xs font-medium uppercase tracking-[0.3em] text-brand-white">Radiant Plus v1.0.0 • Simulation Lab</p>
+                    <p class="text-xs font-medium uppercase tracking-[0.3em] text-brand-white">Experiment v1.0.0 • Simulation Lab</p>
                 </div>
 
             </div>

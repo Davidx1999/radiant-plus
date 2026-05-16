@@ -3,12 +3,12 @@
     :root {
         --brand-white: #FFFBF5;
         --brand-orange: #FF9900;
-        --brand-red: #FF0000;
+        --brand-red: #F0193D;
         --brand-bg: #0a0a0a;
         --brand-panel: #141414;
         --brand-surface: #262626;
         --brand-border: #404040;
-        
+
         --radiant-dark: #0a090c;
         --radiant-blue: #007fff;
         --radiant-lightblue: #90ddf0;
@@ -37,8 +37,8 @@
 }
 
 .group:hover .text-stroke-brand {
-    -webkit-text-stroke: 2px #FF0000;
-    color: #FF0000;
+    -webkit-text-stroke: 2px #F0193D;
+    color: #F0193D;
 }
 
 .text-stroke-radiant {
@@ -52,32 +52,70 @@
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes zoomIn {
-    0% { opacity: 0; transform: scale(0.95); }
-    100% { opacity: 1; transform: scale(1); }
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 @keyframes slideUp {
-    0% { opacity: 0; transform: translateY(1rem); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideRight {
-    0% { opacity: 0; transform: translateX(2rem); }
-    100% { opacity: 1; transform: translateX(0); }
+    0% {
+        opacity: 0;
+        transform: translateX(2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
-.animate-zoom-in { animation: zoomIn 0.4s ease-out forwards; }
-.animate-slide-up { animation: slideUp 0.4s ease-out forwards; }
-.animate-slide-right { animation: slideRight 0.4s ease-out forwards; }
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-zoom-in {
+    animation: zoomIn 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+}
+
+.animate-slide-right {
+    animation: slideRight 0.4s ease-out forwards;
+}
 
 /* Header Scroll Transitions */
-#header-radiant, #header-dark {
+#header-radiant,
+#header-dark {
     transition: background-color 0.6s ease, backdrop-filter 0.6s ease, border-color 0.6s ease;
 }
 
