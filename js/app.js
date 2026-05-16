@@ -13,10 +13,11 @@ class App {
     constructor() {
         this.appElement = document.getElementById('app');
         this.bodyElement = document.getElementById('main-body');
-        
+
+        // Direto para o Radiant Plus
         this.state = {
-            view: 'setup', // 'setup', 'instruction', 'catalog', 'settings', 'end'
-            pattern: null, // 'dark', 'radiant'
+            view: 'catalog', // Começa no catálogo
+            pattern: 'radiant', // Força Radiant
             darkStep: 1,
             radiantStep: 1,
             isDarkMenuOpen: false,
@@ -26,7 +27,8 @@ class App {
                 finalCheck: false
             },
             featuredIndex: 0,
-            endMessage: ''
+            endMessage: '',
+            cliquesCount: 0 // Contador de cliques para telemetria
         };
 
         window.app = this;
@@ -55,9 +57,14 @@ class App {
     }
 
     setState(newState) {
+        // Incrementar cliques se for uma mudança de passo ou view
+        if (newState.radiantStep || newState.view) {
+            this.state.cliquesCount++;
+        }
+
         const viewChanged = newState.view && newState.view !== this.state.view;
         const patternChanged = newState.pattern && newState.pattern !== this.state.pattern;
-        
+
         this.state = { ...this.state, ...newState };
         this.render();
 
@@ -113,7 +120,7 @@ class App {
             if (btn) {
                 const isOtherSelected = this.state.darkChecks.surveyValue === 'other';
                 const isSurveyValid = this.state.darkChecks.surveyValue && (!isOtherSelected || (value && value.trim().length > 0));
-                
+
                 btn.disabled = !isSurveyValid;
                 if (isSurveyValid) {
                     btn.className = "w-full py-4 font-bold rounded-lg transition-all bg-brand-surface hover:bg-brand-border text-brand-white border border-brand-border cursor-pointer shadow-lg";
@@ -127,7 +134,33 @@ class App {
         this.render();
     }
 
+    enviarDadosParaOExcel(variante, cliques) {
+        const tempoCPU = performance.now();
+        const memoriaBytes = performance.memory ? performance.memory.usedJSHeapSize : 0;
+        const ramEmMB = (memoriaBytes / (1024 * 1024)).toFixed(2);
+
+        const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse";
+        const mapeamentoDados = new URLSearchParams();
+
+        // IDs Reais do Forms (Placeholder 1111... devem ser trocados pelos IDs de entry. do usuário)
+        mapeamentoDados.append("entry.2102430702", variante);
+        mapeamentoDados.append("entry.1764065739", tempoCPU.toFixed(2));
+        mapeamentoDados.append("entry.2082699570", ramEmMB);
+        mapeamentoDados.append("entry.1670653143", cliques);
+
+        fetch(FORM_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: mapeamentoDados
+        })
+            .then(() => console.log("Dados salvos automaticamente na planilha!"))
+            .catch((erro) => console.error("Erro na telemetria:", erro));
+    }
+
     finishLab(message) {
+        // Enviar telemetria ao finalizar
+        this.enviarDadosParaOExcel(this.state.pattern === 'radiant' ? 'Radiant Plus' : 'Dark Max', this.state.cliquesCount);
+
         this.setState({
             view: 'end',
             endMessage: message
@@ -135,16 +168,18 @@ class App {
     }
 
     resetLab() {
+        // Reinicia no catálogo do Radiant para o modo local
         this.setState({
-            pattern: null,
-            view: 'setup',
-            endMessage: ''
+            view: 'catalog',
+            pattern: 'radiant',
+            radiantStep: 1,
+            cliquesCount: 0
         });
     }
 
     render() {
         this.appElement.innerHTML = '';
-        
+
         // Background color logic
         if (this.state.pattern === 'radiant' && this.state.view !== 'setup' && this.state.view !== 'instruction') {
             this.bodyElement.style.backgroundColor = '#0a090c'; // Force Radiant Dark
@@ -165,11 +200,11 @@ class App {
 
         const main = document.createElement('main');
         main.className = 'flex-grow';
-        
+
         if (this.state.view === 'settings') {
             main.className = 'flex-grow flex flex-col';
         }
-        
+
         let contentHtml = '';
         switch (this.state.view) {
             case 'setup':
@@ -179,8 +214,8 @@ class App {
                 contentHtml = InstructionView(this.state.pattern);
                 break;
             case 'catalog':
-                contentHtml = this.state.pattern === 'dark' 
-                    ? CatalogDark(categories, fictionalTitles, featuredContent, this.state.featuredIndex) 
+                contentHtml = this.state.pattern === 'dark'
+                    ? CatalogDark(categories, fictionalTitles, featuredContent, this.state.featuredIndex)
                     : CatalogRadiant(categories, fictionalTitles, featuredContent, this.state.featuredIndex);
                 break;
             case 'settings':
@@ -200,13 +235,13 @@ class App {
             window.lucide.createIcons();
         }
 
-        // Telemetry Injection for EndView
+        // Telemetry Injection for EndView (Local Display)
         if (this.state.view === 'end') {
             setTimeout(() => {
                 const tempoCPU = performance.now();
                 const memoriaBytes = performance.memory ? performance.memory.usedJSHeapSize : 0;
                 const memoriaMB = (memoriaBytes / (1024 * 1024)).toFixed(2);
-                
+
                 const panel = document.getElementById("ads-computacional-painel");
                 if (panel) {
                     panel.innerHTML = `
@@ -216,6 +251,7 @@ class App {
                             <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2;">
                                 <li><span style="opacity: 0.5;">CPU (Script Execution):</span> <b style="color: #4ff;">${tempoCPU.toFixed(2)} ms</b></li>
                                 <li><span style="opacity: 0.5;">RAM Usage (Tab):</span> <b style="color: #4ff;">${memoriaMB} MB</b></li>
+                                <li><span style="opacity: 0.5;">Total de Cliques:</span> <b style="color: #4ff;">${this.state.cliquesCount}</b></li>
                                 <li><span style="opacity: 0.5;">Timestamp:</span> ${new Date().toLocaleTimeString()}</li>
                             </ul>
                         </div>
