@@ -9,12 +9,142 @@ import { SettingsRadiant } from './components/SettingsRadiant.js';
 import { SettingsDark } from './components/SettingsDark.js';
 import { EndView } from './components/EndView.js';
 
+// =====================================================
+// VARIÁVEIS GLOBAIS DE TELEMETRIA
+// =====================================================
+window.start_time_ms = 0;
+window.end_time_ms = 0;
+window.clics_errados = 0;
+window.clics_totais = 0;
+
+// Variáveis de Avaliação Pós-Tarefa
+window.qCansativo = "";
+window.qSeguro = "";
+window.qVoltaria = "";
+window.qFeedbackAdicional = "";
+
+window.atualizarPesquisaFinal = function(campo, valor) {
+    if (campo === 'cansativo') window.qCansativo = valor;
+    if (campo === 'seguro') window.qSeguro = valor;
+    if (campo === 'voltaria') window.qVoltaria = valor;
+    if (campo === 'feedback') window.qFeedbackAdicional = valor;
+};
+
+window.validarEEnviar = (abandonou, isDark) => {
+    const q1 = document.querySelector('input[name="p_cansativo"]:checked');
+    const q2 = document.querySelector('input[name="p_seguro"]:checked');
+    const q3 = document.querySelector('input[name="p_voltaria"]:checked');
+    const q4 = (isDark && abandonou) ? document.querySelector('input[name="p_proposital"]:checked') : true;
+
+    if (!q1 || !q2 || !q3 || !q4) {
+        const error = document.getElementById('validation-error');
+        if (error) {
+            error.classList.remove('hidden');
+            error.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+    }
+
+    window.enviarTelemetria(abandonou);
+};
+
+// =====================================================
+// FUNÇÃO GLOBAL DE ENVIO DE TELEMETRIA (GOOGLE FORMS)
+// =====================================================
+window.enviarTelemetria = function(usuarioAbandonou = false) {
+    // Garante que o último clique seja contado
+    window.clics_totais++; 
+
+    // Dados Computacionais
+    const tempo_cpu = window.end_time_ms - window.start_time_ms;
+    const memoria_bytes = performance.memory ? performance.memory.usedJSHeapSize : 0;
+    const ram_mb = (memoria_bytes / (1024 * 1024)).toFixed(2);
+    const tempo_usuario_seg = (tempo_cpu / 1000).toFixed(2);
+
+    // Variante e survey
+    const nomeVariante = window.app && window.app.state.pattern === 'radiant' ? 'Radiant Plus' : 'Dark Max';
+    
+    let respondeuSurvey = 'Não';
+    if (nomeVariante === 'Radiant Plus') {
+        respondeuSurvey = window.radiantRespondeuSurvey || 'Não';
+    } else {
+        respondeuSurvey = 'Sim'; // Dark sempre chega ao final com o survey
+    }
+
+    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse';
+    const dados = new URLSearchParams();
+
+    // Telemetria Base (entry IDs do Forms real)
+    dados.append('entry.1532613467', nomeVariante);
+    dados.append('entry.1345222698', tempo_cpu.toFixed(2));
+    dados.append('entry.1504379310', ram_mb);
+    dados.append('entry.778706530',  tempo_usuario_seg);
+    dados.append('entry.2138517373', window.clics_totais);
+    dados.append('entry.1179815513', window.clics_errados);
+    dados.append('entry.713314953',  usuarioAbandonou ? 'Sim' : 'Não');
+    dados.append('entry.1262590802', respondeuSurvey);
+
+    // Avaliação de Fluxo Pós-Tarefa
+    dados.append('entry.909552708',  window.qFeedbackAdicional); 
+    dados.append('entry.1715303114', window.qCansativo);         
+    dados.append('entry.1307350453', window.qSeguro);            
+    dados.append('entry.792377157',  window.qVoltaria);          
+
+    // Feedback visual de envio
+    const btn = document.getElementById('btn-finish-telemetry');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = 'Enviando...';
+    }
+
+    fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: dados })
+        .then(() => {
+            const surveyContainer = document.getElementById('survey-end-container');
+            const adsPanel = document.getElementById('ads-computacional-painel');
+            const resetBtn = document.getElementById('final-reset-button');
+            
+            if (surveyContainer) surveyContainer.classList.add('hidden');
+            if (adsPanel) {
+                adsPanel.classList.remove('hidden');
+                adsPanel.innerHTML = `
+                    <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);padding:30px;border-radius:24px;color:#fff;text-align:left;backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,0.3);">
+                        <h4 style="color:#4ff;margin-top:0;font-weight:900;letter-spacing:1px;text-transform:uppercase;font-size:12px;">✅ Telemetria Enviada com Sucesso</h4>
+                        <p style="font-size:14px;opacity:0.8;margin-bottom:20px;"><b>Tire um print desta tela para o pesquisador.</b></p>
+                        <ul style="list-style:none;padding:0;margin:0;font-size:14px;line-height:2.4;">
+                            <li><span style="opacity:0.5;">Variante:</span> <b style="color:#4ff;">${nomeVariante}</b></li>
+                            <li><span style="opacity:0.5;">Tempo Total (Usuário):</span> <b style="color:#4ff;">${tempo_usuario_seg} s</b></li>
+                            <li><span style="opacity:0.5;">CPU (Script Execution):</span> <b style="color:#4ff;">${tempo_cpu.toFixed(2)} ms</b></li>
+                            <li><span style="opacity:0.5;">RAM Usage (Tab):</span> <b style="color:#4ff;">${ram_mb} MB</b></li>
+                            <li><span style="opacity:0.5;">Cliques Totais:</span> <b style="color:#4ff;">${window.clics_totais}</b></li>
+                            <li><span style="opacity:0.5;">Cliques Errados:</span> <b style="color:#f44;">${window.clics_errados}</b></li>
+                            <li><span style="opacity:0.5;">Abandonou:</span> <b style="color:${usuarioAbandonou ? '#f44' : '#4ff'};">${usuarioAbandonou ? 'Sim' : 'Não'}</b></li>
+                            <li><span style="opacity:0.5;">Respondeu Survey:</span> <b style="color:#4ff;">${respondeuSurvey}</b></li>
+                            <li style="border-top:1px solid rgba(255,255,255,0.05);margin-top:12px;padding-top:12px;"><span style="opacity:0.5;">Cansativo (1-5):</span> <b style="color:#4ff;">${window.qCansativo || '-'}</b></li>
+                            <li><span style="opacity:0.5;">Segurança (1-5):</span> <b style="color:#4ff;">${window.qSeguro || '-'}</b></li>
+                            <li><span style="opacity:0.5;">Voltaria:</span> <b style="color:#4ff;">${window.qVoltaria || '-'}</b></li>
+                            ${window.qFeedbackAdicional ? `<li><span style="opacity:0.5;">Escolha Proposital:</span> <b style="color:#4ff;">${window.qFeedbackAdicional}</b></li>` : ''}
+                            <li style="border-top:1px solid rgba(255,255,255,0.05);margin-top:12px;padding-top:12px;"><span style="opacity:0.5;">Timestamp:</span> ${new Date().toLocaleTimeString()}</li>
+                        </ul>
+                    </div>
+                `;
+            }
+            if (resetBtn) resetBtn.classList.remove('hidden');
+            if (window.lucide) window.lucide.createIcons();
+        })
+        .catch((erro) => {
+            console.error('Erro na telemetria:', erro);
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = "Erro ao enviar. Tentar novamente?";
+            }
+        });
+};
+
 class App {
     constructor() {
         this.appElement = document.getElementById('app');
         this.bodyElement = document.getElementById('main-body');
         
-        // Retorna ao Setup Inicial
         this.state = {
             view: 'setup', 
             pattern: null, 
@@ -28,16 +158,17 @@ class App {
             },
             featuredIndex: 0,
             endMessage: '',
-            cliquesCount: 0 
+            abandonou: false
         };
 
         window.app = this;
         this.initScrollListener();
+        this.initClickCounter();
         this.init();
     }
 
     nextHero() {
-        const nextIndex = (this.state.featuredIndex + 1) % featuredContent.length;
+        const nextIndex = (this.state.featuredIndex + 1) % fictionalTitles.length;
         this.setState({ featuredIndex: nextIndex });
     }
 
@@ -52,16 +183,17 @@ class App {
         });
     }
 
+    initClickCounter() {
+        document.addEventListener('click', () => {
+            window.clics_totais++;
+        });
+    }
+
     init() {
         this.render();
     }
 
     setState(newState) {
-        // Incrementar cliques se for uma mudança de passo ou view
-        if (newState.radiantStep || newState.darkStep || newState.view) {
-            this.state.cliquesCount++;
-        }
-
         const viewChanged = newState.view && newState.view !== this.state.view;
         const patternChanged = newState.pattern && newState.pattern !== this.state.pattern;
         
@@ -81,12 +213,23 @@ class App {
     }
 
     startSimulation() {
+        window.start_time_ms = performance.now();
+        window.clics_errados = 0;
+        window.clics_totais  = 0;
+        
+        window.qCansativo = "";
+        window.qSeguro = "";
+        window.qVoltaria = "";
+        window.qFeedbackAdicional = "";
+        window.radiantRespondeuSurvey = "";
+
         this.setState({
             view: 'catalog',
             darkStep: 1,
             radiantStep: 1,
             darkChecks: { surveyValue: null, surveyText: '', finalCheck: false },
-            isDarkMenuOpen: false
+            isDarkMenuOpen: false,
+            abandonou: false
         });
     }
 
@@ -111,10 +254,8 @@ class App {
     }
 
     updateDarkChecks(checkId, value) {
-        // Optimistic state update
         this.state.darkChecks[checkId] = value;
 
-        // If typing, update DOM manually to avoid full re-render flicker
         if (checkId === 'surveyText' && this.state.darkStep === 3) {
             const btn = document.querySelector('#dark-step-3 button');
             if (btn) {
@@ -128,42 +269,31 @@ class App {
                     btn.className = "w-full py-4 font-bold rounded-lg transition-all bg-brand-surface text-brand-white/20 cursor-not-allowed border border-transparent";
                 }
             }
-            return; // Skip full render
+            return; 
         }
 
         this.render();
     }
 
-    enviarDadosParaOExcel(variante, cliques) {
-        const tempoCPU = performance.now();
-        const memoriaBytes = performance.memory ? performance.memory.usedJSHeapSize : 0;
-        const ramEmMB = (memoriaBytes / (1024 * 1024)).toFixed(2);
+    finishLab(abandonou = false) {
+        window.end_time_ms = performance.now();
 
-        const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse";
-        const mapeamentoDados = new URLSearchParams();
-        
-        // IDs Reais do Forms
-        mapeamentoDados.append("entry.2102430702", variante);
-        mapeamentoDados.append("entry.1764065739", tempoCPU.toFixed(2));
-        mapeamentoDados.append("entry.2082699570", ramEmMB);
-        mapeamentoDados.append("entry.1670653143", cliques);
+        const selectEl = document.querySelector('#radiant-step-3 select');
+        window.radiantRespondeuSurvey = (selectEl && selectEl.value !== '') ? 'Sim' : 'Não';
 
-        fetch(FORM_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: mapeamentoDados
-        })
-        .then(() => console.log("Dados salvos automaticamente na planilha!"))
-        .catch((erro) => console.error("Erro na telemetria:", erro));
-    }
+        const isDark = this.state.pattern === 'dark';
+        if (!isDark || !abandonou) {
+            window.qFeedbackAdicional = 'Irrelevante';
+        }
 
-    finishLab(message) {
-        // Enviar telemetria ao finalizar
-        this.enviarDadosParaOExcel(this.state.pattern === 'radiant' ? 'Radiant Plus' : 'Dark Max', this.state.cliquesCount);
-
+        const msg = abandonou 
+            ? 'Você desistiu do cancelamento e manteve a assinatura ativa.' 
+            : 'O cancelamento foi concluído com sucesso!';
+            
         this.setState({
             view: 'end',
-            endMessage: message
+            endMessage: msg,
+            abandonou: abandonou
         });
     }
 
@@ -172,14 +302,13 @@ class App {
             pattern: null,
             view: 'setup',
             endMessage: '',
-            cliquesCount: 0
+            abandonou: false
         });
     }
 
     render() {
         this.appElement.innerHTML = '';
         
-        // Background color logic
         if (this.state.pattern === 'radiant' && this.state.view !== 'setup' && this.state.view !== 'instruction') {
             this.bodyElement.style.backgroundColor = '#0a090c'; 
             this.bodyElement.className = 'text-radiant-white min-h-screen flex flex-col font-sans transition-colors duration-500';
@@ -188,7 +317,6 @@ class App {
             this.bodyElement.className = 'text-brand-white min-h-screen flex flex-col font-sans transition-colors duration-500';
         }
 
-        // Header Logic
         if (this.state.view === 'catalog' || this.state.view === 'settings') {
             if (this.state.pattern === 'dark') {
                 this.appElement.insertAdjacentHTML('beforeend', HeaderDark(this.state.isDarkMenuOpen, this.state.view));
@@ -223,7 +351,7 @@ class App {
                     : SettingsRadiant(this.state.radiantStep);
                 break;
             case 'end':
-                contentHtml = EndView(this.state.endMessage);
+                contentHtml = EndView(this.state.endMessage, this.state.pattern, this.state.abandonou);
                 break;
         }
 
@@ -232,31 +360,6 @@ class App {
 
         if (window.lucide) {
             window.lucide.createIcons();
-        }
-
-        // Telemetry Injection for EndView
-        if (this.state.view === 'end') {
-            setTimeout(() => {
-                const tempoCPU = performance.now();
-                const memoriaBytes = performance.memory ? performance.memory.usedJSHeapSize : 0;
-                const memoriaMB = (memoriaBytes / (1024 * 1024)).toFixed(2);
-                
-                const panel = document.getElementById("ads-computacional-painel");
-                if (panel) {
-                    panel.innerHTML = `
-                        <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 16px; margin-top: 20px; color: #fff; text-align: left; backdrop-filter: blur(10px);">
-                            <h4 style="color: #4ff; margin-top: 0; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; font-size: 12px;">Telemetria Computacional (ADS)</h4>
-                            <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px;"><b>Por favor, tire um print desta tela e envie ao pesquisador.</b></p>
-                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2;">
-                                <li><span style="opacity: 0.5;">CPU (Script Execution):</span> <b style="color: #4ff;">${tempoCPU.toFixed(2)} ms</b></li>
-                                <li><span style="opacity: 0.5;">RAM Usage (Tab):</span> <b style="color: #4ff;">${memoriaMB} MB</b></li>
-                                <li><span style="opacity: 0.5;">Total de Cliques:</span> <b style="color: #4ff;">${this.state.cliquesCount}</b></li>
-                                <li><span style="opacity: 0.5;">Timestamp:</span> ${new Date().toLocaleTimeString()}</li>
-                            </ul>
-                        </div>
-                    `;
-                }
-            }, 600);
         }
     }
 }

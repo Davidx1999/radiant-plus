@@ -72,7 +72,7 @@ export const SettingsRadiant = (step) => {
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="window.app.setRadiantStep(1)" class="px-8 py-4 border border-white/20 text-radiant-white hover:bg-white/5 font-bold rounded-xl transition-all text-lg">
+                    <button onclick="window.app.finishLab(true)" class="px-8 py-4 border border-white/20 text-radiant-white hover:bg-white/5 font-bold rounded-xl transition-all text-lg">
                         Manter Assinatura
                     </button>
                     <button onclick="window.app.setRadiantStep(3)" class="px-8 py-4 bg-radiant-blue hover:bg-radiant-blue/80 text-white font-bold rounded-xl transition-all shadow-lg shadow-radiant-blue/20 text-lg">
@@ -108,7 +108,9 @@ export const SettingsRadiant = (step) => {
                     </div>
                 </div>
 
-                <button onclick="window.app.finishLab('Radiant Pattern - Fluxo de cancelamento honesto com feedback opcional.')" class="px-12 py-4 bg-[#23293b] hover:bg-[#2a3147] text-radiant-white font-black rounded-xl transition-all shadow-xl border border-white/10 text-lg uppercase tracking-wider">
+                </div>
+
+                <button onclick="window.app.finishLab()" class="px-12 py-4 bg-[#23293b] hover:bg-[#2a3147] text-radiant-white font-black rounded-xl transition-all shadow-xl border border-white/10 text-lg uppercase tracking-wider">
                     Finalizar Simulação
                 </button>
             </div>
@@ -116,22 +118,23 @@ export const SettingsRadiant = (step) => {
     }
 
     return `
-        <div id="view-settings-radiant" class="h-screen flex flex-col pt-24 pb-4 relative px-6 overflow-hidden">
+        <div id="view-settings-radiant" class="h-screen flex flex-col pt-24 pb-4 relative px-6 overflow-y-auto">
             <!-- Conteúdo Principal Alinhado ao Topo (próximo ao header) -->
-            <div class="flex-grow flex flex-col items-center justify-start mt-4">
+            <div class="flex-grow flex flex-col items-center justify-start mt-4 mb-20">
                 ${stepContent}
             </div>
 
-            <!-- Rodapé Minimalista com Borda 100% -->
-            <div class="w-screen relative left-1/2 right-1/2 -ml-[50vw] mr-[50vw] border-t border-white/5 pt-6">
-                <footer class="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-radiant-white/40 text-[10px] font-medium px-12 pb-2">
-                    <div>
-                        &copy; 2026 Radiant Plus. Todos os direitos reservados. Simulation Lab.
+            <!-- Footer Simulado -->
+            <div class="max-w-6xl mx-auto w-full mt-auto py-12 border-t border-white/5">
+                <footer class="flex flex-col md:flex-row justify-between items-center gap-8 text-radiant-white/40 text-xs">
+                    <div class="flex items-center gap-8">
+                        <img src="assets/radiant plus.png" alt="Radiant Plus" class="h-4 opacity-30 grayscale">
+                        <p>© 2026 Radiant Plus. Todos os direitos reservados.</p>
                     </div>
-                    <div class="flex items-center gap-6">
-                        <a href="#" class="hover:text-radiant-white transition-colors">Acessibilidade</a>
-                        <a href="#" class="hover:text-radiant-white transition-colors">Política de Privacidade</a>
-                        <a href="#" class="hover:text-radiant-white transition-colors">Termos de Uso</a>
+                    <div class="flex gap-6 font-medium">
+                        <a href="#" class="hover:text-radiant-white transition-colors">Ajuda</a>
+                        <a href="#" class="hover:text-radiant-white transition-colors">Privacidade</a>
+                        <a href="#" class="hover:text-radiant-white transition-colors">Termos</a>
                     </div>
                 </footer>
             </div>

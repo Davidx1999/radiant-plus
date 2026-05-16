@@ -41,7 +41,7 @@ export const SettingsDark = (step, checks) => {
                     Perderá o seu histórico, as suas listas e o acesso a <strong>mais de 15.000 filmes e séries exclusivos</strong>. A sua família ficará sem entretenimento este fim de semana.
                 </p>
                 <div class="flex flex-col gap-4 mt-8">
-                    <button onclick="window.app.setDarkStep(1)" class="w-full py-4 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded-lg text-lg shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all uppercase tracking-wider">
+                    <button onclick="window.clics_errados++; window.app.setDarkStep(1)" class="w-full py-4 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded-lg text-lg shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all uppercase tracking-wider">
                         NÃO, QUERO MANTER O MEU PLANO!
                     </button>
                     <button onclick="window.app.setDarkStep(3)" class="text-brand-white/40 hover:text-brand-white/80 text-sm font-medium mt-2 transition-colors cursor-pointer">
@@ -119,12 +119,14 @@ export const SettingsDark = (step, checks) => {
                     </label>
                 </div>
 
+                </div>
+
                 <div class="pt-6 space-y-4 flex flex-col items-center">
-                    <button onclick="alert('Assinatura Mantida! Que bom que você mudou de ideia.'); window.app.setDarkStep(1);" class="w-full py-4 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded-lg transition-colors flex justify-center items-center gap-2 shadow-xl uppercase tracking-wider">
+                    <button onclick="window.clics_errados++; window.app.finishLab(true);" class="w-full py-4 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded-lg transition-colors flex justify-center items-center gap-2 shadow-xl uppercase tracking-wider">
                         <i data-lucide="lock" class="w-5 h-5"></i> Manter Minha Assinatura Ativa
                     </button>
                     
-                    <button ${checks.finalCheck ? '' : 'disabled'} onclick="window.app.finishLab('Retenção Forçada - O usuário sobreviveu aos 6 cliques exaustivos do Dark Max.')" 
+                    <button ${checks.finalCheck ? '' : 'disabled'} onclick="window.app.finishLab()" 
                         class="w-full py-4 font-bold uppercase tracking-wider transition-all rounded-lg border border-transparent ${checks.finalCheck ? 'text-brand-white/20 hover:text-brand-white/60 cursor-pointer bg-transparent' : 'text-brand-white/5 opacity-30 cursor-not-allowed pointer-events-none'}">
                         finalizar cancelamento
                     </button>
@@ -133,8 +135,8 @@ export const SettingsDark = (step, checks) => {
     }
 
     return `
-        <div id="view-settings-dark" class="max-w-4xl mx-auto p-4 py-10">
-            <div class="max-w-2xl mx-auto bg-brand-panel rounded-xl border border-brand-surface overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.8)] mt-8">
+        <div id="view-settings-dark" class="max-w-4xl mx-auto p-4 py-10 h-screen overflow-y-auto">
+            <div class="max-w-2xl mx-auto bg-brand-panel rounded-xl border border-brand-surface overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.8)] mt-8 mb-20">
                 <div class="p-6 sm:p-10 relative">
                     ${content}
                 </div>

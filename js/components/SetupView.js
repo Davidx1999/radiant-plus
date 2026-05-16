@@ -1,51 +1,86 @@
 export const SetupView = () => {
     return `
         <div class="min-h-screen flex items-center justify-center p-6 animate-fade-in bg-brand-bg">
-            <div class="max-w-4xl w-full text-center space-y-12">
-                <div class="space-y-4">
-                    <h1 class="text-6xl font-black text-brand-white tracking-tighter">
-                        Laboratório de <span class="text-radiant-blue">UX</span>
+            <div class="max-w-2xl w-full space-y-6 py-12">
+
+                <!-- Header -->
+                <div class="text-center space-y-4 mb-2">
+                    <span class="inline-block text-xs font-black uppercase tracking-[0.3em] text-brand-white/80 bg-white/10 px-4 py-2 rounded-full">
+                        Estudo de Usabilidade
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl font-black text-brand-white tracking-tighter leading-tight">
+                        Olá! Seja muito <span class="text-brand-white/60">bem-vindo(a)</span>.
                     </h1>
-                    <p class="text-brand-white/40 text-lg font-medium">
-                        Selecione a variante do experimento para iniciar a simulação de fluxo.
+                    <p class="text-brand-white/80 text-base leading-relaxed text-justify w-full">
+                        Você foi convidado a nos ajudar em uma pesquisa de avaliação de desempenho. Para começar, navegue com tranquilidade: leia as telas se achar necessário e interaja com total naturalidade. Lembramos de que não existem respostas certas ou erradas.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Card Radiant Plus -->
-                    <div onclick="window.app.prepareTest('radiant')" 
-                         class="group relative bg-[#1a1f2e] rounded-3xl p-10 border border-white/5 hover:border-radiant-blue transition-all cursor-pointer shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
-                        <div class="mb-8 mx-auto w-20 h-20 bg-radiant-blue/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="sun" class="text-radiant-blue w-10 h-10"></i>
+                <!-- O que acontece a seguir? -->
+                <div class="bg-[#1a1f2e] rounded-2xl border border-white/5 p-8 shadow-2xl space-y-5">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+                            <i data-lucide="help-circle" class="text-brand-white w-5 h-5"></i>
                         </div>
-                        <h3 class="text-3xl font-black text-brand-white mb-3 tracking-tight">Radiant Plus</h3>
-                        <p class="text-brand-white/40 text-sm leading-relaxed mb-8">
-                            Fluxo transparente, honesto e focado na autonomia do usuário. Padrão ético de interface.
-                        </p>
-                        <div class="flex items-center justify-center gap-2 text-radiant-blue font-bold text-sm">
-                            Explorar Variante A <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
+                        <h2 class="text-xl font-black text-brand-white tracking-tight">O que acontece a seguir?</h2>
                     </div>
-
-                    <!-- Card Dark Max (Roach Motel) -->
-                    <div onclick="window.app.prepareTest('dark')" 
-                         class="group relative bg-[#141414] rounded-3xl p-10 border border-white/5 hover:border-brand-red transition-all cursor-pointer shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
-                        <div class="mb-8 mx-auto w-20 h-20 bg-brand-red/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="moon" class="text-brand-red w-10 h-10"></i>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-brand-white">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <p class="text-brand-white/80 text-sm leading-relaxed">
+                                <strong class="text-brand-white font-bold">Ao concluir:</strong> pedimos que responda a apenas 3 perguntas rápidas de múltipla escolha para avaliar sua experiência.
+                            </p>
                         </div>
-                        <h3 class="text-3xl font-black text-brand-white mb-3 tracking-tight">Dark Max</h3>
-                        <p class="text-brand-white/40 text-sm leading-relaxed mb-8">
-                            Fluxo com padrões obscuros (Roach Motel). Focado em retenção forçada e obstrução.
-                        </p>
-                        <div class="flex items-center justify-center gap-2 text-brand-red font-bold text-sm">
-                            Explorar Variante B <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-brand-white">
+                                <i data-lucide="x" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <p class="text-brand-white/80 text-sm leading-relaxed">
+                                <strong class="text-brand-white font-bold">Se quiser parar:</strong> se preferir desistir no meio do caminho, não há problema nenhum.
+                            </p>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-brand-white">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <p class="text-brand-white/80 text-sm leading-relaxed">
+                                <strong class="text-brand-white font-bold">Dica de ouro:</strong> Estamos testando a funcionalidade, não você. Toda ajuda é muito bem-vinda!
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-12 opacity-20 hover:opacity-40 transition-opacity">
-                    <p class="text-xs font-medium uppercase tracking-[0.3em]">Radiant v1.0.0 • ADS Research Lab</p>
+                <!-- Informações de Privacidade -->
+                <div class="bg-[#1a1f2e] rounded-2xl border border-white/5 p-6 flex gap-4">
+                    <i data-lucide="shield-check" class="text-brand-white/80 w-6 h-6 shrink-0 mt-0.5"></i>
+                    <div class="space-y-1">
+                        <p class="text-brand-white/90 text-sm font-black uppercase tracking-widest">Informações de Privacidade</p>
+                        <p class="text-brand-white/70 text-sm leading-relaxed">
+                            Nenhum dado pessoal seu será coletado ou identificado. Este estudo registra apenas métricas de interação anônimas (como o número de cliques e o tempo de conclusão da tarefa), exclusivamente para fins de pesquisa científica no âmbito de um projeto acadêmico.
+                        </p>
+                    </div>
                 </div>
+
+                <!-- CTA -->
+                <div class="pt-2">
+                    <button
+                        onclick="window.app.prepareTest('radiant')"
+                        class="w-full py-5 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-black rounded-xl transition-all shadow-2xl uppercase tracking-widest text-base flex items-center justify-center gap-3"
+                    >
+                        Avançar para a Tarefa
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <div class="text-center opacity-20 hover:opacity-40 transition-opacity pt-2">
+                    <p class="text-xs font-medium uppercase tracking-[0.3em] text-brand-white">Radiant Plus v1.0.0 • Simulation Lab</p>
+                </div>
+
             </div>
         </div>
     `;

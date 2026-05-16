@@ -1,56 +1,91 @@
 var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,t),e=null),t.exports);(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var n,r,i,a=e((()=>{n=[{title:`Continuar a Ver`,seed:`scifi`,type:`progress`,movies:[{Title:`The Sci-Fi Boys`,Year:`2006`,imdbID:`tt0800191`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BMTI5OTQyMjYwM15BMl5BanBnXkFtZTcwOTM0MDMzMQ@@._V1_SX300.jpg`},{Title:`From Stargate to Atlantis: Sci Fi Lowdown`,Year:`2004`,imdbID:`tt0419759`,Type:`movie`,Poster:`N/A`},{Title:`Sci Fi Inside: 'the Triangle'`,Year:`2005`,imdbID:`tt0901512`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BYmIyY2UwMzItN2ExNi00ZDA3LTg2MDQtMDI5M2FkNDdlY2MxXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Sci Fi Inside: Stargate SG-1 200th Episode`,Year:`2006`,imdbID:`tt0861734`,Type:`movie`,Poster:`N/A`},{Title:`Not Another Sci-Fi Movie`,Year:`2013`,imdbID:`tt4796190`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BMjA2NjM3NjIzM15BMl5BanBnXkFtZTgwMTEyNDQxNjE@._V1_SX300.jpg`},{Title:`Sci Fi Inside: 'Serenity'`,Year:`2005`,imdbID:`tt0482592`,Type:`movie`,Poster:`N/A`},{Title:`Sci Fi Lowdown: Behind the Stargate - Secrets Revealed`,Year:`2005`,imdbID:`tt0446593`,Type:`movie`,Poster:`N/A`},{Title:`Sci Fi Inside: Sci Fi Friday`,Year:`2005`,imdbID:`tt0814304`,Type:`movie`,Poster:`N/A`}]},{title:`Top 10 Hoje no País`,seed:`action`,type:`top10`,movies:[{Title:`Last Action Hero`,Year:`1993`,imdbID:`tt0107362`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BZGU2NWQyY2ItY2JiZS00ZDJhLWI0NDQtNjMyNWU3MDA1NTgzXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Back in Action`,Year:`2025`,imdbID:`tt21191806`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BMWQ4YWYxYTAtZTlhNC00Nzc3LWE3OWUtZjY5MThlNWNiYTBiXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Looney Tunes: Back in Action`,Year:`2003`,imdbID:`tt0318155`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BNDU2NmU2YzktNWFlMC00MDk1LWFhZjQtYjUxZThiMjZhNjQ2XkEyXkFqcGc@._V1_SX300.jpg`},{Title:`An Action Hero`,Year:`2022`,imdbID:`tt15600222`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BNWUzNzljNjMtYTdiZS00MWQ2LWFkZWItYTM0MzVmZGFhYzNjXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`A Civil Action`,Year:`1998`,imdbID:`tt0120633`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BMDgyNDNkYTMtYmU0NC00YjliLWFhNjgtMmFhOTQ1MmE4NzNmXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Missing in Action`,Year:`1984`,imdbID:`tt0087727`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BZGE2NmNlODYtMzMyNS00YTM0LThlMzMtNjg1YTBhMTRkNjJhXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Action Jackson`,Year:`1988`,imdbID:`tt0094612`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BMzY1N2NjMjYtM2U3OS00OTMzLTk4OGEtMWI1YjUwMWRjODQ1XkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Action Point`,Year:`2018`,imdbID:`tt6495770`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BMjEyMTU5MTk1N15BMl5BanBnXkFtZTgwMzIzMzczNTM@._V1_SX300.jpg`},{Title:`321 Action`,Year:`2020`,imdbID:`tt13423846`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BODdlNmZiYmItYTkyZC00NDNhLWEzMDctZjJhMDNjZWJkNTRlXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Missing in Action 2: The Beginning`,Year:`1985`,imdbID:`tt0089604`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BZjQwNjUxZjUtYmUxOS00YmRjLTljZTgtMTc0OTFlZDllZjM5XkEyXkFqcGc@._V1_SX300.jpg`}]},{title:`Ação e Adrenalina`,seed:`horror`,type:`standard`,movies:[{Title:`The Rocky Horror Picture Show`,Year:`1975`,imdbID:`tt0073629`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BOTg2YzY5ZGYtNDk1My00N2Q2LWFhN2YtZWU5YTkzODIyZGRmXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`The Amityville Horror`,Year:`2005`,imdbID:`tt0384806`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BMzc1Njc2NDc3NV5BMl5BanBnXkFtZTYwODYyNzI3._V1_SX300.jpg`},{Title:`Nosferatu: A Symphony of Horror`,Year:`1922`,imdbID:`tt0013442`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BNDg1OTI1M2MtMTVlMS00ZjFhLTgyMTAtYjIzOWUwZTkyZWE5XkEyXkFqcGc@._V1_SX300.jpg`},{Title:`The Amityville Horror`,Year:`1979`,imdbID:`tt0078767`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BNWRmOTdhMWEtYmExOC00Y2E5LTkwYjEtYTAwY2Q0MTU0MTBlXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Horror of Dracula`,Year:`1958`,imdbID:`tt0051554`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BNTQxZTQxYjUtZDg0Zi00ZGE2LWJlMzQtYWJhMjM2MTJmYTI1XkEyXkFqcGc@._V1_SX300.jpg`},{Title:`A Classic Horror Story`,Year:`2021`,imdbID:`tt12877640`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BYTg5ZDgxNDAtMzFkNS00M2UwLWI4N2EtOTczYjM0MjYwZDRjXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Horror Express`,Year:`1972`,imdbID:`tt0068713`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BMWY4MzczOWUtYTdlYS00MjNlLTg1ODEtYjkzOTY0MTNmZmEyXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`A Christmas Horror Story`,Year:`2015`,imdbID:`tt3688406`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BODg3NTAwNzk5M15BMl5BanBnXkFtZTgwNjA4OTE3MDI@._V1_SX300.jpg`},{Title:`The Rocky Horror Picture Show: Let's Do the Time Warp Again`,Year:`2016`,imdbID:`tt1267299`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BN2FjZDExZDgtZTE2NS00MTU0LWEzNTAtMGZiZDZjYmE0NjYyXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Little Horror Movie`,Year:`2018`,imdbID:`tt3692082`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BYmM4NzAwN2EtZTRhNy00ZGYyLTljNzEtZGY0OWM0N2FhYWEyXkEyXkFqcGc@._V1_SX300.jpg`}]},{title:`Comédias para Relaxar`,seed:`comedy`,type:`standard`,movies:[{Title:`The King of Comedy`,Year:`1982`,imdbID:`tt0085794`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BYTQxNGUwNmUtMDJhYy00ZjM1LWFjZjQtYmI5ZGY4YTZmZWQyXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`A Midsummer Night's Sex Comedy`,Year:`1982`,imdbID:`tt0084329`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BOTMxMTM0MTk3Nl5BMl5BanBnXkFtZTcwOTEyODI1NA@@._V1_SX300.jpg`},{Title:`Fear City: A Family-Style Comedy`,Year:`1994`,imdbID:`tt0109440`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BMGU1NDhjYzMtZDhhYS00YTJlLTllNDEtY2U2NmJhMTVlMzViXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`King of Comedy`,Year:`1999`,imdbID:`tt0188766`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BZGQ4MmNlMzctNTBkYS00Nzg5LWIxZjMtZDRjZWIwYjI2MjczXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`The Broken Hearts Club: A Romantic Comedy`,Year:`2000`,imdbID:`tt0222850`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BN2UxYTIxYTMtZTc2Yi00NDljLWJhMTctZGRmZjgxOWM2YWI5XkEyXkFqcGc@._V1_SX300.jpg`},{Title:`The Comedy of Terrors`,Year:`1963`,imdbID:`tt0056943`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BNDlkNzNlYzUtZjU2Mi00MTkxLThlYzgtMzk0YWM5MWJiNjdkXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Louis C.K.: Live at the Comedy Store`,Year:`2015`,imdbID:`tt4368814`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BYTZhYjRlMDktMGQ5OC00ZTAzLWI2YjUtMTU1NTFmNDRmOWRjXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`The Original Kings of Comedy`,Year:`2000`,imdbID:`tt0236388`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BOWQxY2Q5YzEtZDA5ZS00MWM1LThmYzEtYjQ0ZDhkOWUyZTVhXkEyXkFqcGc@._V1_SX300.jpg`},{Title:`Comedy Central Roast of Charlie Sheen`,Year:`2011`,imdbID:`tt1985970`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BYmI3ZGQzMTEtZjg3Zi00MmNlLWI3MTgtNDdkMDAxODFmOTQxXkEyXkFqcGdeQXVyNDgyODgxNjE@._V1_SX300.jpg`},{Title:`The Comedy`,Year:`2012`,imdbID:`tt2112293`,Type:`movie`,Poster:`https://m.media-amazon.com/images/M/MV5BMjA0OTA3ODU4M15BMl5BanBnXkFtZTcwNDY3NTM1OA@@._V1_SX300.jpg`}]}],r=[],i=[{title:`The Dark Knight`,isSeries:!1,nextEpisode:null,classification:`14`,year:`2008`,genre:`Action, Crime, Drama`,synopsis:`When a menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman, James Gordon and Harvey Dent must work together to put an end to the madness.`,image:`https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX380_CR0,0,380,562_.jpg`},{title:`Dune: Part Two`,isSeries:!1,nextEpisode:null,classification:`14`,year:`2024`,genre:`Action, Adventure, Drama`,synopsis:`Paul Atreides unites with the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he endeavors to prevent a terrible fu...`,image:`https://m.media-amazon.com/images/M/MV5BNTc0YmQxMjEtODI5MC00NjFiLTlkMWUtOGQ5NjFmYWUyZGJhXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg`},{title:`Oppenheimer`,isSeries:!1,nextEpisode:null,classification:`18`,year:`2023`,genre:`Biography, Drama, History`,synopsis:`A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bombs that brought an end to World War II.`,image:`https://m.media-amazon.com/images/M/MV5BN2JkMDc5MGQtZjg3YS00NmFiLWIyZmQtZTJmNTM5MjVmYTQ4XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg`},{title:`The Batman`,isSeries:!1,nextEpisode:null,classification:`14`,year:`2022`,genre:`Action, Crime, Drama`,synopsis:`When a sadistic serial killer begins murdering key political figures in Gotham, the Batman is forced to investigate the city's hidden corruption and question his family's involvement.`,image:`https://m.media-amazon.com/images/M/MV5BMmU5NGJlMzAtMGNmOC00YjJjLTgyMzUtNjAyYmE4Njg5YWMyXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg`},{title:`Spider-Man: Across the Spider-Verse`,isSeries:!1,nextEpisode:null,classification:`L`,year:`2023`,genre:`Animation, Action, Adventure`,synopsis:`Traveling across the multiverse, Miles Morales meets a new team of Spider-People, made up of heroes from different dimensions. But when the heroes clash over how to deal with a new threat, Miles finds himself at a crossroads.`,image:`https://m.media-amazon.com/images/M/MV5BNThiZjA3MjItZGY5Ni00ZmJhLWEwN2EtOTBlYTA4Y2E0M2ZmXkEyXkFqcGc@._V1_SX300.jpg`},{title:`Gladiator II`,isSeries:!1,nextEpisode:null,classification:`18`,year:`2024`,genre:`Action, Adventure, Drama`,synopsis:`After his home is conquered by the tyrannical emperors who now lead Rome, Lucius is forced to enter the Colosseum and must look to his past to find strength to return the glory of Rome to its people.`,image:`https://m.media-amazon.com/images/M/MV5BMWYzZTM5ZGQtOGE5My00NmM2LWFlMDEtMGNjYjdmOWM1MzA1XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg`}]})),o,s=e((()=>{o=()=>`
         <div class="min-h-screen flex items-center justify-center p-6 animate-fade-in bg-brand-bg">
-            <div class="max-w-4xl w-full text-center space-y-12">
-                <div class="space-y-4">
-                    <h1 class="text-6xl font-black text-brand-white tracking-tighter">
-                        Laboratório de <span class="text-radiant-blue">UX</span>
+            <div class="max-w-2xl w-full space-y-6 py-12">
+
+                <!-- Header -->
+                <div class="text-center space-y-4 mb-2">
+                    <span class="inline-block text-xs font-black uppercase tracking-[0.3em] text-brand-white/80 bg-white/10 px-4 py-2 rounded-full">
+                        Estudo de Usabilidade
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl font-black text-brand-white tracking-tighter leading-tight">
+                        Olá! Seja muito <span class="text-brand-white/60">bem-vindo(a)</span>.
                     </h1>
-                    <p class="text-brand-white/40 text-lg font-medium">
-                        Selecione a variante do experimento para iniciar a simulação de fluxo.
+                    <p class="text-brand-white/80 text-base leading-relaxed text-justify w-full">
+                        Você foi convidado a nos ajudar em uma pesquisa de avaliação de desempenho. Para começar, navegue com tranquilidade: leia as telas se achar necessário e interaja com total naturalidade. Lembramos de que não existem respostas certas ou erradas.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Card Radiant Plus -->
-                    <div onclick="window.app.prepareTest('radiant')" 
-                         class="group relative bg-[#1a1f2e] rounded-3xl p-10 border border-white/5 hover:border-radiant-blue transition-all cursor-pointer shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
-                        <div class="mb-8 mx-auto w-20 h-20 bg-radiant-blue/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="sun" class="text-radiant-blue w-10 h-10"></i>
+                <!-- O que acontece a seguir? -->
+                <div class="bg-[#1a1f2e] rounded-2xl border border-white/5 p-8 shadow-2xl space-y-5">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+                            <i data-lucide="help-circle" class="text-brand-white w-5 h-5"></i>
                         </div>
-                        <h3 class="text-3xl font-black text-brand-white mb-3 tracking-tight">Radiant Plus</h3>
-                        <p class="text-brand-white/40 text-sm leading-relaxed mb-8">
-                            Fluxo transparente, honesto e focado na autonomia do usuário. Padrão ético de interface.
-                        </p>
-                        <div class="flex items-center justify-center gap-2 text-radiant-blue font-bold text-sm">
-                            Explorar Variante A <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
+                        <h2 class="text-xl font-black text-brand-white tracking-tight">O que acontece a seguir?</h2>
                     </div>
-
-                    <!-- Card Dark Max (Roach Motel) -->
-                    <div onclick="window.app.prepareTest('dark')" 
-                         class="group relative bg-[#141414] rounded-3xl p-10 border border-white/5 hover:border-brand-red transition-all cursor-pointer shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
-                        <div class="mb-8 mx-auto w-20 h-20 bg-brand-red/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="moon" class="text-brand-red w-10 h-10"></i>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-brand-white">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <p class="text-brand-white/80 text-sm leading-relaxed">
+                                <strong class="text-brand-white font-bold">Ao concluir:</strong> pedimos que responda a apenas 3 perguntas rápidas de múltipla escolha para avaliar sua experiência.
+                            </p>
                         </div>
-                        <h3 class="text-3xl font-black text-brand-white mb-3 tracking-tight">Dark Max</h3>
-                        <p class="text-brand-white/40 text-sm leading-relaxed mb-8">
-                            Fluxo com padrões obscuros (Roach Motel). Focado em retenção forçada e obstrução.
-                        </p>
-                        <div class="flex items-center justify-center gap-2 text-brand-red font-bold text-sm">
-                            Explorar Variante B <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-brand-white">
+                                <i data-lucide="x" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <p class="text-brand-white/80 text-sm leading-relaxed">
+                                <strong class="text-brand-white font-bold">Se quiser parar:</strong> se preferir desistir no meio do caminho, não há problema nenhum.
+                            </p>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-brand-white">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <p class="text-brand-white/80 text-sm leading-relaxed">
+                                <strong class="text-brand-white font-bold">Dica de ouro:</strong> Estamos testando a funcionalidade, não você. Toda ajuda é muito bem-vinda!
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-12 opacity-20 hover:opacity-40 transition-opacity">
-                    <p class="text-xs font-medium uppercase tracking-[0.3em]">Radiant v1.0.0 • ADS Research Lab</p>
+                <!-- Informações de Privacidade -->
+                <div class="bg-[#1a1f2e] rounded-2xl border border-white/5 p-6 flex gap-4">
+                    <i data-lucide="shield-check" class="text-brand-white/80 w-6 h-6 shrink-0 mt-0.5"></i>
+                    <div class="space-y-1">
+                        <p class="text-brand-white/90 text-sm font-black uppercase tracking-widest">Informações de Privacidade</p>
+                        <p class="text-brand-white/70 text-sm leading-relaxed">
+                            Nenhum dado pessoal seu será coletado ou identificado. Este estudo registra apenas métricas de interação anônimas (como o número de cliques e o tempo de conclusão da tarefa), exclusivamente para fins de pesquisa científica no âmbito de um projeto acadêmico.
+                        </p>
+                    </div>
                 </div>
+
+                <!-- CTA -->
+                <div class="pt-2">
+                    <button
+                        onclick="window.app.prepareTest('radiant')"
+                        class="w-full py-5 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-black rounded-xl transition-all shadow-2xl uppercase tracking-widest text-base flex items-center justify-center gap-3"
+                    >
+                        Avançar para a Tarefa
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <div class="text-center opacity-20 hover:opacity-40 transition-opacity pt-2">
+                    <p class="text-xs font-medium uppercase tracking-[0.3em] text-brand-white">Radiant Plus v1.0.0 • Simulation Lab</p>
+                </div>
+
             </div>
         </div>
-    `})),c,l=e((()=>{c=e=>{let t=e===`radiant`;return`
-        <div id="view-instruction" class="w-full px-12 p-4 sm:p-6 py-20 animate-fade-in flex-grow flex items-center">
-            <div class="bg-brand-panel border border-brand-border rounded-2xl p-8 sm:p-12 shadow-2xl w-full relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-2 ${t?`bg-radiant-blue`:`bg-brand-red`}"></div>
+    `})),c,l=e((()=>{c=e=>`
+        <div id="view-instruction" class="w-full px-12 p-4 sm:p-6 py-20 animate-fade-in flex-grow flex items-center justify-center">
+            <div class="bg-brand-panel border border-brand-border rounded-2xl p-8 sm:p-12 shadow-2xl max-w-2xl w-full relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-brand-white/40"></div>
 
                 <div class="mb-8">
                     <span class="text-xs font-bold uppercase tracking-widest text-brand-white/40 mb-2 block">Laboratório de Usabilidade</span>
@@ -61,26 +96,27 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                     <p>Imagine o seguinte cenário:</p>
                     <div class="p-6 bg-brand-surface rounded-xl border border-brand-border/50 text-brand-white/90">
                         <p>
-                            Você é assinante da plataforma de streaming <strong class="${t?`text-radiant-blue`:`text-brand-red`} font-bold">${t?`Radiant Plus`:`Dark Max`}</strong> há cerca de 6 meses. No entanto, você está fazendo um corte de gastos nas suas finanças pessoais este mês.
+                            Você é assinante da plataforma de streaming <strong class="text-brand-white font-black underline">${e===`radiant`?`Radiant Plus`:`Dark Max`}</strong> há cerca de 6 meses. No entanto, você está fazendo um corte de gastos nas suas finanças pessoais este mês.
                         </p>
                         <br>
                         <p>
                             O seu objetivo principal hoje é <strong>acessar a plataforma e cancelar a sua assinatura</strong> de forma definitiva, para garantir que não haverá cobranças no próximo mês.
                         </p>
                     </div>
-                    <p class="text-sm text-brand-white/50">
-                        * Por favor, interaja com a interface naturalmente, como se estivesse usando o seu próprio computador em casa. Leia as telas se achar necessário. O teste começará assim que você clicar no botão abaixo.
+                    <p class="text-sm text-brand-white/85 font-semibold bg-white/5 p-4 rounded-lg border border-white/5 flex items-center gap-2.5">
+                        <i data-lucide="info" class="text-brand-white/80 w-4 h-4 shrink-0"></i>
+                        Por favor, interaja com a interface naturalmente, como se estivesse usando o seu próprio computador em casa. Leia as telas se achar necessário. O teste começará assim que você clicar no botão abaixo.
                     </p>
                 </div>
 
                 <div class="mt-10 flex justify-end">
-                    <button onclick="window.app.startSimulation()" class="px-8 py-4 ${t?`bg-radiant-blue`:`bg-brand-red`} text-white font-bold rounded-lg hover:scale-105 transition-transform flex items-center gap-2">
+                    <button onclick="window.app.startSimulation()" class="px-8 py-4 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-bold rounded-lg transition-transform flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
                         Compreendi, Iniciar Tarefa <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </button>
                 </div>
             </div>
         </div>
-    `}})),u,d=e((()=>{u=(e=`catalog`)=>{let t=`https://images.unsplash.com/vector-1750956309367-75e0dc5d50d3?q=80&w=996&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,n=e===`settings`;return`
+    `})),u,d=e((()=>{u=(e=`catalog`)=>{let t=`https://images.unsplash.com/vector-1750956309367-75e0dc5d50d3?q=80&w=996&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,n=e===`settings`;return`
         <header id="header-radiant" class="bg-transparent border-b border-transparent p-4 fixed top-0 left-0 w-full z-50">
             <div class="w-full px-12 flex justify-between items-center">
                 <div class="flex items-center gap-6">
@@ -495,7 +531,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="window.app.setRadiantStep(1)" class="px-8 py-4 border border-white/20 text-radiant-white hover:bg-white/5 font-bold rounded-xl transition-all text-lg">
+                    <button onclick="window.app.finishLab(true)" class="px-8 py-4 border border-white/20 text-radiant-white hover:bg-white/5 font-bold rounded-xl transition-all text-lg">
                         Manter Assinatura
                     </button>
                     <button onclick="window.app.setRadiantStep(3)" class="px-8 py-4 bg-radiant-blue hover:bg-radiant-blue/80 text-white font-bold rounded-xl transition-all shadow-lg shadow-radiant-blue/20 text-lg">
@@ -529,27 +565,30 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                     </div>
                 </div>
 
-                <button onclick="window.app.finishLab('Radiant Pattern - Fluxo de cancelamento honesto com feedback opcional.')" class="px-12 py-4 bg-[#23293b] hover:bg-[#2a3147] text-radiant-white font-black rounded-xl transition-all shadow-xl border border-white/10 text-lg uppercase tracking-wider">
+                </div>
+
+                <button onclick="window.app.finishLab()" class="px-12 py-4 bg-[#23293b] hover:bg-[#2a3147] text-radiant-white font-black rounded-xl transition-all shadow-xl border border-white/10 text-lg uppercase tracking-wider">
                     Finalizar Simulação
                 </button>
             </div>
         `),`
-        <div id="view-settings-radiant" class="h-screen flex flex-col pt-24 pb-4 relative px-6 overflow-hidden">
+        <div id="view-settings-radiant" class="h-screen flex flex-col pt-24 pb-4 relative px-6 overflow-y-auto">
             <!-- Conteúdo Principal Alinhado ao Topo (próximo ao header) -->
-            <div class="flex-grow flex flex-col items-center justify-start mt-4">
+            <div class="flex-grow flex flex-col items-center justify-start mt-4 mb-20">
                 ${t}
             </div>
 
-            <!-- Rodapé Minimalista com Borda 100% -->
-            <div class="w-screen relative left-1/2 right-1/2 -ml-[50vw] mr-[50vw] border-t border-white/5 pt-6">
-                <footer class="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-radiant-white/40 text-[10px] font-medium px-12 pb-2">
-                    <div>
-                        &copy; 2026 Radiant Plus. Todos os direitos reservados. Simulation Lab.
+            <!-- Footer Simulado -->
+            <div class="max-w-6xl mx-auto w-full mt-auto py-12 border-t border-white/5">
+                <footer class="flex flex-col md:flex-row justify-between items-center gap-8 text-radiant-white/40 text-xs">
+                    <div class="flex items-center gap-8">
+                        <img src="assets/radiant plus.png" alt="Radiant Plus" class="h-4 opacity-30 grayscale">
+                        <p>© 2026 Radiant Plus. Todos os direitos reservados.</p>
                     </div>
-                    <div class="flex items-center gap-6">
-                        <a href="#" class="hover:text-radiant-white transition-colors">Acessibilidade</a>
-                        <a href="#" class="hover:text-radiant-white transition-colors">Política de Privacidade</a>
-                        <a href="#" class="hover:text-radiant-white transition-colors">Termos de Uso</a>
+                    <div class="flex gap-6 font-medium">
+                        <a href="#" class="hover:text-radiant-white transition-colors">Ajuda</a>
+                        <a href="#" class="hover:text-radiant-white transition-colors">Privacidade</a>
+                        <a href="#" class="hover:text-radiant-white transition-colors">Termos</a>
                     </div>
                 </footer>
             </div>
@@ -601,7 +640,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                     Perderá o seu histórico, as suas listas e o acesso a <strong>mais de 15.000 filmes e séries exclusivos</strong>. A sua família ficará sem entretenimento este fim de semana.
                 </p>
                 <div class="flex flex-col gap-4 mt-8">
-                    <button onclick="window.app.setDarkStep(1)" class="w-full py-4 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded-lg text-lg shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all uppercase tracking-wider">
+                    <button onclick="window.clics_errados++; window.app.setDarkStep(1)" class="w-full py-4 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded-lg text-lg shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all uppercase tracking-wider">
                         NÃO, QUERO MANTER O MEU PLANO!
                     </button>
                     <button onclick="window.app.setDarkStep(3)" class="text-brand-white/40 hover:text-brand-white/80 text-sm font-medium mt-2 transition-colors cursor-pointer">
@@ -672,30 +711,32 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                     </label>
                 </div>
 
+                </div>
+
                 <div class="pt-6 space-y-4 flex flex-col items-center">
-                    <button onclick="alert('Assinatura Mantida! Que bom que você mudou de ideia.'); window.app.setDarkStep(1);" class="w-full py-4 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded-lg transition-colors flex justify-center items-center gap-2 shadow-xl uppercase tracking-wider">
+                    <button onclick="window.clics_errados++; window.app.finishLab(true);" class="w-full py-4 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded-lg transition-colors flex justify-center items-center gap-2 shadow-xl uppercase tracking-wider">
                         <i data-lucide="lock" class="w-5 h-5"></i> Manter Minha Assinatura Ativa
                     </button>
                     
-                    <button ${t.finalCheck?``:`disabled`} onclick="window.app.finishLab('Retenção Forçada - O usuário sobreviveu aos 6 cliques exaustivos do Dark Max.')" 
+                    <button ${t.finalCheck?``:`disabled`} onclick="window.app.finishLab()" 
                         class="w-full py-4 font-bold uppercase tracking-wider transition-all rounded-lg border border-transparent ${t.finalCheck?`text-brand-white/20 hover:text-brand-white/60 cursor-pointer bg-transparent`:`text-brand-white/5 opacity-30 cursor-not-allowed pointer-events-none`}">
                         finalizar cancelamento
                     </button>
                 </div>
             </div>`);return`
-        <div id="view-settings-dark" class="max-w-4xl mx-auto p-4 py-10">
-            <div class="max-w-2xl mx-auto bg-brand-panel rounded-xl border border-brand-surface overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.8)] mt-8">
+        <div id="view-settings-dark" class="max-w-4xl mx-auto p-4 py-10 h-screen overflow-y-auto">
+            <div class="max-w-2xl mx-auto bg-brand-panel rounded-xl border border-brand-surface overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.8)] mt-8 mb-20">
                 <div class="p-6 sm:p-10 relative">
                     ${n}
                 </div>
             </div>
         </div>
-    `}})),S,C=e((()=>{S=e=>`
-        <div class="min-h-screen flex items-center justify-center p-6 animate-fade-in bg-brand-bg text-center">
-            <div class="max-w-xl w-full space-y-10">
+    `}})),S,C=e((()=>{S=(e,t,n)=>{let r=t===`radiant`,i=r?`text-radiant-blue`:`text-brand-red`,a=r?`bg-radiant-blue`:`bg-brand-red`,o=r?`bg-[#23293b]`:`bg-brand-surface`;return`
+        <div class="min-h-screen flex flex-col items-center justify-start p-6 animate-fade-in bg-brand-bg text-center overflow-y-auto">
+            <div class="max-w-2xl w-full space-y-8 py-12">
                 <div class="space-y-4">
-                    <div class="mx-auto w-20 h-20 bg-radiant-blue/10 rounded-full flex items-center justify-center mb-6">
-                        <i data-lucide="check-circle" class="text-radiant-blue w-10 h-10"></i>
+                    <div class="mx-auto w-20 h-20 ${r?`bg-radiant-blue/10`:`bg-brand-red/10`} rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="check-circle" class="${i} w-10 h-10"></i>
                     </div>
                     <h2 class="text-4xl font-black text-brand-white">Experimento Concluído</h2>
                     <p class="text-brand-white/40 text-lg leading-relaxed">
@@ -703,31 +744,105 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                     </p>
                 </div>
 
-                <!-- Painel de Telemetria ADS -->
-                <div id="ads-computacional-painel" class="animate-slide-up" style="animation-delay: 500ms;">
-                    <!-- Injetado dinamicamente via script -->
-                    <div class="p-8 border border-white/5 bg-white/5 rounded-2xl animate-pulse">
-                        <p class="text-brand-white/20 text-xs">Calculando telemetria do experimento...</p>
+                <!-- FORMULÁRIO DE AVALIAÇÃO (MOVIDO PARA CÁ) -->
+                <div id="survey-end-container" class="mt-8 mb-6 p-8 bg-black/40 border border-white/10 rounded-2xl text-left animate-slide-up shadow-2xl">
+                    <h4 class="font-bold text-white mb-6 flex items-center gap-2 text-xl">
+                        <i data-lucide="clipboard-check" class="w-6 h-6 ${i}"></i> Avaliação do Fluxo
+                    </h4>
+                    
+                    <div class="mb-10">
+                        <label class="block text-base text-white/90 mb-6 font-medium">1. "Foi muito cansativo utilizar esta função de cancelamento de assinatura."</label>
+                        <div class="flex flex-col gap-4">
+                            ${[`Discordo Totalmente`,`Discordo`,`Neutro (Sem opinião formada)`,`Concordo`,`Concordo Totalmente`].map(e=>`
+                                <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
+                                    <input type="radio" name="p_cansativo" value="${e}" onchange="window.atualizarPesquisaFinal('cansativo', this.value)" class="w-6 h-6 ${r?`accent-radiant-blue`:`accent-brand-red`} cursor-pointer">
+                                    <span class="text-sm text-white/70 group-hover:text-white">${e}</span>
+                                </label>
+                            `).join(``)}
+                        </div>
+                    </div>
+
+                    <div class="mb-10 border-t border-white/5 pt-8">
+                        <label class="block text-base text-white/90 mb-6 font-medium">2. "Eu me senti muito seguro usando esta função de cancelamento de assinatura."</label>
+                        <div class="flex flex-col gap-4">
+                            ${[`Discordo Totalmente`,`Discordo`,`Neutro (Sem opinião formada)`,`Concordo`,`Concordo Totalmente`].map(e=>`
+                                <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
+                                    <input type="radio" name="p_seguro" value="${e}" onchange="window.atualizarPesquisaFinal('seguro', this.value)" class="w-6 h-6 ${r?`accent-radiant-blue`:`accent-brand-red`} cursor-pointer">
+                                    <span class="text-sm text-white/70 group-hover:text-white">${e}</span>
+                                </label>
+                            `).join(``)}
+                        </div>
+                    </div>
+
+                    <div class="mb-10 border-t border-white/5 pt-8">
+                        <label class="block text-base text-white/90 mb-6 font-medium">3. Voltaria a utilizar o serviço novamente?</label>
+                        <div class="flex flex-col gap-4">
+                            ${[`Sim`,`Não`,`Talvez`].map(e=>`
+                                <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
+                                    <input type="radio" name="p_voltaria" value="${e}" onchange="window.atualizarPesquisaFinal('voltaria', this.value)" class="w-5 h-5 ${r?`accent-radiant-blue`:`accent-brand-red`} cursor-pointer">
+                                    <span class="text-sm text-white/70 group-hover:text-white">${e}</span>
+                                </label>
+                            `).join(``)}
+                        </div>
+                    </div>
+
+                    ${!r&&n?`
+                    <div class="border-t border-white/5 pt-8 animate-fade-in">
+                        <label class="block text-base text-white/90 mb-6 font-medium">4. Manter a assinatura foi uma escolha proposital?</label>
+                        <div class="flex flex-col gap-4">
+                            <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
+                                <input type="radio" name="p_proposital" value="Sim" onchange="window.atualizarPesquisaFinal('feedback', this.value)" class="w-5 h-5 accent-brand-red cursor-pointer">
+                                <span class="text-sm text-white/70 group-hover:text-white">Sim</span>
+                            </label>
+                            <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
+                                <input type="radio" name="p_proposital" value="Não" onchange="window.atualizarPesquisaFinal('feedback', this.value)" class="w-5 h-5 accent-brand-red cursor-pointer">
+                                <span class="text-sm text-white/70 group-hover:text-white">Não</span>
+                            </label>
+                        </div>
+                    </div>
+                    `:``}
+
+                    <div class="mt-12 pt-4 border-t border-white/5">
+                        <p id="validation-error" class="text-brand-red text-sm mb-4 hidden font-bold">⚠️ Por favor, responda todas as perguntas da avaliação antes de enviar.</p>
+                        <button id="btn-finish-telemetry" onclick="validarEEnviar(${n}, ${!r})" class="w-full py-5 ${a} hover:opacity-90 text-white font-black rounded-xl transition-all shadow-2xl uppercase tracking-widest text-lg">
+                            Confirmar e Enviar Telemetria
+                        </button>
                     </div>
                 </div>
 
-                <div class="pt-10 flex flex-col items-center gap-4">
-                    <button onclick="window.app.resetLab()" class="px-10 py-4 bg-brand-surface hover:bg-brand-border text-brand-white font-bold rounded-xl transition-all border border-white/5 shadow-xl">
+                <!-- Painel de Telemetria ADS (Oculto até o envio) -->
+                <div id="ads-computacional-painel" class="hidden animate-slide-up">
+                    <div class="p-8 border border-white/5 bg-white/5 rounded-2xl">
+                        <p class="text-brand-white/20 text-xs text-center">Enviando dados...</p>
+                    </div>
+                </div>
+
+                <div id="final-reset-button" class="hidden pt-4 pb-12 flex flex-col items-center gap-4">
+                    <button onclick="window.app.resetLab()" class="px-10 py-4 ${o} hover:opacity-80 text-brand-white font-bold rounded-xl transition-all border border-white/5 shadow-xl">
                         Voltar ao Início
                     </button>
-                    <p class="text-brand-white/20 text-[10px] uppercase tracking-[0.3em]">Radiant v1.0.0 • Simulation Lab</p>
+                    <p class="text-brand-white/20 text-[10px] uppercase tracking-[0.3em]">Radiant Plus v1.0.0 • Simulation Lab</p>
                 </div>
             </div>
         </div>
-    `}));t((()=>{a(),s(),l(),d(),p(),h(),_(),y(),x(),C();var e=class{constructor(){this.appElement=document.getElementById(`app`),this.bodyElement=document.getElementById(`main-body`),this.state={view:`setup`,pattern:null,darkStep:1,radiantStep:1,isDarkMenuOpen:!1,darkChecks:{surveyValue:null,surveyText:``,finalCheck:!1},featuredIndex:0,endMessage:``,cliquesCount:0},window.app=this,this.initScrollListener(),this.init()}nextHero(){let e=(this.state.featuredIndex+1)%i.length;this.setState({featuredIndex:e})}initScrollListener(){window.addEventListener(`scroll`,()=>{window.scrollY>50?document.body.classList.add(`scrolled`):document.body.classList.remove(`scrolled`)})}init(){this.render()}setState(e){(e.radiantStep||e.darkStep||e.view)&&this.state.cliquesCount++;let t=e.view&&e.view!==this.state.view,n=e.pattern&&e.pattern!==this.state.pattern;this.state={...this.state,...e},this.render(),(t||n)&&window.scrollTo(0,0)}prepareTest(e){this.setState({pattern:e,view:`instruction`})}startSimulation(){this.setState({view:`catalog`,darkStep:1,radiantStep:1,darkChecks:{surveyValue:null,surveyText:``,finalCheck:!1},isDarkMenuOpen:!1})}goToCatalog(){this.setState({view:`catalog`})}goToSettings(){this.setState({view:`settings`})}setDarkStep(e){this.setState({darkStep:e})}setRadiantStep(e){this.setState({radiantStep:e})}toggleDarkProfileMenu(){this.setState({isDarkMenuOpen:!this.state.isDarkMenuOpen})}updateDarkChecks(e,t){if(this.state.darkChecks[e]=t,e===`surveyText`&&this.state.darkStep===3){let e=document.querySelector(`#dark-step-3 button`);if(e){let n=this.state.darkChecks.surveyValue===`other`,r=this.state.darkChecks.surveyValue&&(!n||t&&t.trim().length>0);e.disabled=!r,r?e.className=`w-full py-4 font-bold rounded-lg transition-all bg-brand-surface hover:bg-brand-border text-brand-white border border-brand-border cursor-pointer shadow-lg`:e.className=`w-full py-4 font-bold rounded-lg transition-all bg-brand-surface text-brand-white/20 cursor-not-allowed border border-transparent`}return}this.render()}enviarDadosParaOExcel(e,t){let n=performance.now(),r=((performance.memory?performance.memory.usedJSHeapSize:0)/(1024*1024)).toFixed(2),i=new URLSearchParams;i.append(`entry.2102430702`,e),i.append(`entry.1764065739`,n.toFixed(2)),i.append(`entry.2082699570`,r),i.append(`entry.1670653143`,t),fetch(`https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse`,{method:`POST`,mode:`no-cors`,body:i}).then(()=>console.log(`Dados salvos automaticamente na planilha!`)).catch(e=>console.error(`Erro na telemetria:`,e))}finishLab(e){this.enviarDadosParaOExcel(this.state.pattern===`radiant`?`Radiant Plus`:`Dark Max`,this.state.cliquesCount),this.setState({view:`end`,endMessage:e})}resetLab(){this.setState({pattern:null,view:`setup`,endMessage:``,cliquesCount:0})}render(){this.appElement.innerHTML=``,this.state.pattern===`radiant`&&this.state.view!==`setup`&&this.state.view!==`instruction`?(this.bodyElement.style.backgroundColor=`#0a090c`,this.bodyElement.className=`text-radiant-white min-h-screen flex flex-col font-sans transition-colors duration-500`):(this.bodyElement.style.backgroundColor=`#0a0a0a`,this.bodyElement.className=`text-brand-white min-h-screen flex flex-col font-sans transition-colors duration-500`),(this.state.view===`catalog`||this.state.view===`settings`)&&(this.state.pattern===`dark`?this.appElement.insertAdjacentHTML(`beforeend`,f(this.state.isDarkMenuOpen,this.state.view)):this.appElement.insertAdjacentHTML(`beforeend`,u(this.state.view)));let e=document.createElement(`main`);e.className=`flex-grow`,this.state.view===`settings`&&(e.className=`flex-grow flex flex-col`);let t=``;switch(this.state.view){case`setup`:t=o();break;case`instruction`:t=c(this.state.pattern);break;case`catalog`:t=this.state.pattern===`dark`?g(n,r,i,this.state.featuredIndex):m(n,r,i,this.state.featuredIndex);break;case`settings`:t=this.state.pattern===`dark`?b(this.state.darkStep,this.state.darkChecks):v(this.state.radiantStep);break;case`end`:t=S(this.state.endMessage);break}e.innerHTML=t,this.appElement.appendChild(e),window.lucide&&window.lucide.createIcons(),this.state.view===`end`&&setTimeout(()=>{let e=performance.now(),t=((performance.memory?performance.memory.usedJSHeapSize:0)/(1024*1024)).toFixed(2),n=document.getElementById(`ads-computacional-painel`);n&&(n.innerHTML=`
-                        <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 16px; margin-top: 20px; color: #fff; text-align: left; backdrop-filter: blur(10px);">
-                            <h4 style="color: #4ff; margin-top: 0; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; font-size: 12px;">Telemetria Computacional (ADS)</h4>
-                            <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px;"><b>Por favor, tire um print desta tela e envie ao pesquisador.</b></p>
-                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2;">
-                                <li><span style="opacity: 0.5;">CPU (Script Execution):</span> <b style="color: #4ff;">${e.toFixed(2)} ms</b></li>
-                                <li><span style="opacity: 0.5;">RAM Usage (Tab):</span> <b style="color: #4ff;">${t} MB</b></li>
-                                <li><span style="opacity: 0.5;">Total de Cliques:</span> <b style="color: #4ff;">${this.state.cliquesCount}</b></li>
-                                <li><span style="opacity: 0.5;">Timestamp:</span> ${new Date().toLocaleTimeString()}</li>
-                            </ul>
-                        </div>
-                    `)},600)}};document.addEventListener(`DOMContentLoaded`,()=>{new e})}))();
+    `}}));t((()=>{a(),s(),l(),d(),p(),h(),_(),y(),x(),C(),window.start_time_ms=0,window.end_time_ms=0,window.clics_errados=0,window.clics_totais=0,window.qCansativo=``,window.qSeguro=``,window.qVoltaria=``,window.qFeedbackAdicional=``,window.atualizarPesquisaFinal=function(e,t){e===`cansativo`&&(window.qCansativo=t),e===`seguro`&&(window.qSeguro=t),e===`voltaria`&&(window.qVoltaria=t),e===`feedback`&&(window.qFeedbackAdicional=t)},window.validarEEnviar=(e,t)=>{let n=document.querySelector(`input[name="p_cansativo"]:checked`),r=document.querySelector(`input[name="p_seguro"]:checked`),i=document.querySelector(`input[name="p_voltaria"]:checked`),a=t&&e?document.querySelector(`input[name="p_proposital"]:checked`):!0;if(!n||!r||!i||!a){let e=document.getElementById(`validation-error`);e&&(e.classList.remove(`hidden`),e.scrollIntoView({behavior:`smooth`,block:`center`}));return}window.enviarTelemetria(e)},window.enviarTelemetria=function(e=!1){window.clics_totais++;let t=window.end_time_ms-window.start_time_ms,n=((performance.memory?performance.memory.usedJSHeapSize:0)/(1024*1024)).toFixed(2),r=(t/1e3).toFixed(2),i=window.app&&window.app.state.pattern===`radiant`?`Radiant Plus`:`Dark Max`,a=`Não`;a=i===`Radiant Plus`?window.radiantRespondeuSurvey||`Não`:`Sim`;let o=new URLSearchParams;o.append(`entry.1532613467`,i),o.append(`entry.1345222698`,t.toFixed(2)),o.append(`entry.1504379310`,n),o.append(`entry.778706530`,r),o.append(`entry.2138517373`,window.clics_totais),o.append(`entry.1179815513`,window.clics_errados),o.append(`entry.713314953`,e?`Sim`:`Não`),o.append(`entry.1262590802`,a),o.append(`entry.909552708`,window.qFeedbackAdicional),o.append(`entry.1715303114`,window.qCansativo),o.append(`entry.1307350453`,window.qSeguro),o.append(`entry.792377157`,window.qVoltaria);let s=document.getElementById(`btn-finish-telemetry`);s&&(s.disabled=!0,s.innerHTML=`Enviando...`),fetch(`https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse`,{method:`POST`,mode:`no-cors`,body:o}).then(()=>{let o=document.getElementById(`survey-end-container`),s=document.getElementById(`ads-computacional-painel`),c=document.getElementById(`final-reset-button`);o&&o.classList.add(`hidden`),s&&(s.classList.remove(`hidden`),s.innerHTML=`
+                    <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);padding:30px;border-radius:24px;color:#fff;text-align:left;backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,0.3);">
+                        <h4 style="color:#4ff;margin-top:0;font-weight:900;letter-spacing:1px;text-transform:uppercase;font-size:12px;">✅ Telemetria Enviada com Sucesso</h4>
+                        <p style="font-size:14px;opacity:0.8;margin-bottom:20px;"><b>Tire um print desta tela para o pesquisador.</b></p>
+                        <ul style="list-style:none;padding:0;margin:0;font-size:14px;line-height:2.4;">
+                            <li><span style="opacity:0.5;">Variante:</span> <b style="color:#4ff;">${i}</b></li>
+                            <li><span style="opacity:0.5;">Tempo Total (Usuário):</span> <b style="color:#4ff;">${r} s</b></li>
+                            <li><span style="opacity:0.5;">CPU (Script Execution):</span> <b style="color:#4ff;">${t.toFixed(2)} ms</b></li>
+                            <li><span style="opacity:0.5;">RAM Usage (Tab):</span> <b style="color:#4ff;">${n} MB</b></li>
+                            <li><span style="opacity:0.5;">Cliques Totais:</span> <b style="color:#4ff;">${window.clics_totais}</b></li>
+                            <li><span style="opacity:0.5;">Cliques Errados:</span> <b style="color:#f44;">${window.clics_errados}</b></li>
+                            <li><span style="opacity:0.5;">Abandonou:</span> <b style="color:${e?`#f44`:`#4ff`};">${e?`Sim`:`Não`}</b></li>
+                            <li><span style="opacity:0.5;">Respondeu Survey:</span> <b style="color:#4ff;">${a}</b></li>
+                            <li style="border-top:1px solid rgba(255,255,255,0.05);margin-top:12px;padding-top:12px;"><span style="opacity:0.5;">Cansativo (1-5):</span> <b style="color:#4ff;">${window.qCansativo||`-`}</b></li>
+                            <li><span style="opacity:0.5;">Segurança (1-5):</span> <b style="color:#4ff;">${window.qSeguro||`-`}</b></li>
+                            <li><span style="opacity:0.5;">Voltaria:</span> <b style="color:#4ff;">${window.qVoltaria||`-`}</b></li>
+                            ${window.qFeedbackAdicional?`<li><span style="opacity:0.5;">Escolha Proposital:</span> <b style="color:#4ff;">${window.qFeedbackAdicional}</b></li>`:``}
+                            <li style="border-top:1px solid rgba(255,255,255,0.05);margin-top:12px;padding-top:12px;"><span style="opacity:0.5;">Timestamp:</span> ${new Date().toLocaleTimeString()}</li>
+                        </ul>
+                    </div>
+                `),c&&c.classList.remove(`hidden`),window.lucide&&window.lucide.createIcons()}).catch(e=>{console.error(`Erro na telemetria:`,e),s&&(s.disabled=!1,s.innerHTML=`Erro ao enviar. Tentar novamente?`)})};var e=class{constructor(){this.appElement=document.getElementById(`app`),this.bodyElement=document.getElementById(`main-body`),this.state={view:`setup`,pattern:null,darkStep:1,radiantStep:1,isDarkMenuOpen:!1,darkChecks:{surveyValue:null,surveyText:``,finalCheck:!1},featuredIndex:0,endMessage:``,abandonou:!1},window.app=this,this.initScrollListener(),this.initClickCounter(),this.init()}nextHero(){let e=(this.state.featuredIndex+1)%r.length;this.setState({featuredIndex:e})}initScrollListener(){window.addEventListener(`scroll`,()=>{window.scrollY>50?document.body.classList.add(`scrolled`):document.body.classList.remove(`scrolled`)})}initClickCounter(){document.addEventListener(`click`,()=>{window.clics_totais++})}init(){this.render()}setState(e){let t=e.view&&e.view!==this.state.view,n=e.pattern&&e.pattern!==this.state.pattern;this.state={...this.state,...e},this.render(),(t||n)&&window.scrollTo(0,0)}prepareTest(e){this.setState({pattern:e,view:`instruction`})}startSimulation(){window.start_time_ms=performance.now(),window.clics_errados=0,window.clics_totais=0,window.qCansativo=``,window.qSeguro=``,window.qVoltaria=``,window.qFeedbackAdicional=``,window.radiantRespondeuSurvey=``,this.setState({view:`catalog`,darkStep:1,radiantStep:1,darkChecks:{surveyValue:null,surveyText:``,finalCheck:!1},isDarkMenuOpen:!1,abandonou:!1})}goToCatalog(){this.setState({view:`catalog`})}goToSettings(){this.setState({view:`settings`})}setDarkStep(e){this.setState({darkStep:e})}setRadiantStep(e){this.setState({radiantStep:e})}toggleDarkProfileMenu(){this.setState({isDarkMenuOpen:!this.state.isDarkMenuOpen})}updateDarkChecks(e,t){if(this.state.darkChecks[e]=t,e===`surveyText`&&this.state.darkStep===3){let e=document.querySelector(`#dark-step-3 button`);if(e){let n=this.state.darkChecks.surveyValue===`other`,r=this.state.darkChecks.surveyValue&&(!n||t&&t.trim().length>0);e.disabled=!r,r?e.className=`w-full py-4 font-bold rounded-lg transition-all bg-brand-surface hover:bg-brand-border text-brand-white border border-brand-border cursor-pointer shadow-lg`:e.className=`w-full py-4 font-bold rounded-lg transition-all bg-brand-surface text-brand-white/20 cursor-not-allowed border border-transparent`}return}this.render()}finishLab(e=!1){window.end_time_ms=performance.now();let t=document.querySelector(`#radiant-step-3 select`);window.radiantRespondeuSurvey=t&&t.value!==``?`Sim`:`Não`,(this.state.pattern!==`dark`||!e)&&(window.qFeedbackAdicional=`Irrelevante`);let n=e?`Você desistiu do cancelamento e manteve a assinatura ativa.`:`O cancelamento foi concluído com sucesso!`;this.setState({view:`end`,endMessage:n,abandonou:e})}resetLab(){this.setState({pattern:null,view:`setup`,endMessage:``,abandonou:!1})}render(){this.appElement.innerHTML=``,this.state.pattern===`radiant`&&this.state.view!==`setup`&&this.state.view!==`instruction`?(this.bodyElement.style.backgroundColor=`#0a090c`,this.bodyElement.className=`text-radiant-white min-h-screen flex flex-col font-sans transition-colors duration-500`):(this.bodyElement.style.backgroundColor=`#0a0a0a`,this.bodyElement.className=`text-brand-white min-h-screen flex flex-col font-sans transition-colors duration-500`),(this.state.view===`catalog`||this.state.view===`settings`)&&(this.state.pattern===`dark`?this.appElement.insertAdjacentHTML(`beforeend`,f(this.state.isDarkMenuOpen,this.state.view)):this.appElement.insertAdjacentHTML(`beforeend`,u(this.state.view)));let e=document.createElement(`main`);e.className=`flex-grow`,this.state.view===`settings`&&(e.className=`flex-grow flex flex-col`);let t=``;switch(this.state.view){case`setup`:t=o();break;case`instruction`:t=c(this.state.pattern);break;case`catalog`:t=this.state.pattern===`dark`?g(n,r,i,this.state.featuredIndex):m(n,r,i,this.state.featuredIndex);break;case`settings`:t=this.state.pattern===`dark`?b(this.state.darkStep,this.state.darkChecks):v(this.state.radiantStep);break;case`end`:t=S(this.state.endMessage,this.state.pattern,this.state.abandonou);break}e.innerHTML=t,this.appElement.appendChild(e),window.lucide&&window.lucide.createIcons()}};document.addEventListener(`DOMContentLoaded`,()=>{new e})}))();
