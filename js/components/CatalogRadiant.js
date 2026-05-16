@@ -57,6 +57,7 @@ export const CatalogRadiant = (categories, fictionalTitles, featuredList, featur
     `).join('');
 
     const classificationPath = `./assets/Classfied_${featured.classification}.png`;
+    const classificationFallback = `./public/assets/Classfied_${featured.classification}.png`;
 
     return `
         <div id="view-catalog-radiant" class="pb-20 animate-fade-in relative bg-radiant-dark">
@@ -77,7 +78,7 @@ export const CatalogRadiant = (categories, fictionalTitles, featuredList, featur
                             ${featured.isSeries ? `<p class="text-radiant-blue font-bold text-sm flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> ${featured.nextEpisode}</p>` : ''}
                             
                             <div class="flex items-center gap-4 text-radiant-white/90 font-bold text-sm">
-                                <img src="${classificationPath}" alt="${featured.classification}" class="h-8 object-contain" />
+                                <img src="${classificationPath}" onerror="if(!this.src.includes('/public/')) this.src='${classificationFallback}';" alt="${featured.classification}" class="h-8 object-contain" />
                                 <span>${featured.year}</span>
                                 <span class="opacity-40">•</span>
                                 <span>${featured.genre}</span>

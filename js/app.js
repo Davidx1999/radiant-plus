@@ -9,6 +9,7 @@ import { SettingsRadiant } from './components/SettingsRadiant.js';
 import { SettingsDark } from './components/SettingsDark.js';
 import { EndView } from './components/EndView.js';
 
+
 // =====================================================
 // VARIÁVEIS GLOBAIS DE TELEMETRIA
 // =====================================================
@@ -168,7 +169,7 @@ class App {
     }
 
     nextHero() {
-        const nextIndex = (this.state.featuredIndex + 1) % fictionalTitles.length;
+        const nextIndex = (this.state.featuredIndex + 1) % featuredContent.length;
         this.setState({ featuredIndex: nextIndex });
     }
 

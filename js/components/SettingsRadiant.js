@@ -128,7 +128,7 @@ export const SettingsRadiant = (step) => {
             <div class="max-w-6xl mx-auto w-full mt-auto py-12 border-t border-white/5">
                 <footer class="flex flex-col md:flex-row justify-between items-center gap-8 text-radiant-white/40 text-xs">
                     <div class="flex items-center gap-8">
-                        <img src="assets/radiant plus.png" alt="Radiant Plus" class="h-4 opacity-30 grayscale">
+                        <img src="./assets/radiant-plus.png" onerror="if(!this.src.includes('/public/')) this.src='./public/assets/radiant-plus.png';" alt="Radiant Plus" class="h-4 opacity-30 grayscale">
                         <p>© 2026 Radiant Plus. Todos os direitos reservados.</p>
                     </div>
                     <div class="flex gap-6 font-medium">
