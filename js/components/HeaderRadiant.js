@@ -77,8 +77,8 @@ export const HeaderRadiant = (view = 'catalog') => {
                             <div class="w-full border-t border-white/10 my-2"></div>
 
                             <div class="px-6 pt-1">
-                                <button onclick="window.app.resetLab()" class="text-sm text-radiant-white/60 hover:text-radiant-red transition-colors inline-flex items-center gap-2 font-black uppercase tracking-wider cursor-pointer bg-transparent border-none p-0 outline-none">
-                                    Sair da Radiant Plus <i data-lucide="log-out" class="w-4 h-4"></i>
+                                <button onclick="window.app.resetLab()" class="text-sm text-radiant-white/80 hover:text-radiant-white transition-colors inline-flex items-center gap-2 font-normal cursor-pointer bg-transparent border-none p-0 outline-none">
+                                    Sair da Radiant Plus <i data-lucide="log-out" class="w-4 h-4 opacity-50"></i>
                                 </button>
                             </div>
                         </div>
