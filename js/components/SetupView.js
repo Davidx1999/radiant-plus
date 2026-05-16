@@ -1,43 +1,38 @@
 export const SetupView = () => {
     return `
-        <div id="view-setup" class="w-full px-12 p-4 sm:p-6 py-10 animate-zoom-in">
-            <div class="space-y-8">
-                <div class="text-center space-y-4 max-w-2xl mx-auto">
-                    <div class="inline-flex items-center justify-center p-3 bg-white/5 rounded-full mb-4">
-                        <i data-lucide="flask-conical" class="w-8 h-8 text-brand-white/80"></i>
-                    </div>
-                    <h1 class="text-3xl md:text-5xl font-bold text-brand-white tracking-tight">Painel do Pesquisador</h1>
-                    <p class="text-brand-white/60 text-lg">
-                        Selecione a variante do teste A/B que será aplicada ao participante agora. O participante verá apenas a tela de instruções da variante escolhida.
+        <div class="min-h-screen flex items-center justify-center p-6 animate-fade-in bg-brand-bg">
+            <div class="max-w-xl w-full text-center space-y-12">
+                <div class="space-y-4">
+                    <h1 class="text-5xl font-black text-brand-white tracking-tighter">
+                        Laboratório de <span class="text-radiant-blue">UX</span>
+                    </h1>
+                    <p class="text-brand-white/40 text-lg font-medium">
+                        Ambiente de simulação para testes de padrões de interface e fluxos de usuário.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-6 mt-12">
-                    <div onclick="window.app.prepareTest('radiant')"
-                        class="bg-brand-panel border border-radiant-blue/30 rounded-2xl p-6 cursor-pointer hover:border-radiant-blue hover:shadow-[0_0_30px_rgba(0,127,255,0.15)] transition-all group flex flex-col">
-                        <div class="w-12 h-12 bg-radiant-lightblue/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i data-lucide="sparkles" class="text-radiant-blue"></i>
+                <div class="grid grid-cols-1 gap-6">
+                    <!-- Apenas Radiant Plus visível -->
+                    <div onclick="window.app.prepareTest('radiant')" 
+                         class="group relative bg-[#23293b] rounded-2xl p-8 border border-white/5 hover:border-radiant-blue transition-all cursor-pointer shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-radiant-blue text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">
+                            Recomendado
                         </div>
-                        <h2 class="text-2xl font-bold text-radiant-white mb-2">Variante A: Radiant Plus</h2>
-                        <h3 class="text-radiant-blue text-sm font-semibold mb-4 uppercase tracking-wider">Radiant Pattern (3 cliques)</h3>
-                        <p class="text-radiant-white/60 mb-6">Inicia o fluxo ético focado em transparência e empoderamento do usuário. (Sem atritos de UI).</p>
-                        <button class="mt-auto w-full py-3 bg-radiant-surface text-radiant-white rounded-lg font-medium group-hover:bg-radiant-blue transition-colors border border-radiant-blue/20">
-                            Preparar Variante A
-                        </button>
+                        <div class="mb-6 mx-auto w-20 h-20 bg-radiant-blue/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="sun" class="text-radiant-blue w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-brand-white mb-2">Radiant Plus</h3>
+                        <p class="text-brand-white/40 text-sm leading-relaxed">
+                            Simulação de fluxo transparente, honesto e centrado na autonomia do usuário.
+                        </p>
+                        <div class="mt-8 flex items-center justify-center gap-2 text-radiant-blue font-bold text-sm">
+                            Iniciar Experimento <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </div>
                     </div>
+                </div>
 
-                    <div onclick="window.app.prepareTest('dark')"
-                        class="bg-brand-panel border border-brand-red/30 rounded-2xl p-6 cursor-pointer hover:border-brand-red hover:shadow-[0_0_30px_rgba(255,0,0,0.15)] transition-all group flex flex-col">
-                        <div class="w-12 h-12 bg-brand-red/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i data-lucide="alert-triangle" class="text-brand-red"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-brand-white mb-2">Variante B: Dark Max</h2>
-                        <h3 class="text-brand-red text-sm font-semibold mb-4 uppercase tracking-wider">Roach Motel (6 cliques)</h3>
-                        <p class="text-brand-white/60 mb-6">Inicia o fluxo obstrutivo com confirmshaming, furtividade e retenção forçada. (Menu com clique extra).</p>
-                        <button class="mt-auto w-full py-3 bg-brand-surface text-brand-white rounded-lg font-medium group-hover:bg-brand-red transition-colors">
-                            Preparar Variante B
-                        </button>
-                    </div>
+                <div class="pt-8 opacity-20 hover:opacity-40 transition-opacity">
+                    <p class="text-xs font-medium uppercase tracking-[0.3em]">Radiant v1.0.0 • Simulation Lab</p>
                 </div>
             </div>
         </div>
