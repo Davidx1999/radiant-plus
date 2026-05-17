@@ -457,7 +457,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                     </h4>
                     
                     <div class="mb-10">
-                        <label class="block text-base text-white/90 mb-6 font-medium">1. "Foi muito cansativo usar a função de cancelamento de assinatura."</label>
+                        <label class="block text-base text-white/90 mb-6 font-medium">1. "Foi muito cansativo usar esta função de cancelamento de assinatura."</label>
                         <div class="flex flex-col gap-4">
                             ${[`Discordo Totalmente`,`Discordo`,`Neutro (Sem opinião formada)`,`Concordo`,`Concordo Totalmente`].map(e=>`
                                 <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
