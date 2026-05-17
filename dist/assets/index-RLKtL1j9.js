@@ -82,7 +82,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
 
             </div>
         </div>
-    `})),c,l=e((()=>{c=e=>`
+    `})),c,l=e((()=>{c=()=>`
         <div id="view-instruction" class="w-full px-12 p-4 sm:p-6 py-20 animate-fade-in flex-grow flex items-center justify-center">
             <div class="bg-brand-panel border border-brand-border rounded-2xl p-8 sm:p-12 shadow-2xl max-w-2xl w-full relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-2 bg-brand-white/40"></div>
@@ -96,7 +96,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                     <p>Imagine o seguinte cenário:</p>
                     <div class="p-6 bg-brand-surface rounded-xl border border-brand-border/50 text-brand-white/90">
                         <p>
-                            Você é assinante da plataforma de streaming <strong class="text-brand-white font-black underline">${e===`radiant`?`Radiant Plus`:`Dark Max`}</strong> há cerca de 6 meses. No entanto, você está fazendo um corte de gastos nas suas finanças pessoais este mês.
+                            Você é assinante da plataforma de streaming <strong class="text-brand-white font-black underline">Radiant Plus</strong> há cerca de 6 meses. No entanto, você está fazendo um corte de gastos nas suas finanças pessoais este mês.
                         </p>
                         <br>
                         <p>
@@ -200,99 +200,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 </div>
             </div>
         </header>
-    `}})),f,p=e((()=>{f=(e,t=`catalog`)=>{let n=t===`settings`;return`
-        <header id="header-dark" class="bg-transparent border-b border-transparent p-4 fixed top-0 left-0 w-full z-50">
-            <div class="w-full px-12 flex justify-between items-center">
-                <div class="flex items-center gap-10">
-                    <!-- Logo (Volta para o Início) -->
-                    <div class="text-brand-red font-black text-2xl cursor-pointer hover:opacity-80 transition-all tracking-tight" style="font-family: 'Afacad Flux', sans-serif;" onclick="window.app.goToCatalog()">
-                        DARK MAX
-                    </div>
-
-                    ${n?``:`
-                    <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold tracking-wide text-brand-white/60">
-                        <span class="hover:text-brand-white cursor-pointer transition-colors text-radiant-white" onclick="window.app.goToCatalog()">Início</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Séries</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Filmes</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Esportes</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Originais</span>
-                    </nav>
-                    `}
-                </div>
-
-                <div class="flex items-center gap-5 text-brand-white/80">
-                    ${n?``:`
-                    <i data-lucide="search" class="w-5 h-5 cursor-pointer hover:text-brand-white transition-colors"></i>
-                    <i data-lucide="bookmark" class="w-5 h-5 cursor-pointer hover:text-brand-white transition-colors"></i>
-                    `}
-
-                    <div class="relative ml-2">
-                        <!-- Gatilho de Perfil com Chevron -->
-                        <div onclick="window.app.toggleDarkProfileMenu()" class="flex items-center gap-2 cursor-pointer group select-none">
-                            <div class="w-10 h-10 rounded-full overflow-hidden border border-brand-border group-hover:border-brand-white/50 transition-all">
-                                <img src="https://images.unsplash.com/vector-1750956309367-75e0dc5d50d3?q=80&w=996&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Profile" class="w-full h-full object-cover" />
-                            </div>
-                            <i data-lucide="${e?`chevron-up`:`chevron-down`}" class="w-4 h-4 text-brand-white/40 group-hover:text-brand-white transition-colors"></i>
-                        </div>
-
-                        <!-- Dropdown Dark (96% Opacity, Extreme Blur) -->
-                        <div id="dark-profile-dropdown" class="${e?``:`hidden`} absolute right-0 mt-3 w-[320px] border border-white/5 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.9)] z-50 py-3 overflow-hidden"
-                             style="background-color: rgba(10, 10, 10, 0.98); backdrop-filter: blur(80px); -webkit-backdrop-filter: blur(80px);">
-                            
-                            <!-- Outros Perfis -->
-                            <div class="space-y-0.5">
-                                <div onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-4 hover:bg-white/5 cursor-pointer opacity-50 hover:opacity-100 transition-all">
-                                    <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-white/40 font-black text-xs shrink-0">P2</div>
-                                    <span class="text-sm text-brand-white font-bold">Profile 2</span>
-                                </div>
-                                <div onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-4 hover:bg-white/5 cursor-pointer opacity-50 hover:opacity-100 transition-all">
-                                    <div class="w-10 h-10 rounded bg-green-950 flex items-center justify-center text-white/40 font-black text-xs shrink-0">K</div>
-                                    <span class="text-sm text-brand-white font-bold">Kids</span>
-                                </div>
-                            </div>
-
-                            <!-- Divisor -->
-                            <div class="w-full border-t border-white/10 my-2"></div>
-
-                            <!-- Opções com Ícones -->
-                            <ul class="text-sm text-brand-white/80 py-1">
-                                <li>
-                                    <a href="#" onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
-                                        <i data-lucide="settings" class="w-4 h-4 text-brand-white/40"></i> Gerenciar Perfis
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
-                                        <i data-lucide="move" class="w-4 h-4 text-brand-white/40"></i> Transferir Perfil
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" onclick="window.app.goToSettings(); window.app.toggleDarkProfileMenu();" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
-                                        <i data-lucide="user" class="w-4 h-4 text-brand-white/40"></i> Conta
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
-                                        <i data-lucide="help-circle" class="w-4 h-4 text-brand-white/40"></i> Central de Ajuda
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <!-- Divisor -->
-                            <div class="w-full border-t border-white/10 my-2"></div>
-
-                            <!-- Sair -->
-                            <div class="pt-1">
-                                <button onclick="window.clics_errados++; alert('O cancelamento não é aqui.'); window.app.resetLab();" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px] text-brand-white/80 bg-transparent border-none cursor-pointer text-left">
-                                    <i data-lucide="log-out" class="w-4 h-4 text-brand-white/40"></i> Sair da Dark Max
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-    `}})),m,h=e((()=>{m=(e,t,n,r=0)=>{let i=n[r],a=``;e.forEach((e,t)=>{let n=``;e.movies.forEach((t,r)=>{let i=t.Title,a=t.Poster===`N/A`?`https://picsum.photos/seed/${e.seed}${r}/400/225`:t.Poster;if(e.type===`top10`)n+=`
+    `}})),f,p=e((()=>{f=(e,t,n,r=0)=>{let i=n[r],a=``;e.forEach((e,t)=>{let n=``;e.movies.forEach((t,r)=>{let i=t.Title,a=t.Poster===`N/A`?`https://picsum.photos/seed/${e.seed}${r}/400/225`:t.Poster;if(e.type===`top10`)n+=`
                     <div class="shrink-0 w-44 md:w-56 aspect-[2/3] bg-transparent rounded-md group cursor-pointer snap-start relative transition-all duration-300 flex items-end justify-end">
                         <span class="absolute -left-2 sm:-left-4 bottom-2 text-7xl sm:text-9xl font-black text-stroke-radiant transition-colors duration-300 z-10 leading-none">${r+1}</span>
                         <div class="w-[80%] h-full rounded-md overflow-hidden relative shadow-lg border border-radiant-lightblue/10 group-hover:border-radiant-blue transition-all duration-300 z-0">
@@ -387,83 +295,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 ${a}
             </div>
         </div>
-    `}})),g,_=e((()=>{g=(e,t,n,r=0)=>{let i=n[r],a=``;return e.forEach((e,t)=>{let n=``;e.movies.forEach((t,r)=>{let i=t.Title,a=t.Poster===`N/A`?`https://picsum.photos/seed/${e.seed}${r}/400/225`:t.Poster;if(e.type===`top10`)n+=`
-                    <div class="shrink-0 w-44 md:w-56 aspect-[2/3] bg-transparent rounded-md group cursor-pointer snap-start relative transition-all duration-300 flex items-end justify-end">
-                        <span class="absolute -left-2 sm:-left-4 bottom-2 text-7xl sm:text-9xl font-black text-stroke-brand transition-colors duration-300 z-10 leading-none">${r+1}</span>
-                        <div class="w-[80%] h-full rounded-md overflow-hidden relative shadow-lg border border-transparent group-hover:border-brand-white/30 transition-all duration-300 z-0">
-                            <img src="${a}" alt="${i}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                <i data-lucide="play-circle" class="w-12 h-12 text-white drop-shadow-lg"></i>
-                            </div>
-                        </div>
-                    </div>`;else{let t=e.type===`progress`?`<div class="absolute bottom-0 left-0 w-full h-1.5 bg-brand-border/50"><div class="h-full bg-brand-red" style="width: ${Math.floor(Math.random()*80+10)}%"></div></div>`:``;n+=`
-                    <div class="shrink-0 w-64 md:w-80 aspect-video rounded-lg overflow-hidden group cursor-pointer snap-start relative border transition-all duration-300 bg-brand-surface border-transparent hover:border-brand-white/30 shadow-lg">
-                        <img src="${a}" alt="Thumbnail de ${i}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
-                        ${t}
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                            <div class="flex justify-between items-end w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                <div>
-                                    <span class="text-brand-white font-bold text-sm truncate block mb-1">${i}</span>
-                                    <span class="text-[10px] text-white/60 font-semibold border border-white/20 px-1 rounded">14</span>
-                                </div>
-                                <i data-lucide="play-circle" class="w-8 h-8 text-white shrink-0 drop-shadow-md hover:scale-110 transition-transform"></i>
-                            </div>
-                        </div>
-                    </div>`}}),a+=`
-            <div class="space-y-4">
-                <h2 class="text-xl font-bold text-brand-white px-2 md:px-0">${e.title}</h2>
-                <div class="flex gap-4 overflow-x-auto pb-6 scrollbar-hide snap-x px-2 md:px-0">
-                    ${n}
-                </div>
-            </div>`}),`
-        <div id="view-catalog-dark" class="pb-20 animate-fade-in relative bg-brand-bg">
-            <div class="relative w-full h-[85vh] flex items-center bg-brand-panel overflow-hidden pt-24">
-                <div class="absolute inset-0">
-                    <img src="${i.image}"
-                        alt="Featured Movie" class="w-full h-full object-cover opacity-60 transition-opacity duration-700" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/40 to-transparent"></div>
-                    <div class="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/90 sm:via-brand-bg/50 to-transparent"></div>
-                </div>
-
-                <!-- Navigation Arrow (Right Centered) -->
-                <div class="absolute right-0 top-1/2 -translate-y-1/2 pr-12 z-50">
-                    <button onclick="window.app.nextHero()" class="w-14 h-24 flex items-center justify-center bg-black/40 backdrop-blur-md text-white hover:bg-black/60 transition-all group border-l border-t border-b border-white/10 rounded-l-lg">
-                        <i data-lucide="chevron-right" class="w-10 h-10 group-hover:scale-125 transition-transform"></i>
-                    </button>
-                </div>
-
-                <div class="relative z-10 w-full px-12 flex justify-between items-end pb-12 h-full pt-24">
-                    <div class="max-w-2xl space-y-6">
-                        <span class="text-brand-white/80 font-bold tracking-widest uppercase text-xs flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse"></span>
-                            Em Destaque Hoje
-                        </span>
-                        <h1 class="text-5xl sm:text-7xl font-bold text-brand-white leading-tight drop-shadow-lg font-serif tracking-tight">${i.title}</h1>
-                        <div class="flex items-center gap-3 text-brand-white/80 font-medium text-sm mt-2">
-                            <div class="bg-[#e67e22] text-white font-bold px-1.5 py-0.5 rounded text-xs">${i.classification}</div>
-                            <span>${i.year}</span>
-                            <span>•</span>
-                            <span>${i.genre}</span>
-                        </div>
-                        <p class="text-brand-white/80 text-lg max-w-lg line-clamp-3 text-shadow mt-4">
-                            ${i.synopsis}
-                        </p>
-                        <div class="flex gap-4 pt-4">
-                            <button class="bg-brand-white text-black px-8 py-3 rounded-md font-bold flex items-center gap-2 hover:bg-brand-white/80 transition-all shadow-lg">
-                                <i data-lucide="play" class="lucide-filled w-5 h-5"></i> Assistir
-                            </button>
-                            <button class="bg-brand-surface/60 backdrop-blur-md text-brand-white px-8 py-3 rounded-md font-bold flex items-center gap-2 hover:bg-brand-surface transition-colors border border-brand-border/50">
-                                <i data-lucide="info" class="w-5 h-5"></i> Mais Informações
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full px-12 space-y-12 mt-12 relative z-20">
-                ${a}
-            </div>
-        </div>
-    `}})),v,y=e((()=>{v=e=>{let t=``;return e===1?t=`
+    `}})),m,h=e((()=>{m=e=>{let t=``;return e===1?t=`
             <div id="radiant-step-1" class="w-full max-w-3xl mx-auto animate-fade-in pt-4">
                 <!-- Títulos da Página -->
                 <div class="text-center mb-6">
@@ -605,140 +437,12 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 </button>
             </div>
         </div>
-    `}})),b,x=e((()=>{b=(e,t)=>{let n=``;if(e===1)n=`
-            <!-- CLIQUE 1: Roach Motel -->
-            <div id="dark-step-1" class="space-y-6">
-                <h2 class="text-2xl font-bold text-brand-white flex items-center gap-3">
-                    <i data-lucide="settings" class="text-brand-white/50"></i> Configurações de Conta
-                </h2>
-                <div class="bg-brand-surface rounded-lg p-5 border border-brand-border">
-                    <h3 class="text-lg font-semibold text-brand-white mb-2">Plano Atual</h3>
-                    <p class="text-brand-white/60 mb-4">Dark Max Premium 4K - 59,90€/mês</p>
-                    <button onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="w-full py-3 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded transition-colors shadow-[0_0_15px_rgba(255,0,0,0.2)]">
-                        Fazer Upgrade para Ultimate
-                    </button>
-                </div>
-                <div class="bg-brand-surface rounded-lg p-5 border border-brand-border space-y-4">
-                    <h3 class="text-lg font-semibold text-brand-white">Opções de Pagamento</h3>
-                    <p class="text-brand-white/60 text-sm">Cartão de Crédito terminado em •••• 4321</p>
-                    <button onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="px-4 py-2 bg-brand-bg hover:bg-black text-brand-white text-sm font-medium rounded transition-colors border border-brand-border">
-                        Atualizar Método
-                    </button>
-                </div>
-                <div class="mt-12 pt-8 border-t border-brand-surface text-center">
-                    <p class="text-brand-white/40 text-xs mb-2">Dark Max © 2026. Todos os direitos reservados.</p>
-                    <button onclick="window.app.setDarkStep(2)" class="text-brand-white/20 text-[11px] hover:text-brand-white/60 mt-4 underline decoration-brand-border focus:outline-none transition-colors cursor-pointer">
-                        opções de encerramento
-                    </button>
-                </div>
-            </div>`;else if(e===2)n=`
-            <!-- CLIQUE 2: Confirmshaming -->
-            <div id="dark-step-2" class="space-y-8 text-center">
-                <div class="mx-auto w-24 h-24 bg-brand-surface rounded-full flex items-center justify-center border-4 border-brand-panel shadow-xl mb-6 text-4xl">
-                    😢
-                </div>
-                <h2 class="text-3xl font-bold text-brand-white">Vai abandonar-nos?</h2>
-                <p class="text-brand-white/60 text-lg leading-relaxed">
-                    Perderá o seu histórico, as suas listas e o acesso a <strong>mais de 15.000 filmes e séries exclusivos</strong>. A sua família ficará sem entretenimento este fim de semana.
-                </p>
-                <div class="flex flex-col gap-4 mt-8">
-                    <button onclick="window.clics_errados++; window.app.setDarkStep(1)" class="w-full py-4 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded-lg text-lg shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all uppercase tracking-wider">
-                        NÃO, QUERO MANTER O MEU PLANO!
-                    </button>
-                    <button onclick="window.app.setDarkStep(3)" class="text-brand-white/40 hover:text-brand-white/80 text-sm font-medium mt-2 transition-colors cursor-pointer">
-                        Sim, não me importo com bons filmes e quero cancelar.
-                    </button>
-                </div>
-            </div>`;else if(e===3){let e=t.surveyValue===`other`,r=t.surveyValue&&(!e||t.surveyText&&t.surveyText.trim().length>0);n=`
-            <!-- CLIQUE 3 e 4: Survey Obrigatória -->
-            <div id="dark-step-3" class="space-y-6">
-                <h2 class="text-2xl font-bold text-brand-white text-center">Antes de ir...</h2>
-                <div class="bg-brand-surface border border-brand-border p-4 rounded-lg flex gap-3 text-brand-white/80 text-sm leading-snug">
-                    <i data-lucide="help-circle" class="shrink-0 text-brand-white/50 mt-0.5"></i>
-                    <p>Conte-nos por que está nos deixando. Sua resposta é obrigatória para processarmos a rescisão do contrato.</p>
-                </div>
-                <div class="space-y-3 bg-brand-bg p-4 rounded-lg border border-brand-surface">
-                    <label class="flex items-center gap-3 cursor-pointer group p-2 hover:bg-brand-surface rounded transition-colors">
-                        <input type="radio" name="survey" value="financial" ${t.surveyValue===`financial`?`checked`:``} onchange="window.app.updateDarkChecks('surveyValue', this.value)" class="w-4 h-4 text-brand-red bg-brand-panel border-brand-border focus:ring-brand-red accent-brand-red">
-                        <span class="text-brand-white/70 text-sm group-hover:text-brand-white">Estou passando por dificuldades financeiras no momento.</span>
-                    </label>
-                    <label class="flex items-center gap-3 cursor-pointer group p-2 hover:bg-brand-surface rounded transition-colors">
-                        <input type="radio" name="survey" value="time" ${t.surveyValue===`time`?`checked`:``} onchange="window.app.updateDarkChecks('surveyValue', this.value)" class="w-4 h-4 text-brand-red bg-brand-panel border-brand-border focus:ring-brand-red accent-brand-red">
-                        <span class="text-brand-white/70 text-sm group-hover:text-brand-white">Não tenho tempo livre para assistir aos melhores filmes.</span>
-                    </label>
-                    <label class="flex items-center gap-3 cursor-pointer group p-2 hover:bg-brand-surface rounded transition-colors">
-                        <input type="radio" name="survey" value="quality" ${t.surveyValue===`quality`?`checked`:``} onchange="window.app.updateDarkChecks('surveyValue', this.value)" class="w-4 h-4 text-brand-red bg-brand-panel border-brand-border focus:ring-brand-red accent-brand-red">
-                        <span class="text-brand-white/70 text-sm group-hover:text-brand-white">Vou assinar um serviço de qualidade inferior.</span>
-                    </label>
-                    <label class="flex items-center gap-3 cursor-pointer group p-2 hover:bg-brand-surface rounded transition-colors">
-                        <input type="radio" name="survey" value="other" ${t.surveyValue===`other`?`checked`:``} onchange="window.app.updateDarkChecks('surveyValue', this.value)" class="w-4 h-4 text-brand-red bg-brand-panel border-brand-border focus:ring-brand-red accent-brand-red">
-                        <span class="text-brand-white/70 text-sm group-hover:text-brand-white">Outros motivos não listados.</span>
-                    </label>
-
-                    <!-- Área de texto obrigatória -->
-                    ${e?`
-                        <div class="mt-4 px-2 animate-fade-in">
-                            <label class="block text-xs font-black uppercase tracking-widest text-brand-red mb-2">Descreva detalhadamente o motivo*:</label>
-                            <textarea 
-                                id="dark-survey-textarea"
-                                oninput="window.app.updateDarkChecks('surveyText', this.value)"
-                                class="w-full bg-brand-panel border border-brand-red/50 rounded-lg p-3 text-brand-white text-sm focus:ring-1 focus:ring-brand-red outline-none min-h-[100px] placeholder-brand-white/10"
-                                placeholder="Por favor, explique o motivo da sua saída para que possamos analisar..."
-                            >${t.surveyText||``}</textarea>
-                        </div>
-                    `:``}
-                </div>
-                <div class="pt-4">
-                    <button ${r?``:`disabled`} onclick="window.app.setDarkStep(4)" class="w-full py-4 font-bold rounded-lg transition-all ${r?`bg-brand-surface hover:bg-brand-border text-brand-white border border-brand-border cursor-pointer shadow-lg`:`bg-brand-surface text-brand-white/20 cursor-not-allowed border border-transparent`}">
-                        Continuar e Perder Benefícios
-                    </button>
-                </div>
-            </div>`}else e===4&&(n=`
-            <!-- CLIQUE 5 e 6: Furtividade / Obstrução Final -->
-            <div id="dark-step-4" class="space-y-6 text-center">
-                <div class="mx-auto w-16 h-16 bg-brand-orange/20 rounded-full flex items-center justify-center mb-4">
-                    <i data-lucide="shield-alert" class="text-brand-orange w-8 h-8"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-brand-white">Último Passo</h2>
-                <p class="text-brand-white/60 leading-relaxed">
-                    Para confirmar o cancelamento, você deve concordar com os termos de rescisão irreversível.
-                </p>
-                
-                <div class="bg-brand-surface p-5 rounded-lg text-left border border-brand-border/50">
-                    <label class="flex items-start gap-4 cursor-pointer group">
-                        <input type="checkbox" id="dark-final-check" ${t.finalCheck?`checked`:``} onchange="window.app.updateDarkChecks('finalCheck', this.checked)" class="mt-1 w-6 h-6 rounded border-brand-white/20 bg-brand-bg text-brand-red focus:ring-brand-red accent-brand-red cursor-pointer" />
-                        <span class="text-brand-white/70 text-sm group-hover:text-brand-white transition-colors leading-relaxed">
-                            Compreendo que perderei todos os meus benefícios promocionais e histórico de visualização <strong class="text-brand-white font-bold underline decoration-brand-red">permanentemente</strong>.
-                        </span>
-                    </label>
-                </div>
-
-                </div>
-
-                <div class="pt-6 space-y-4 flex flex-col items-center">
-                    <button onclick="window.clics_errados++; window.app.finishLab(true);" class="w-full py-4 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded-lg transition-colors flex justify-center items-center gap-2 shadow-xl uppercase tracking-wider">
-                        <i data-lucide="lock" class="w-5 h-5"></i> Manter Minha Assinatura Ativa
-                    </button>
-                    
-                    <button ${t.finalCheck?``:`disabled`} onclick="window.app.finishLab()" 
-                        class="w-full py-4 font-bold uppercase tracking-wider transition-all rounded-lg border border-transparent ${t.finalCheck?`text-brand-white/20 hover:text-brand-white/60 cursor-pointer bg-transparent`:`text-brand-white/5 opacity-30 cursor-not-allowed pointer-events-none`}">
-                        finalizar cancelamento
-                    </button>
-                </div>
-            </div>`);return`
-        <div id="view-settings-dark" class="max-w-4xl mx-auto p-4 py-10 h-screen overflow-y-auto">
-            <div class="max-w-2xl mx-auto bg-brand-panel rounded-xl border border-brand-surface overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.8)] mt-8 mb-20">
-                <div class="p-6 sm:p-10 relative">
-                    ${n}
-                </div>
-            </div>
-        </div>
-    `}})),S,C=e((()=>{S=(e,t,n)=>{let r=t===`radiant`,i=r?`text-radiant-blue`:`text-brand-red`,a=r?`bg-radiant-blue`:`bg-brand-red`,o=r?`bg-[#23293b]`:`bg-brand-surface`;return`
+    `}})),g,_=e((()=>{g=(e,t,n)=>{let r=`text-radiant-blue`;return`
         <div class="min-h-screen flex flex-col items-center justify-start p-6 animate-fade-in bg-brand-bg text-center overflow-y-auto">
             <div class="max-w-2xl w-full space-y-8 py-12">
                 <div class="space-y-4">
-                    <div class="mx-auto w-20 h-20 ${r?`bg-radiant-blue/10`:`bg-brand-red/10`} rounded-full flex items-center justify-center mb-6">
-                        <i data-lucide="check-circle" class="${i} w-10 h-10"></i>
+                    <div class="mx-auto w-20 h-20 bg-radiant-blue/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="check-circle" class="${r} w-10 h-10"></i>
                     </div>
                     <h2 class="text-4xl font-black text-brand-white">Experimento Concluído</h2>
                     <p class="text-brand-white/40 text-lg leading-relaxed">
@@ -746,10 +450,10 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                     </p>
                 </div>
 
-                <!-- FORMULÁRIO DE AVALIAÇÃO (MOVIDO PARA CÁ) -->
+                <!-- FORMULÁRIO DE AVALIAÇÃO -->
                 <div id="survey-end-container" class="ignorar-clique mt-8 mb-6 p-8 bg-black/40 border border-white/10 rounded-2xl text-left animate-slide-up shadow-2xl">
                     <h4 class="font-bold text-white mb-6 flex items-center gap-2 text-xl">
-                        <i data-lucide="clipboard-check" class="w-6 h-6 ${i}"></i> Avaliação do Fluxo
+                        <i data-lucide="clipboard-check" class="w-6 h-6 ${r}"></i> Avaliação do Fluxo
                     </h4>
                     
                     <div class="mb-10">
@@ -757,7 +461,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                         <div class="flex flex-col gap-4">
                             ${[`Discordo Totalmente`,`Discordo`,`Neutro (Sem opinião formada)`,`Concordo`,`Concordo Totalmente`].map(e=>`
                                 <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
-                                    <input type="radio" name="p_cansativo" value="${e}" onchange="window.atualizarPesquisaFinal('cansativo', this.value)" class="w-6 h-6 ${r?`accent-radiant-blue`:`accent-brand-red`} cursor-pointer">
+                                    <input type="radio" name="p_cansativo" value="${e}" onchange="window.atualizarPesquisaFinal('cansativo', this.value)" class="w-6 h-6 accent-radiant-blue cursor-pointer">
                                     <span class="text-sm text-white/70 group-hover:text-white">${e}</span>
                                 </label>
                             `).join(``)}
@@ -769,7 +473,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                         <div class="flex flex-col gap-4">
                             ${[`Discordo Totalmente`,`Discordo`,`Neutro (Sem opinião formada)`,`Concordo`,`Concordo Totalmente`].map(e=>`
                                 <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
-                                    <input type="radio" name="p_seguro" value="${e}" onchange="window.atualizarPesquisaFinal('seguro', this.value)" class="w-6 h-6 ${r?`accent-radiant-blue`:`accent-brand-red`} cursor-pointer">
+                                    <input type="radio" name="p_seguro" value="${e}" onchange="window.atualizarPesquisaFinal('seguro', this.value)" class="w-6 h-6 accent-radiant-blue cursor-pointer">
                                     <span class="text-sm text-white/70 group-hover:text-white">${e}</span>
                                 </label>
                             `).join(``)}
@@ -781,32 +485,16 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                         <div class="flex flex-col gap-4">
                             ${[`Sim`,`Não`,`Talvez`].map(e=>`
                                 <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
-                                    <input type="radio" name="p_voltaria" value="${e}" onchange="window.atualizarPesquisaFinal('voltaria', this.value)" class="w-5 h-5 ${r?`accent-radiant-blue`:`accent-brand-red`} cursor-pointer">
+                                    <input type="radio" name="p_voltaria" value="${e}" onchange="window.atualizarPesquisaFinal('voltaria', this.value)" class="w-5 h-5 accent-radiant-blue cursor-pointer">
                                     <span class="text-sm text-white/70 group-hover:text-white">${e}</span>
                                 </label>
                             `).join(``)}
                         </div>
                     </div>
 
-                    ${!r&&n?`
-                    <div class="border-t border-white/5 pt-8 animate-fade-in">
-                        <label class="block text-base text-white/90 mb-6 font-medium">4. Manter a assinatura foi uma escolha proposital?</label>
-                        <div class="flex flex-col gap-4">
-                            <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
-                                <input type="radio" name="p_proposital" value="Sim" onchange="window.atualizarPesquisaFinal('feedback', this.value)" class="w-5 h-5 accent-brand-red cursor-pointer">
-                                <span class="text-sm text-white/70 group-hover:text-white">Sim</span>
-                            </label>
-                            <label class="flex items-center gap-4 cursor-pointer group p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
-                                <input type="radio" name="p_proposital" value="Não" onchange="window.atualizarPesquisaFinal('feedback', this.value)" class="w-5 h-5 accent-brand-red cursor-pointer">
-                                <span class="text-sm text-white/70 group-hover:text-white">Não</span>
-                            </label>
-                        </div>
-                    </div>
-                    `:``}
-
                     <div class="mt-12 pt-4 border-t border-white/5">
                         <p id="validation-error" class="text-brand-red text-sm mb-4 hidden font-bold">⚠️ Por favor, responda todas as perguntas da avaliação antes de enviar.</p>
-                        <button id="btn-finish-telemetry" onclick="validarEEnviar(${n}, ${!r})" class="w-full py-5 ${a} hover:opacity-90 text-white font-black rounded-xl transition-all shadow-2xl uppercase tracking-widest text-lg">
+                        <button id="btn-finish-telemetry" onclick="validarEEnviar(${n})" class="w-full py-5 bg-radiant-blue hover:opacity-90 text-white font-black rounded-xl transition-all shadow-2xl uppercase tracking-widest text-lg">
                             Confirmar e Enviar Telemetria
                         </button>
                     </div>
@@ -820,14 +508,14 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 </div>
 
                 <div id="final-reset-button" class="ignorar-clique hidden pt-4 pb-12 flex flex-col items-center gap-4">
-                    <button onclick="window.app.resetLab()" class="px-10 py-4 ${o} hover:opacity-80 text-brand-white font-bold rounded-xl transition-all border border-white/5 shadow-xl">
+                    <button onclick="window.app.resetLab()" class="px-10 py-4 bg-[#23293b] hover:opacity-80 text-brand-white font-bold rounded-xl transition-all border border-white/5 shadow-xl">
                         Voltar ao Início
                     </button>
                     <p class="text-brand-white/20 text-[10px] uppercase tracking-[0.3em]">Radiant Plus v1.0.0 • Simulation Lab</p>
                 </div>
             </div>
         </div>
-    `}}));t((()=>{a(),s(),l(),d(),p(),h(),_(),y(),x(),C(),window.start_time_ms=0,window.end_time_ms=0,window.clics_errados=0,window.clics_totais=0,document.addEventListener(`click`,function(e){e.target.closest(`.ignorar-clique`)||e.target.closest(`button, a, input, select, label, textarea`)&&(window.clics_totais++,console.log(`Clique válido na tarefa registrado! Total:`,window.clics_totais))}),window.qCansativo=``,window.qSeguro=``,window.qVoltaria=``,window.qFeedbackAdicional=``,window.atualizarPesquisaFinal=function(e,t){e===`cansativo`&&(window.qCansativo=t),e===`seguro`&&(window.qSeguro=t),e===`voltaria`&&(window.qVoltaria=t),e===`feedback`&&(window.qFeedbackAdicional=t)},window.validarEEnviar=(e,t)=>{let n=document.querySelector(`input[name="p_cansativo"]:checked`),r=document.querySelector(`input[name="p_seguro"]:checked`),i=document.querySelector(`input[name="p_voltaria"]:checked`),a=t&&e?document.querySelector(`input[name="p_proposital"]:checked`):!0;if(!n||!r||!i||!a){let e=document.getElementById(`validation-error`);e&&(e.classList.remove(`hidden`),e.scrollIntoView({behavior:`smooth`,block:`center`}));return}window.enviarTelemetria(e)},window.enviarTelemetria=function(e=!1){let t=window.end_time_ms-window.start_time_ms,n=((performance.memory?performance.memory.usedJSHeapSize:0)/(1024*1024)).toFixed(2),r=(t/1e3).toFixed(2),i=window.app&&window.app.state.pattern===`radiant`?`Radiant Plus`:`Dark Max`,a=`Não`;a=i===`Radiant Plus`?window.radiantRespondeuSurvey||`Não`:`Sim`;let o=new URLSearchParams;o.append(`entry.1532613467`,i),o.append(`entry.1345222698`,t.toFixed(2)),o.append(`entry.1504379310`,n),o.append(`entry.778706530`,r),o.append(`entry.2138517373`,window.clics_totais),o.append(`entry.1179815513`,window.clics_errados),o.append(`entry.713314953`,e?`Sim`:`Não`),o.append(`entry.1262590802`,a),o.append(`entry.909552708`,window.qFeedbackAdicional),o.append(`entry.1715303114`,window.qCansativo),o.append(`entry.1307350453`,window.qSeguro),o.append(`entry.792377157`,window.qVoltaria);let s=document.getElementById(`btn-finish-telemetry`);s&&(s.disabled=!0,s.innerHTML=`Enviando...`),fetch(`https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse`,{method:`POST`,mode:`no-cors`,body:o}).then(()=>{let o=document.getElementById(`survey-end-container`),s=document.getElementById(`ads-computacional-painel`),c=document.getElementById(`final-reset-button`);o&&o.classList.add(`hidden`),s&&(s.classList.remove(`hidden`),s.innerHTML=`
+    `}}));t((()=>{a(),s(),l(),d(),p(),h(),_(),window.start_time_ms=0,window.end_time_ms=0,window.clics_errados=0,window.clics_totais=0,document.addEventListener(`click`,function(e){e.target.closest(`.ignorar-clique`)||e.target.closest(`button, a, input, select, label, textarea`)&&(window.clics_totais++,console.log(`Clique válido na tarefa registrado! Total:`,window.clics_totais))}),window.qCansativo=``,window.qSeguro=``,window.qVoltaria=``,window.qFeedbackAdicional=``,window.atualizarPesquisaFinal=function(e,t){e===`cansativo`&&(window.qCansativo=t),e===`seguro`&&(window.qSeguro=t),e===`voltaria`&&(window.qVoltaria=t),e===`feedback`&&(window.qFeedbackAdicional=t)},window.validarEEnviar=e=>{let t=document.querySelector(`input[name="p_cansativo"]:checked`),n=document.querySelector(`input[name="p_seguro"]:checked`),r=document.querySelector(`input[name="p_voltaria"]:checked`);if(!t||!n||!r){let e=document.getElementById(`validation-error`);e&&(e.classList.remove(`hidden`),e.scrollIntoView({behavior:`smooth`,block:`center`}));return}window.enviarTelemetria(e)},window.enviarTelemetria=function(e=!1){let t=window.end_time_ms-window.start_time_ms,n=((performance.memory?performance.memory.usedJSHeapSize:0)/(1024*1024)).toFixed(2),r=(t/1e3).toFixed(2),i=`Radiant Plus`,a=window.radiantRespondeuSurvey||`Não`,o=new URLSearchParams;o.append(`entry.1532613467`,i),o.append(`entry.1345222698`,t.toFixed(2)),o.append(`entry.1504379310`,n),o.append(`entry.778706530`,r),o.append(`entry.2138517373`,window.clics_totais),o.append(`entry.1179815513`,window.clics_errados),o.append(`entry.713314953`,e?`Sim`:`Não`),o.append(`entry.1262590802`,a),o.append(`entry.909552708`,window.qFeedbackAdicional),o.append(`entry.1715303114`,window.qCansativo),o.append(`entry.1307350453`,window.qSeguro),o.append(`entry.792377157`,window.qVoltaria);let s=document.getElementById(`btn-finish-telemetry`);s&&(s.disabled=!0,s.innerHTML=`Enviando...`),fetch(`https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse`,{method:`POST`,mode:`no-cors`,body:o}).then(()=>{let o=document.getElementById(`survey-end-container`),s=document.getElementById(`ads-computacional-painel`),c=document.getElementById(`final-reset-button`);o&&o.classList.add(`hidden`),s&&(s.classList.remove(`hidden`),s.innerHTML=`
                     <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);padding:30px;border-radius:24px;color:#fff;text-align:left;backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,0.3);">
                         <h4 style="color:#4ff;margin-top:0;font-weight:900;letter-spacing:1px;text-transform:uppercase;font-size:12px;">✅ Telemetria Enviada com Sucesso</h4>
                         <p style="font-size:14px;opacity:0.8;margin-bottom:20px;"><b>Tire um print desta tela para o pesquisador.</b></p>
@@ -847,4 +535,4 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                             <li style="border-top:1px solid rgba(255,255,255,0.05);margin-top:12px;padding-top:12px;"><span style="opacity:0.5;">Timestamp:</span> ${new Date().toLocaleTimeString()}</li>
                         </ul>
                     </div>
-                `),c&&c.classList.remove(`hidden`),window.lucide&&window.lucide.createIcons()}).catch(e=>{console.error(`Erro na telemetria:`,e),s&&(s.disabled=!1,s.innerHTML=`Erro ao enviar. Tentar novamente?`)})};var e=class{constructor(){this.appElement=document.getElementById(`app`),this.bodyElement=document.getElementById(`main-body`),this.state={view:`setup`,pattern:null,darkStep:1,radiantStep:1,isDarkMenuOpen:!1,darkChecks:{surveyValue:null,surveyText:``,finalCheck:!1},featuredIndex:0,endMessage:``,abandonou:!1},window.app=this,this.initScrollListener(),this.init()}nextHero(){let e=(this.state.featuredIndex+1)%i.length;this.setState({featuredIndex:e})}initScrollListener(){window.addEventListener(`scroll`,()=>{window.scrollY>50?document.body.classList.add(`scrolled`):document.body.classList.remove(`scrolled`)})}init(){this.render()}setState(e){let t=e.view&&e.view!==this.state.view,n=e.pattern&&e.pattern!==this.state.pattern;this.state={...this.state,...e},this.render(),(t||n)&&window.scrollTo(0,0)}prepareTest(e){this.setState({pattern:e,view:`instruction`})}startSimulation(){window.start_time_ms=performance.now(),window.clics_errados=0,window.clics_totais=0,window.qCansativo=``,window.qSeguro=``,window.qVoltaria=``,window.qFeedbackAdicional=``,window.radiantRespondeuSurvey=``,this.setState({view:`catalog`,darkStep:1,radiantStep:1,darkChecks:{surveyValue:null,surveyText:``,finalCheck:!1},isDarkMenuOpen:!1,abandonou:!1})}goToCatalog(){this.setState({view:`catalog`})}goToSettings(){this.setState({view:`settings`})}setDarkStep(e){this.setState({darkStep:e})}setRadiantStep(e){this.setState({radiantStep:e})}toggleDarkProfileMenu(){this.setState({isDarkMenuOpen:!this.state.isDarkMenuOpen})}updateDarkChecks(e,t){if(this.state.darkChecks[e]=t,e===`surveyText`&&this.state.darkStep===3){let e=document.querySelector(`#dark-step-3 button`);if(e){let n=this.state.darkChecks.surveyValue===`other`,r=this.state.darkChecks.surveyValue&&(!n||t&&t.trim().length>0);e.disabled=!r,r?e.className=`w-full py-4 font-bold rounded-lg transition-all bg-brand-surface hover:bg-brand-border text-brand-white border border-brand-border cursor-pointer shadow-lg`:e.className=`w-full py-4 font-bold rounded-lg transition-all bg-brand-surface text-brand-white/20 cursor-not-allowed border border-transparent`}return}this.render()}finishLab(e=!1){window.end_time_ms=performance.now();let t=document.querySelector(`#radiant-step-3 select`);window.radiantRespondeuSurvey=t&&t.value!==``?`Sim`:`Não`,(this.state.pattern!==`dark`||!e)&&(window.qFeedbackAdicional=`Irrelevante`);let n=e?`Você desistiu do cancelamento e manteve a assinatura ativa.`:`O cancelamento foi concluído com sucesso!`;this.setState({view:`end`,endMessage:n,abandonou:e})}resetLab(){this.setState({pattern:null,view:`setup`,endMessage:``,abandonou:!1})}render(){this.appElement.innerHTML=``,this.state.pattern===`radiant`&&this.state.view!==`setup`&&this.state.view!==`instruction`?(this.bodyElement.style.backgroundColor=`#0a090c`,this.bodyElement.className=`text-radiant-white min-h-screen flex flex-col font-sans transition-colors duration-500`):(this.bodyElement.style.backgroundColor=`#0a0a0a`,this.bodyElement.className=`text-brand-white min-h-screen flex flex-col font-sans transition-colors duration-500`),(this.state.view===`catalog`||this.state.view===`settings`)&&(this.state.pattern===`dark`?this.appElement.insertAdjacentHTML(`beforeend`,f(this.state.isDarkMenuOpen,this.state.view)):this.appElement.insertAdjacentHTML(`beforeend`,u(this.state.view)));let e=document.createElement(`main`);e.className=`flex-grow`,this.state.view===`settings`&&(e.className=`flex-grow flex flex-col`);let t=``;switch(this.state.view){case`setup`:t=o();break;case`instruction`:t=c(this.state.pattern);break;case`catalog`:t=this.state.pattern===`dark`?g(n,r,i,this.state.featuredIndex):m(n,r,i,this.state.featuredIndex);break;case`settings`:t=this.state.pattern===`dark`?b(this.state.darkStep,this.state.darkChecks):v(this.state.radiantStep);break;case`end`:t=S(this.state.endMessage,this.state.pattern,this.state.abandonou);break}e.innerHTML=t,this.appElement.appendChild(e),window.lucide&&window.lucide.createIcons()}};document.addEventListener(`DOMContentLoaded`,()=>{new e})}))();
+                `),c&&c.classList.remove(`hidden`),window.lucide&&window.lucide.createIcons()}).catch(e=>{console.error(`Erro na telemetria:`,e),s&&(s.disabled=!1,s.innerHTML=`Erro ao enviar. Tentar novamente?`)})};var e=class{constructor(){this.appElement=document.getElementById(`app`),this.bodyElement=document.getElementById(`main-body`),this.state={view:`setup`,pattern:`radiant`,radiantStep:1,featuredIndex:0,endMessage:``,abandonou:!1},window.app=this,this.initScrollListener(),this.init()}nextHero(){let e=(this.state.featuredIndex+1)%i.length;this.setState({featuredIndex:e})}initScrollListener(){window.addEventListener(`scroll`,()=>{window.scrollY>50?document.body.classList.add(`scrolled`):document.body.classList.remove(`scrolled`)})}init(){this.render()}setState(e){let t=e.view&&e.view!==this.state.view;this.state={...this.state,...e},this.render(),t&&window.scrollTo(0,0)}prepareTest(e){this.setState({pattern:`radiant`,view:`instruction`})}startSimulation(){window.start_time_ms=performance.now(),window.clics_errados=0,window.clics_totais=0,window.qCansativo=``,window.qSeguro=``,window.qVoltaria=``,window.qFeedbackAdicional=``,window.radiantRespondeuSurvey=``,this.setState({view:`catalog`,radiantStep:1,abandonou:!1})}goToCatalog(){this.setState({view:`catalog`})}goToSettings(){this.setState({view:`settings`})}setRadiantStep(e){this.setState({radiantStep:e})}finishLab(e=!1){window.end_time_ms=performance.now();let t=document.querySelector(`#radiant-step-3 select`);window.radiantRespondeuSurvey=t&&t.value!==``?`Sim`:`Não`,window.qFeedbackAdicional=`Irrelevante`;let n=e?`Você desistiu do cancelamento e manteve a assinatura ativa.`:`O cancelamento foi concluído com sucesso!`;this.setState({view:`end`,endMessage:n,abandonou:e})}resetLab(){this.setState({pattern:`radiant`,view:`setup`,endMessage:``,abandonou:!1})}render(){this.appElement.innerHTML=``,this.state.view!==`setup`&&this.state.view!==`instruction`?(this.bodyElement.style.backgroundColor=`#0a090c`,this.bodyElement.className=`text-radiant-white min-h-screen flex flex-col font-sans transition-colors duration-500`):(this.bodyElement.style.backgroundColor=`#0a0a0a`,this.bodyElement.className=`text-brand-white min-h-screen flex flex-col font-sans transition-colors duration-500`),(this.state.view===`catalog`||this.state.view===`settings`)&&this.appElement.insertAdjacentHTML(`beforeend`,u(this.state.view));let e=document.createElement(`main`);e.className=`flex-grow`,this.state.view===`settings`&&(e.className=`flex-grow flex flex-col`);let t=``;switch(this.state.view){case`setup`:t=o();break;case`instruction`:t=c(this.state.pattern);break;case`catalog`:t=f(n,r,i,this.state.featuredIndex);break;case`settings`:t=m(this.state.radiantStep);break;case`end`:t=g(this.state.endMessage,this.state.pattern,this.state.abandonou);break}e.innerHTML=t,this.appElement.appendChild(e),window.lucide&&window.lucide.createIcons()}};document.addEventListener(`DOMContentLoaded`,()=>{new e})}))();

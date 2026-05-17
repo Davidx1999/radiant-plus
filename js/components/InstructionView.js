@@ -1,6 +1,5 @@
-export const InstructionView = (pattern) => {
-    const isRadiant = pattern === 'radiant';
-    const platformName = isRadiant ? "Radiant Plus" : "Dark Max";
+export const InstructionView = () => {
+    const platformName = "Radiant Plus";
 
     return `
         <div id="view-instruction" class="w-full px-12 p-4 sm:p-6 py-20 animate-fade-in flex-grow flex items-center justify-center">

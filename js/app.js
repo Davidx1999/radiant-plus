@@ -2,13 +2,9 @@ import { categories, fictionalTitles, featuredContent } from './data/mockData.js
 import { SetupView } from './components/SetupView.js';
 import { InstructionView } from './components/InstructionView.js';
 import { HeaderRadiant } from './components/HeaderRadiant.js';
-import { HeaderDark } from './components/HeaderDark.js';
 import { CatalogRadiant } from './components/CatalogRadiant.js';
-import { CatalogDark } from './components/CatalogDark.js';
 import { SettingsRadiant } from './components/SettingsRadiant.js';
-import { SettingsDark } from './components/SettingsDark.js';
 import { EndView } from './components/EndView.js';
-
 
 // =====================================================
 // VARIÁVEIS GLOBAIS DE TELEMETRIA
@@ -47,13 +43,12 @@ window.atualizarPesquisaFinal = function(campo, valor) {
     if (campo === 'feedback') window.qFeedbackAdicional = valor;
 };
 
-window.validarEEnviar = (abandonou, isDark) => {
+window.validarEEnviar = (abandonou) => {
     const q1 = document.querySelector('input[name="p_cansativo"]:checked');
     const q2 = document.querySelector('input[name="p_seguro"]:checked');
     const q3 = document.querySelector('input[name="p_voltaria"]:checked');
-    const q4 = (isDark && abandonou) ? document.querySelector('input[name="p_proposital"]:checked') : true;
 
-    if (!q1 || !q2 || !q3 || !q4) {
+    if (!q1 || !q2 || !q3) {
         const error = document.getElementById('validation-error');
         if (error) {
             error.classList.remove('hidden');
@@ -77,14 +72,8 @@ window.enviarTelemetria = function(usuarioAbandonou = false) {
     const tempo_usuario_seg = (tempo_cpu / 1000).toFixed(2);
 
     // Variante e survey
-    const nomeVariante = window.app && window.app.state.pattern === 'radiant' ? 'Radiant Plus' : 'Dark Max';
-    
-    let respondeuSurvey = 'Não';
-    if (nomeVariante === 'Radiant Plus') {
-        respondeuSurvey = window.radiantRespondeuSurvey || 'Não';
-    } else {
-        respondeuSurvey = 'Sim'; // Dark sempre chega ao final com o survey
-    }
+    const nomeVariante = 'Radiant Plus';
+    const respondeuSurvey = window.radiantRespondeuSurvey || 'Não';
 
     const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse';
     const dados = new URLSearchParams();
@@ -162,15 +151,8 @@ class App {
         
         this.state = {
             view: 'setup', 
-            pattern: null, 
-            darkStep: 1,
+            pattern: 'radiant', 
             radiantStep: 1,
-            isDarkMenuOpen: false,
-            darkChecks: {
-                surveyValue: null,
-                surveyText: '',
-                finalCheck: false
-            },
             featuredIndex: 0,
             endMessage: '',
             abandonou: false
@@ -203,19 +185,18 @@ class App {
 
     setState(newState) {
         const viewChanged = newState.view && newState.view !== this.state.view;
-        const patternChanged = newState.pattern && newState.pattern !== this.state.pattern;
         
         this.state = { ...this.state, ...newState };
         this.render();
 
-        if (viewChanged || patternChanged) {
+        if (viewChanged) {
             window.scrollTo(0, 0);
         }
     }
 
     prepareTest(pattern) {
         this.setState({
-            pattern,
+            pattern: 'radiant',
             view: 'instruction'
         });
     }
@@ -233,10 +214,7 @@ class App {
 
         this.setState({
             view: 'catalog',
-            darkStep: 1,
             radiantStep: 1,
-            darkChecks: { surveyValue: null, surveyText: '', finalCheck: false },
-            isDarkMenuOpen: false,
             abandonou: false
         });
     }
@@ -249,38 +227,8 @@ class App {
         this.setState({ view: 'settings' });
     }
 
-    setDarkStep(step) {
-        this.setState({ darkStep: step });
-    }
-
     setRadiantStep(step) {
         this.setState({ radiantStep: step });
-    }
-
-    toggleDarkProfileMenu() {
-        this.setState({ isDarkMenuOpen: !this.state.isDarkMenuOpen });
-    }
-
-    updateDarkChecks(checkId, value) {
-        this.state.darkChecks[checkId] = value;
-
-        if (checkId === 'surveyText' && this.state.darkStep === 3) {
-            const btn = document.querySelector('#dark-step-3 button');
-            if (btn) {
-                const isOtherSelected = this.state.darkChecks.surveyValue === 'other';
-                const isSurveyValid = this.state.darkChecks.surveyValue && (!isOtherSelected || (value && value.trim().length > 0));
-                
-                btn.disabled = !isSurveyValid;
-                if (isSurveyValid) {
-                    btn.className = "w-full py-4 font-bold rounded-lg transition-all bg-brand-surface hover:bg-brand-border text-brand-white border border-brand-border cursor-pointer shadow-lg";
-                } else {
-                    btn.className = "w-full py-4 font-bold rounded-lg transition-all bg-brand-surface text-brand-white/20 cursor-not-allowed border border-transparent";
-                }
-            }
-            return; 
-        }
-
-        this.render();
     }
 
     finishLab(abandonou = false) {
@@ -288,11 +236,7 @@ class App {
 
         const selectEl = document.querySelector('#radiant-step-3 select');
         window.radiantRespondeuSurvey = (selectEl && selectEl.value !== '') ? 'Sim' : 'Não';
-
-        const isDark = this.state.pattern === 'dark';
-        if (!isDark || !abandonou) {
-            window.qFeedbackAdicional = 'Irrelevante';
-        }
+        window.qFeedbackAdicional = 'Irrelevante';
 
         const msg = abandonou 
             ? 'Você desistiu do cancelamento e manteve a assinatura ativa.' 
@@ -307,7 +251,7 @@ class App {
 
     resetLab() {
         this.setState({
-            pattern: null,
+            pattern: 'radiant',
             view: 'setup',
             endMessage: '',
             abandonou: false
@@ -317,7 +261,7 @@ class App {
     render() {
         this.appElement.innerHTML = '';
         
-        if (this.state.pattern === 'radiant' && this.state.view !== 'setup' && this.state.view !== 'instruction') {
+        if (this.state.view !== 'setup' && this.state.view !== 'instruction') {
             this.bodyElement.style.backgroundColor = '#0a090c'; 
             this.bodyElement.className = 'text-radiant-white min-h-screen flex flex-col font-sans transition-colors duration-500';
         } else {
@@ -326,11 +270,7 @@ class App {
         }
 
         if (this.state.view === 'catalog' || this.state.view === 'settings') {
-            if (this.state.pattern === 'dark') {
-                this.appElement.insertAdjacentHTML('beforeend', HeaderDark(this.state.isDarkMenuOpen, this.state.view));
-            } else {
-                this.appElement.insertAdjacentHTML('beforeend', HeaderRadiant(this.state.view));
-            }
+            this.appElement.insertAdjacentHTML('beforeend', HeaderRadiant(this.state.view));
         }
 
         const main = document.createElement('main');
@@ -349,14 +289,10 @@ class App {
                 contentHtml = InstructionView(this.state.pattern);
                 break;
             case 'catalog':
-                contentHtml = this.state.pattern === 'dark' 
-                    ? CatalogDark(categories, fictionalTitles, featuredContent, this.state.featuredIndex) 
-                    : CatalogRadiant(categories, fictionalTitles, featuredContent, this.state.featuredIndex);
+                contentHtml = CatalogRadiant(categories, fictionalTitles, featuredContent, this.state.featuredIndex);
                 break;
             case 'settings':
-                contentHtml = this.state.pattern === 'dark'
-                    ? SettingsDark(this.state.darkStep, this.state.darkChecks)
-                    : SettingsRadiant(this.state.radiantStep);
+                contentHtml = SettingsRadiant(this.state.radiantStep);
                 break;
             case 'end':
                 contentHtml = EndView(this.state.endMessage, this.state.pattern, this.state.abandonou);
