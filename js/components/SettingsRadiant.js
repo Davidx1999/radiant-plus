@@ -30,7 +30,7 @@ export const SettingsRadiant = (step) => {
                                 <i data-lucide="chevron-right" class="w-6 h-6 text-radiant-white/30 group-hover:text-radiant-white transition-colors"></i>
                             </div>
                         </div>
-                        <div onclick="window.app.setRadiantStep(2)" class="group cursor-pointer hover:bg-white/5 transition-all">
+                        <div onclick="window.clics_totais++; window.app.setRadiantStep(2)" class="group cursor-pointer hover:bg-white/5 transition-all">
                             <div class="px-8 py-5 flex justify-between items-center">
                                 <span class="text-radiant-white font-bold text-lg">Cancelar Assinatura</span>
                                 <i data-lucide="chevron-right" class="w-6 h-6 text-radiant-white/30 group-hover:text-radiant-white transition-colors"></i>
@@ -93,7 +93,7 @@ export const SettingsRadiant = (step) => {
                 </p>
 
                 <!-- Pesquisa Opcional -->
-                <div class="bg-[#23293b] rounded-xl p-6 border border-white/5 text-left mb-8 shadow-xl animate-fade-in">
+                <div class="ignorar-clique bg-[#23293b] rounded-xl p-6 border border-white/5 text-left mb-8 shadow-xl animate-fade-in">
                     <h4 class="font-black text-radiant-white mb-3 text-lg">Antes de ir, poderia nos contar o motivo? (Opcional)</h4>
                     
                     <div class="space-y-3">
@@ -110,9 +110,11 @@ export const SettingsRadiant = (step) => {
 
                 </div>
 
-                <button onclick="window.app.finishLab()" class="px-12 py-4 bg-[#23293b] hover:bg-[#2a3147] text-radiant-white font-black rounded-xl transition-all shadow-xl border border-white/10 text-lg uppercase tracking-wider">
-                    Finalizar Simulação
-                </button>
+                <div class="ignorar-clique">
+                    <button onclick="window.app.finishLab()" class="px-12 py-4 bg-[#23293b] hover:bg-[#2a3147] text-radiant-white font-black rounded-xl transition-all shadow-xl border border-white/10 text-lg uppercase tracking-wider">
+                        Finalizar Simulação
+                    </button>
+                </div>
             </div>
         `;
     }

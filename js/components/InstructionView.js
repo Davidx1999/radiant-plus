@@ -30,7 +30,7 @@ export const InstructionView = (pattern) => {
                 </div>
 
                 <div class="mt-10 flex justify-end">
-                    <button onclick="window.app.startSimulation()" class="px-8 py-4 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-bold rounded-lg transition-transform flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
+                    <button onclick="window.app.startSimulation()" class="ignorar-clique px-8 py-4 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-bold rounded-lg transition-transform flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
                         Compreendi, Iniciar Tarefa <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </button>
                 </div>

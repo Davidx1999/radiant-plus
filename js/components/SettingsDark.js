@@ -11,14 +11,14 @@ export const SettingsDark = (step, checks) => {
                 <div class="bg-brand-surface rounded-lg p-5 border border-brand-border">
                     <h3 class="text-lg font-semibold text-brand-white mb-2">Plano Atual</h3>
                     <p class="text-brand-white/60 mb-4">Dark Max Premium 4K - 59,90€/mês</p>
-                    <button class="w-full py-3 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded transition-colors shadow-[0_0_15px_rgba(255,0,0,0.2)]">
+                    <button onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="w-full py-3 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded transition-colors shadow-[0_0_15px_rgba(255,0,0,0.2)]">
                         Fazer Upgrade para Ultimate
                     </button>
                 </div>
                 <div class="bg-brand-surface rounded-lg p-5 border border-brand-border space-y-4">
                     <h3 class="text-lg font-semibold text-brand-white">Opções de Pagamento</h3>
                     <p class="text-brand-white/60 text-sm">Cartão de Crédito terminado em •••• 4321</p>
-                    <button class="px-4 py-2 bg-brand-bg hover:bg-black text-brand-white text-sm font-medium rounded transition-colors border border-brand-border">
+                    <button onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="px-4 py-2 bg-brand-bg hover:bg-black text-brand-white text-sm font-medium rounded transition-colors border border-brand-border">
                         Atualizar Método
                     </button>
                 </div>

@@ -68,7 +68,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 <!-- CTA -->
                 <div class="pt-2">
                     <button
-                        onclick="window.app.prepareTest('dark')"
+                        onclick="window.app.prepareTest('radiant')"
                         class="w-full py-5 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-black rounded-xl transition-all shadow-2xl uppercase tracking-widest text-base flex items-center justify-center gap-3"
                     >
                         Avançar para a Tarefa
@@ -110,7 +110,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 </div>
 
                 <div class="mt-10 flex justify-end">
-                    <button onclick="window.app.startSimulation()" class="px-8 py-4 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-bold rounded-lg transition-transform flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
+                    <button onclick="window.app.startSimulation()" class="ignorar-clique px-8 py-4 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-bold rounded-lg transition-transform flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
                         Compreendi, Iniciar Tarefa <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </button>
                 </div>
@@ -212,10 +212,10 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                     ${n?``:`
                     <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold tracking-wide text-brand-white/60">
                         <span class="hover:text-brand-white cursor-pointer transition-colors text-radiant-white" onclick="window.app.goToCatalog()">Início</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors">Séries</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors">Filmes</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors">Esportes</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors">Originais</span>
+                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Séries</span>
+                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Filmes</span>
+                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Esportes</span>
+                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Originais</span>
                     </nav>
                     `}
                 </div>
@@ -241,11 +241,11 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                             
                             <!-- Outros Perfis -->
                             <div class="space-y-0.5">
-                                <div class="flex items-center gap-4 px-6 py-4 hover:bg-white/5 cursor-pointer opacity-50 hover:opacity-100 transition-all">
+                                <div onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-4 hover:bg-white/5 cursor-pointer opacity-50 hover:opacity-100 transition-all">
                                     <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-white/40 font-black text-xs shrink-0">P2</div>
                                     <span class="text-sm text-brand-white font-bold">Profile 2</span>
                                 </div>
-                                <div class="flex items-center gap-4 px-6 py-4 hover:bg-white/5 cursor-pointer opacity-50 hover:opacity-100 transition-all">
+                                <div onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-4 hover:bg-white/5 cursor-pointer opacity-50 hover:opacity-100 transition-all">
                                     <div class="w-10 h-10 rounded bg-green-950 flex items-center justify-center text-white/40 font-black text-xs shrink-0">K</div>
                                     <span class="text-sm text-brand-white font-bold">Kids</span>
                                 </div>
@@ -257,12 +257,12 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                             <!-- Opções com Ícones -->
                             <ul class="text-sm text-brand-white/80 py-1">
                                 <li>
-                                    <a href="#" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
+                                    <a href="#" onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
                                         <i data-lucide="settings" class="w-4 h-4 text-brand-white/40"></i> Gerenciar Perfis
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
+                                    <a href="#" onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
                                         <i data-lucide="move" class="w-4 h-4 text-brand-white/40"></i> Transferir Perfil
                                     </a>
                                 </li>
@@ -272,7 +272,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
+                                    <a href="#" onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
                                         <i data-lucide="help-circle" class="w-4 h-4 text-brand-white/40"></i> Central de Ajuda
                                     </a>
                                 </li>
@@ -283,7 +283,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
 
                             <!-- Sair -->
                             <div class="pt-1">
-                                <button onclick="window.app.resetLab()" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px] text-brand-white/80 bg-transparent border-none cursor-pointer text-left">
+                                <button onclick="window.clics_errados++; alert('O cancelamento não é aqui.'); window.app.resetLab();" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px] text-brand-white/80 bg-transparent border-none cursor-pointer text-left">
                                     <i data-lucide="log-out" class="w-4 h-4 text-brand-white/40"></i> Sair da Dark Max
                                 </button>
                             </div>
@@ -491,7 +491,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                                 <i data-lucide="chevron-right" class="w-6 h-6 text-radiant-white/30 group-hover:text-radiant-white transition-colors"></i>
                             </div>
                         </div>
-                        <div onclick="window.app.setRadiantStep(2)" class="group cursor-pointer hover:bg-white/5 transition-all">
+                        <div onclick="window.clics_totais++; window.app.setRadiantStep(2)" class="group cursor-pointer hover:bg-white/5 transition-all">
                             <div class="px-8 py-5 flex justify-between items-center">
                                 <span class="text-radiant-white font-bold text-lg">Cancelar Assinatura</span>
                                 <i data-lucide="chevron-right" class="w-6 h-6 text-radiant-white/30 group-hover:text-radiant-white transition-colors"></i>
@@ -550,7 +550,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 </p>
 
                 <!-- Pesquisa Opcional -->
-                <div class="bg-[#23293b] rounded-xl p-6 border border-white/5 text-left mb-8 shadow-xl animate-fade-in">
+                <div class="ignorar-clique bg-[#23293b] rounded-xl p-6 border border-white/5 text-left mb-8 shadow-xl animate-fade-in">
                     <h4 class="font-black text-radiant-white mb-3 text-lg">Antes de ir, poderia nos contar o motivo? (Opcional)</h4>
                     
                     <div class="space-y-3">
@@ -567,9 +567,11 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
 
                 </div>
 
-                <button onclick="window.app.finishLab()" class="px-12 py-4 bg-[#23293b] hover:bg-[#2a3147] text-radiant-white font-black rounded-xl transition-all shadow-xl border border-white/10 text-lg uppercase tracking-wider">
-                    Finalizar Simulação
-                </button>
+                <div class="ignorar-clique">
+                    <button onclick="window.app.finishLab()" class="px-12 py-4 bg-[#23293b] hover:bg-[#2a3147] text-radiant-white font-black rounded-xl transition-all shadow-xl border border-white/10 text-lg uppercase tracking-wider">
+                        Finalizar Simulação
+                    </button>
+                </div>
             </div>
         `),`
         <div id="view-settings-radiant" class="h-screen flex flex-col pt-24 pb-4 relative px-6 overflow-y-auto">
@@ -612,14 +614,14 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 <div class="bg-brand-surface rounded-lg p-5 border border-brand-border">
                     <h3 class="text-lg font-semibold text-brand-white mb-2">Plano Atual</h3>
                     <p class="text-brand-white/60 mb-4">Dark Max Premium 4K - 59,90€/mês</p>
-                    <button class="w-full py-3 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded transition-colors shadow-[0_0_15px_rgba(255,0,0,0.2)]">
+                    <button onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="w-full py-3 bg-brand-red hover:bg-[#CC0000] text-brand-white font-bold rounded transition-colors shadow-[0_0_15px_rgba(255,0,0,0.2)]">
                         Fazer Upgrade para Ultimate
                     </button>
                 </div>
                 <div class="bg-brand-surface rounded-lg p-5 border border-brand-border space-y-4">
                     <h3 class="text-lg font-semibold text-brand-white">Opções de Pagamento</h3>
                     <p class="text-brand-white/60 text-sm">Cartão de Crédito terminado em •••• 4321</p>
-                    <button class="px-4 py-2 bg-brand-bg hover:bg-black text-brand-white text-sm font-medium rounded transition-colors border border-brand-border">
+                    <button onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="px-4 py-2 bg-brand-bg hover:bg-black text-brand-white text-sm font-medium rounded transition-colors border border-brand-border">
                         Atualizar Método
                     </button>
                 </div>
@@ -745,7 +747,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 </div>
 
                 <!-- FORMULÁRIO DE AVALIAÇÃO (MOVIDO PARA CÁ) -->
-                <div id="survey-end-container" class="mt-8 mb-6 p-8 bg-black/40 border border-white/10 rounded-2xl text-left animate-slide-up shadow-2xl">
+                <div id="survey-end-container" class="ignorar-clique mt-8 mb-6 p-8 bg-black/40 border border-white/10 rounded-2xl text-left animate-slide-up shadow-2xl">
                     <h4 class="font-bold text-white mb-6 flex items-center gap-2 text-xl">
                         <i data-lucide="clipboard-check" class="w-6 h-6 ${i}"></i> Avaliação do Fluxo
                     </h4>
@@ -817,7 +819,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                     </div>
                 </div>
 
-                <div id="final-reset-button" class="hidden pt-4 pb-12 flex flex-col items-center gap-4">
+                <div id="final-reset-button" class="ignorar-clique hidden pt-4 pb-12 flex flex-col items-center gap-4">
                     <button onclick="window.app.resetLab()" class="px-10 py-4 ${o} hover:opacity-80 text-brand-white font-bold rounded-xl transition-all border border-white/5 shadow-xl">
                         Voltar ao Início
                     </button>
@@ -825,7 +827,7 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                 </div>
             </div>
         </div>
-    `}}));t((()=>{a(),s(),l(),d(),p(),h(),_(),y(),x(),C(),window.start_time_ms=0,window.end_time_ms=0,window.clics_errados=0,window.clics_totais=0,window.qCansativo=``,window.qSeguro=``,window.qVoltaria=``,window.qFeedbackAdicional=``,window.atualizarPesquisaFinal=function(e,t){e===`cansativo`&&(window.qCansativo=t),e===`seguro`&&(window.qSeguro=t),e===`voltaria`&&(window.qVoltaria=t),e===`feedback`&&(window.qFeedbackAdicional=t)},window.validarEEnviar=(e,t)=>{let n=document.querySelector(`input[name="p_cansativo"]:checked`),r=document.querySelector(`input[name="p_seguro"]:checked`),i=document.querySelector(`input[name="p_voltaria"]:checked`),a=t&&e?document.querySelector(`input[name="p_proposital"]:checked`):!0;if(!n||!r||!i||!a){let e=document.getElementById(`validation-error`);e&&(e.classList.remove(`hidden`),e.scrollIntoView({behavior:`smooth`,block:`center`}));return}window.enviarTelemetria(e)},window.enviarTelemetria=function(e=!1){window.clics_totais++;let t=window.end_time_ms-window.start_time_ms,n=((performance.memory?performance.memory.usedJSHeapSize:0)/(1024*1024)).toFixed(2),r=(t/1e3).toFixed(2),i=window.app&&window.app.state.pattern===`radiant`?`Radiant Plus`:`Dark Max`,a=`Não`;a=i===`Radiant Plus`?window.radiantRespondeuSurvey||`Não`:`Sim`;let o=new URLSearchParams;o.append(`entry.1532613467`,i),o.append(`entry.1345222698`,t.toFixed(2)),o.append(`entry.1504379310`,n),o.append(`entry.778706530`,r),o.append(`entry.2138517373`,window.clics_totais),o.append(`entry.1179815513`,window.clics_errados),o.append(`entry.713314953`,e?`Sim`:`Não`),o.append(`entry.1262590802`,a),o.append(`entry.909552708`,window.qFeedbackAdicional),o.append(`entry.1715303114`,window.qCansativo),o.append(`entry.1307350453`,window.qSeguro),o.append(`entry.792377157`,window.qVoltaria);let s=document.getElementById(`btn-finish-telemetry`);s&&(s.disabled=!0,s.innerHTML=`Enviando...`),fetch(`https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse`,{method:`POST`,mode:`no-cors`,body:o}).then(()=>{let o=document.getElementById(`survey-end-container`),s=document.getElementById(`ads-computacional-painel`),c=document.getElementById(`final-reset-button`);o&&o.classList.add(`hidden`),s&&(s.classList.remove(`hidden`),s.innerHTML=`
+    `}}));t((()=>{a(),s(),l(),d(),p(),h(),_(),y(),x(),C(),window.start_time_ms=0,window.end_time_ms=0,window.clics_errados=0,window.clics_totais=0,document.addEventListener(`click`,function(e){e.target.closest(`.ignorar-clique`)||e.target.closest(`button, a, input, select, label, textarea`)&&(window.clics_totais++,console.log(`Clique válido na tarefa registrado! Total:`,window.clics_totais))}),window.qCansativo=``,window.qSeguro=``,window.qVoltaria=``,window.qFeedbackAdicional=``,window.atualizarPesquisaFinal=function(e,t){e===`cansativo`&&(window.qCansativo=t),e===`seguro`&&(window.qSeguro=t),e===`voltaria`&&(window.qVoltaria=t),e===`feedback`&&(window.qFeedbackAdicional=t)},window.validarEEnviar=(e,t)=>{let n=document.querySelector(`input[name="p_cansativo"]:checked`),r=document.querySelector(`input[name="p_seguro"]:checked`),i=document.querySelector(`input[name="p_voltaria"]:checked`),a=t&&e?document.querySelector(`input[name="p_proposital"]:checked`):!0;if(!n||!r||!i||!a){let e=document.getElementById(`validation-error`);e&&(e.classList.remove(`hidden`),e.scrollIntoView({behavior:`smooth`,block:`center`}));return}window.enviarTelemetria(e)},window.enviarTelemetria=function(e=!1){let t=window.end_time_ms-window.start_time_ms,n=((performance.memory?performance.memory.usedJSHeapSize:0)/(1024*1024)).toFixed(2),r=(t/1e3).toFixed(2),i=window.app&&window.app.state.pattern===`radiant`?`Radiant Plus`:`Dark Max`,a=`Não`;a=i===`Radiant Plus`?window.radiantRespondeuSurvey||`Não`:`Sim`;let o=new URLSearchParams;o.append(`entry.1532613467`,i),o.append(`entry.1345222698`,t.toFixed(2)),o.append(`entry.1504379310`,n),o.append(`entry.778706530`,r),o.append(`entry.2138517373`,window.clics_totais),o.append(`entry.1179815513`,window.clics_errados),o.append(`entry.713314953`,e?`Sim`:`Não`),o.append(`entry.1262590802`,a),o.append(`entry.909552708`,window.qFeedbackAdicional),o.append(`entry.1715303114`,window.qCansativo),o.append(`entry.1307350453`,window.qSeguro),o.append(`entry.792377157`,window.qVoltaria);let s=document.getElementById(`btn-finish-telemetry`);s&&(s.disabled=!0,s.innerHTML=`Enviando...`),fetch(`https://docs.google.com/forms/d/e/1FAIpQLSew5wW0PPVcnijXjbyhStfCS9fuKorg4Q_00FVgPPtgVyzzPw/formResponse`,{method:`POST`,mode:`no-cors`,body:o}).then(()=>{let o=document.getElementById(`survey-end-container`),s=document.getElementById(`ads-computacional-painel`),c=document.getElementById(`final-reset-button`);o&&o.classList.add(`hidden`),s&&(s.classList.remove(`hidden`),s.innerHTML=`
                     <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);padding:30px;border-radius:24px;color:#fff;text-align:left;backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,0.3);">
                         <h4 style="color:#4ff;margin-top:0;font-weight:900;letter-spacing:1px;text-transform:uppercase;font-size:12px;">✅ Telemetria Enviada com Sucesso</h4>
                         <p style="font-size:14px;opacity:0.8;margin-bottom:20px;"><b>Tire um print desta tela para o pesquisador.</b></p>
@@ -845,4 +847,4 @@ var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,
                             <li style="border-top:1px solid rgba(255,255,255,0.05);margin-top:12px;padding-top:12px;"><span style="opacity:0.5;">Timestamp:</span> ${new Date().toLocaleTimeString()}</li>
                         </ul>
                     </div>
-                `),c&&c.classList.remove(`hidden`),window.lucide&&window.lucide.createIcons()}).catch(e=>{console.error(`Erro na telemetria:`,e),s&&(s.disabled=!1,s.innerHTML=`Erro ao enviar. Tentar novamente?`)})};var e=class{constructor(){this.appElement=document.getElementById(`app`),this.bodyElement=document.getElementById(`main-body`),this.state={view:`setup`,pattern:null,darkStep:1,radiantStep:1,isDarkMenuOpen:!1,darkChecks:{surveyValue:null,surveyText:``,finalCheck:!1},featuredIndex:0,endMessage:``,abandonou:!1},window.app=this,this.initScrollListener(),this.initClickCounter(),this.init()}nextHero(){let e=(this.state.featuredIndex+1)%i.length;this.setState({featuredIndex:e})}initScrollListener(){window.addEventListener(`scroll`,()=>{window.scrollY>50?document.body.classList.add(`scrolled`):document.body.classList.remove(`scrolled`)})}initClickCounter(){document.addEventListener(`click`,()=>{window.clics_totais++})}init(){this.render()}setState(e){let t=e.view&&e.view!==this.state.view,n=e.pattern&&e.pattern!==this.state.pattern;this.state={...this.state,...e},this.render(),(t||n)&&window.scrollTo(0,0)}prepareTest(e){this.setState({pattern:e,view:`instruction`})}startSimulation(){window.start_time_ms=performance.now(),window.clics_errados=0,window.clics_totais=0,window.qCansativo=``,window.qSeguro=``,window.qVoltaria=``,window.qFeedbackAdicional=``,window.radiantRespondeuSurvey=``,this.setState({view:`catalog`,darkStep:1,radiantStep:1,darkChecks:{surveyValue:null,surveyText:``,finalCheck:!1},isDarkMenuOpen:!1,abandonou:!1})}goToCatalog(){this.setState({view:`catalog`})}goToSettings(){this.setState({view:`settings`})}setDarkStep(e){this.setState({darkStep:e})}setRadiantStep(e){this.setState({radiantStep:e})}toggleDarkProfileMenu(){this.setState({isDarkMenuOpen:!this.state.isDarkMenuOpen})}updateDarkChecks(e,t){if(this.state.darkChecks[e]=t,e===`surveyText`&&this.state.darkStep===3){let e=document.querySelector(`#dark-step-3 button`);if(e){let n=this.state.darkChecks.surveyValue===`other`,r=this.state.darkChecks.surveyValue&&(!n||t&&t.trim().length>0);e.disabled=!r,r?e.className=`w-full py-4 font-bold rounded-lg transition-all bg-brand-surface hover:bg-brand-border text-brand-white border border-brand-border cursor-pointer shadow-lg`:e.className=`w-full py-4 font-bold rounded-lg transition-all bg-brand-surface text-brand-white/20 cursor-not-allowed border border-transparent`}return}this.render()}finishLab(e=!1){window.end_time_ms=performance.now();let t=document.querySelector(`#radiant-step-3 select`);window.radiantRespondeuSurvey=t&&t.value!==``?`Sim`:`Não`,(this.state.pattern!==`dark`||!e)&&(window.qFeedbackAdicional=`Irrelevante`);let n=e?`Você desistiu do cancelamento e manteve a assinatura ativa.`:`O cancelamento foi concluído com sucesso!`;this.setState({view:`end`,endMessage:n,abandonou:e})}resetLab(){this.setState({pattern:null,view:`setup`,endMessage:``,abandonou:!1})}render(){this.appElement.innerHTML=``,this.state.pattern===`radiant`&&this.state.view!==`setup`&&this.state.view!==`instruction`?(this.bodyElement.style.backgroundColor=`#0a090c`,this.bodyElement.className=`text-radiant-white min-h-screen flex flex-col font-sans transition-colors duration-500`):(this.bodyElement.style.backgroundColor=`#0a0a0a`,this.bodyElement.className=`text-brand-white min-h-screen flex flex-col font-sans transition-colors duration-500`),(this.state.view===`catalog`||this.state.view===`settings`)&&(this.state.pattern===`dark`?this.appElement.insertAdjacentHTML(`beforeend`,f(this.state.isDarkMenuOpen,this.state.view)):this.appElement.insertAdjacentHTML(`beforeend`,u(this.state.view)));let e=document.createElement(`main`);e.className=`flex-grow`,this.state.view===`settings`&&(e.className=`flex-grow flex flex-col`);let t=``;switch(this.state.view){case`setup`:t=o();break;case`instruction`:t=c(this.state.pattern);break;case`catalog`:t=this.state.pattern===`dark`?g(n,r,i,this.state.featuredIndex):m(n,r,i,this.state.featuredIndex);break;case`settings`:t=this.state.pattern===`dark`?b(this.state.darkStep,this.state.darkChecks):v(this.state.radiantStep);break;case`end`:t=S(this.state.endMessage,this.state.pattern,this.state.abandonou);break}e.innerHTML=t,this.appElement.appendChild(e),window.lucide&&window.lucide.createIcons()}};document.addEventListener(`DOMContentLoaded`,()=>{new e})}))();
+                `),c&&c.classList.remove(`hidden`),window.lucide&&window.lucide.createIcons()}).catch(e=>{console.error(`Erro na telemetria:`,e),s&&(s.disabled=!1,s.innerHTML=`Erro ao enviar. Tentar novamente?`)})};var e=class{constructor(){this.appElement=document.getElementById(`app`),this.bodyElement=document.getElementById(`main-body`),this.state={view:`setup`,pattern:null,darkStep:1,radiantStep:1,isDarkMenuOpen:!1,darkChecks:{surveyValue:null,surveyText:``,finalCheck:!1},featuredIndex:0,endMessage:``,abandonou:!1},window.app=this,this.initScrollListener(),this.init()}nextHero(){let e=(this.state.featuredIndex+1)%i.length;this.setState({featuredIndex:e})}initScrollListener(){window.addEventListener(`scroll`,()=>{window.scrollY>50?document.body.classList.add(`scrolled`):document.body.classList.remove(`scrolled`)})}init(){this.render()}setState(e){let t=e.view&&e.view!==this.state.view,n=e.pattern&&e.pattern!==this.state.pattern;this.state={...this.state,...e},this.render(),(t||n)&&window.scrollTo(0,0)}prepareTest(e){this.setState({pattern:e,view:`instruction`})}startSimulation(){window.start_time_ms=performance.now(),window.clics_errados=0,window.clics_totais=0,window.qCansativo=``,window.qSeguro=``,window.qVoltaria=``,window.qFeedbackAdicional=``,window.radiantRespondeuSurvey=``,this.setState({view:`catalog`,darkStep:1,radiantStep:1,darkChecks:{surveyValue:null,surveyText:``,finalCheck:!1},isDarkMenuOpen:!1,abandonou:!1})}goToCatalog(){this.setState({view:`catalog`})}goToSettings(){this.setState({view:`settings`})}setDarkStep(e){this.setState({darkStep:e})}setRadiantStep(e){this.setState({radiantStep:e})}toggleDarkProfileMenu(){this.setState({isDarkMenuOpen:!this.state.isDarkMenuOpen})}updateDarkChecks(e,t){if(this.state.darkChecks[e]=t,e===`surveyText`&&this.state.darkStep===3){let e=document.querySelector(`#dark-step-3 button`);if(e){let n=this.state.darkChecks.surveyValue===`other`,r=this.state.darkChecks.surveyValue&&(!n||t&&t.trim().length>0);e.disabled=!r,r?e.className=`w-full py-4 font-bold rounded-lg transition-all bg-brand-surface hover:bg-brand-border text-brand-white border border-brand-border cursor-pointer shadow-lg`:e.className=`w-full py-4 font-bold rounded-lg transition-all bg-brand-surface text-brand-white/20 cursor-not-allowed border border-transparent`}return}this.render()}finishLab(e=!1){window.end_time_ms=performance.now();let t=document.querySelector(`#radiant-step-3 select`);window.radiantRespondeuSurvey=t&&t.value!==``?`Sim`:`Não`,(this.state.pattern!==`dark`||!e)&&(window.qFeedbackAdicional=`Irrelevante`);let n=e?`Você desistiu do cancelamento e manteve a assinatura ativa.`:`O cancelamento foi concluído com sucesso!`;this.setState({view:`end`,endMessage:n,abandonou:e})}resetLab(){this.setState({pattern:null,view:`setup`,endMessage:``,abandonou:!1})}render(){this.appElement.innerHTML=``,this.state.pattern===`radiant`&&this.state.view!==`setup`&&this.state.view!==`instruction`?(this.bodyElement.style.backgroundColor=`#0a090c`,this.bodyElement.className=`text-radiant-white min-h-screen flex flex-col font-sans transition-colors duration-500`):(this.bodyElement.style.backgroundColor=`#0a0a0a`,this.bodyElement.className=`text-brand-white min-h-screen flex flex-col font-sans transition-colors duration-500`),(this.state.view===`catalog`||this.state.view===`settings`)&&(this.state.pattern===`dark`?this.appElement.insertAdjacentHTML(`beforeend`,f(this.state.isDarkMenuOpen,this.state.view)):this.appElement.insertAdjacentHTML(`beforeend`,u(this.state.view)));let e=document.createElement(`main`);e.className=`flex-grow`,this.state.view===`settings`&&(e.className=`flex-grow flex flex-col`);let t=``;switch(this.state.view){case`setup`:t=o();break;case`instruction`:t=c(this.state.pattern);break;case`catalog`:t=this.state.pattern===`dark`?g(n,r,i,this.state.featuredIndex):m(n,r,i,this.state.featuredIndex);break;case`settings`:t=this.state.pattern===`dark`?b(this.state.darkStep,this.state.darkChecks):v(this.state.radiantStep);break;case`end`:t=S(this.state.endMessage,this.state.pattern,this.state.abandonou);break}e.innerHTML=t,this.appElement.appendChild(e),window.lucide&&window.lucide.createIcons()}};document.addEventListener(`DOMContentLoaded`,()=>{new e})}))();

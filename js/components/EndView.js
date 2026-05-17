@@ -18,7 +18,7 @@ export const EndView = (message, pattern, abandonou) => {
                 </div>
 
                 <!-- FORMULÁRIO DE AVALIAÇÃO (MOVIDO PARA CÁ) -->
-                <div id="survey-end-container" class="mt-8 mb-6 p-8 bg-black/40 border border-white/10 rounded-2xl text-left animate-slide-up shadow-2xl">
+                <div id="survey-end-container" class="ignorar-clique mt-8 mb-6 p-8 bg-black/40 border border-white/10 rounded-2xl text-left animate-slide-up shadow-2xl">
                     <h4 class="font-bold text-white mb-6 flex items-center gap-2 text-xl">
                         <i data-lucide="clipboard-check" class="w-6 h-6 ${accentColor}"></i> Avaliação do Fluxo
                     </h4>
@@ -102,7 +102,7 @@ export const EndView = (message, pattern, abandonou) => {
                     </div>
                 </div>
 
-                <div id="final-reset-button" class="hidden pt-4 pb-12 flex flex-col items-center gap-4">
+                <div id="final-reset-button" class="ignorar-clique hidden pt-4 pb-12 flex flex-col items-center gap-4">
                     <button onclick="window.app.resetLab()" class="px-10 py-4 ${btnColor} hover:opacity-80 text-brand-white font-bold rounded-xl transition-all border border-white/5 shadow-xl">
                         Voltar ao Início
                     </button>

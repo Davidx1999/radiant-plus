@@ -18,6 +18,22 @@ window.end_time_ms = 0;
 window.clics_errados = 0;
 window.clics_totais = 0;
 
+// Escutador inteligente de cliques reais atualizado
+document.addEventListener('click', function(evento) {
+    // 1. Se o clique acontecer dentro de uma área marcada com 'ignorar-clique', o código para e não conta.
+    if (evento.target.closest('.ignorar-clique')) {
+        return; 
+    }
+
+    // 2. Conta apenas elementos interativos da tarefa
+    const clicouEmElementoInterativo = evento.target.closest('button, a, input, select, label, textarea');
+    
+    if (clicouEmElementoInterativo) {
+        window.clics_totais++;
+        console.log("Clique válido na tarefa registrado! Total:", window.clics_totais);
+    }
+});
+
 // Variáveis de Avaliação Pós-Tarefa
 window.qCansativo = "";
 window.qSeguro = "";
@@ -53,8 +69,6 @@ window.validarEEnviar = (abandonou, isDark) => {
 // FUNÇÃO GLOBAL DE ENVIO DE TELEMETRIA (GOOGLE FORMS)
 // =====================================================
 window.enviarTelemetria = function(usuarioAbandonou = false) {
-    // Garante que o último clique seja contado
-    window.clics_totais++; 
 
     // Dados Computacionais
     const tempo_cpu = window.end_time_ms - window.start_time_ms;
@@ -164,7 +178,6 @@ class App {
 
         window.app = this;
         this.initScrollListener();
-        this.initClickCounter();
         this.init();
     }
 
@@ -181,12 +194,6 @@ class App {
             } else {
                 document.body.classList.remove('scrolled');
             }
-        });
-    }
-
-    initClickCounter() {
-        document.addEventListener('click', () => {
-            window.clics_totais++;
         });
     }
 

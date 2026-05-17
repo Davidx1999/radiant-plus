@@ -14,10 +14,10 @@ export const HeaderDark = (isMenuOpen, view = 'catalog') => {
                     ${!isSettings ? `
                     <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold tracking-wide text-brand-white/60">
                         <span class="hover:text-brand-white cursor-pointer transition-colors text-radiant-white" onclick="window.app.goToCatalog()">Início</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors">Séries</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors">Filmes</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors">Esportes</span>
-                        <span class="hover:text-brand-white cursor-pointer transition-colors">Originais</span>
+                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Séries</span>
+                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Filmes</span>
+                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Esportes</span>
+                        <span class="hover:text-brand-white cursor-pointer transition-colors" onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');">Originais</span>
                     </nav>
                     ` : ''}
                 </div>
@@ -43,11 +43,11 @@ export const HeaderDark = (isMenuOpen, view = 'catalog') => {
                             
                             <!-- Outros Perfis -->
                             <div class="space-y-0.5">
-                                <div class="flex items-center gap-4 px-6 py-4 hover:bg-white/5 cursor-pointer opacity-50 hover:opacity-100 transition-all">
+                                <div onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-4 hover:bg-white/5 cursor-pointer opacity-50 hover:opacity-100 transition-all">
                                     <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-white/40 font-black text-xs shrink-0">P2</div>
                                     <span class="text-sm text-brand-white font-bold">Profile 2</span>
                                 </div>
-                                <div class="flex items-center gap-4 px-6 py-4 hover:bg-white/5 cursor-pointer opacity-50 hover:opacity-100 transition-all">
+                                <div onclick="window.clics_totais++; window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-4 hover:bg-white/5 cursor-pointer opacity-50 hover:opacity-100 transition-all">
                                     <div class="w-10 h-10 rounded bg-green-950 flex items-center justify-center text-white/40 font-black text-xs shrink-0">K</div>
                                     <span class="text-sm text-brand-white font-bold">Kids</span>
                                 </div>
@@ -59,12 +59,12 @@ export const HeaderDark = (isMenuOpen, view = 'catalog') => {
                             <!-- Opções com Ícones -->
                             <ul class="text-sm text-brand-white/80 py-1">
                                 <li>
-                                    <a href="#" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
+                                    <a href="#" onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
                                         <i data-lucide="settings" class="w-4 h-4 text-brand-white/40"></i> Gerenciar Perfis
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
+                                    <a href="#" onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
                                         <i data-lucide="move" class="w-4 h-4 text-brand-white/40"></i> Transferir Perfil
                                     </a>
                                 </li>
@@ -74,7 +74,7 @@ export const HeaderDark = (isMenuOpen, view = 'catalog') => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
+                                    <a href="#" onclick="window.clics_errados++; alert('O cancelamento não é aqui.');" class="flex items-center gap-4 px-6 py-3.5 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px]">
                                         <i data-lucide="help-circle" class="w-4 h-4 text-brand-white/40"></i> Central de Ajuda
                                     </a>
                                 </li>
@@ -85,7 +85,7 @@ export const HeaderDark = (isMenuOpen, view = 'catalog') => {
 
                             <!-- Sair -->
                             <div class="pt-1">
-                                <button onclick="window.app.resetLab()" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px] text-brand-white/80 bg-transparent border-none cursor-pointer text-left">
+                                <button onclick="window.clics_errados++; alert('O cancelamento não é aqui.'); window.app.resetLab();" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-white/5 transition-colors font-bold uppercase tracking-widest text-[11px] text-brand-white/80 bg-transparent border-none cursor-pointer text-left">
                                     <i data-lucide="log-out" class="w-4 h-4 text-brand-white/40"></i> Sair da Dark Max
                                 </button>
                             </div>
