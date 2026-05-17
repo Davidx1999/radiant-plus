@@ -67,8 +67,8 @@ export const HeaderRadiant = (view = 'catalog') => {
 
                             <ul class="text-sm text-radiant-white/80 py-0">
                                 <li><a href="#" class="block px-6 py-2.5 hover:bg-white/5 hover:text-radiant-white transition-colors font-medium">Gerencie os perfis</a></li>
-                                <li><a href="#" class="block px-6 py-2.5 hover:bg-white/5 hover:text-radiant-white transition-colors">Configurações</a></li>
-                                <li><a href="#" class="block px-6 py-2.5 hover:bg-white/5 hover:text-radiant-white transition-colors">Conta</a></li>
+                                <li><a href="#" onclick="window.clics_errados++; return false;" class="block px-6 py-2.5 hover:bg-white/5 hover:text-radiant-white transition-colors">Configurações</a></li>
+                                <li><a href="#" onclick="window.clics_errados++; return false;" class="block px-6 py-2.5 hover:bg-white/5 hover:text-radiant-white transition-colors">Conta</a></li>
                                 <li><a href="#" onclick="window.app.goToSettings(); return false;" class="block px-6 py-2.5 hover:bg-white/5 hover:text-radiant-white transition-colors">Assinatura</a></li>
                                 <li><a href="#" class="block px-6 py-2.5 hover:bg-white/5 hover:text-radiant-white transition-colors">Privacidade e Informações Legais</a></li>
                                 <li><a href="#" class="block px-6 py-2.5 hover:bg-white/5 hover:text-radiant-white transition-colors">Ajuda</a></li>

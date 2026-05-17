@@ -24,7 +24,7 @@ export const SettingsRadiant = (step) => {
                     </div>
 
                     <div class="border-t border-white/5">
-                        <div class="group cursor-pointer hover:bg-white/5 transition-all border-b border-white/5">
+                        <div onclick="window.clics_totais++; window.clics_errados++;" class="group cursor-pointer hover:bg-white/5 transition-all border-b border-white/5">
                             <div class="px-8 py-5 flex justify-between items-center">
                                 <span class="text-radiant-white font-bold text-lg">Alterar Plano</span>
                                 <i data-lucide="chevron-right" class="w-6 h-6 text-radiant-white/30 group-hover:text-radiant-white transition-colors"></i>
@@ -72,7 +72,7 @@ export const SettingsRadiant = (step) => {
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="window.app.finishLab(true)" class="px-8 py-4 border border-white/20 text-radiant-white hover:bg-white/5 font-bold rounded-xl transition-all text-lg">
+                    <button onclick="window.clics_errados++; window.app.setRadiantStep(1)" class="px-8 py-4 border border-white/20 text-radiant-white hover:bg-white/5 font-bold rounded-xl transition-all text-lg">
                         Manter Assinatura
                     </button>
                     <button onclick="window.app.setRadiantStep(3)" class="px-8 py-4 bg-radiant-blue hover:bg-radiant-blue/80 text-white font-bold rounded-xl transition-all shadow-lg shadow-radiant-blue/20 text-lg">
