@@ -103,6 +103,7 @@ window.enviarTelemetria = function(usuarioAbandonou = false) {
 
     fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: dados })
         .then(() => {
+            localStorage.setItem('testeConcluido', 'true');
             const surveyContainer = document.getElementById('survey-end-container');
             const adsPanel = document.getElementById('ads-computacional-painel');
             const resetBtn = document.getElementById('final-reset-button');
@@ -309,5 +310,10 @@ class App {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('testeConcluido') === 'true') {
+        document.body.innerHTML = "<div class='min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8'><h1 class='text-brand-white text-3xl font-bold text-center'>Você já participou deste experimento. Obrigado!</h1></div>";
+        alert("Teste já realizado. Obrigado pela sua contribuição!");
+        return;
+    }
     new App();
 });
