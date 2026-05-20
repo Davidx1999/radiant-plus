@@ -106,7 +106,6 @@ window.enviarTelemetria = function(usuarioAbandonou = false) {
             localStorage.setItem('testeConcluido', 'true');
             const surveyContainer = document.getElementById('survey-end-container');
             const adsPanel = document.getElementById('ads-computacional-painel');
-            const resetBtn = document.getElementById('final-reset-button');
             
             if (surveyContainer) surveyContainer.classList.add('hidden');
             if (adsPanel) {
@@ -133,7 +132,6 @@ window.enviarTelemetria = function(usuarioAbandonou = false) {
                     </div>
                 `;
             }
-            if (resetBtn) resetBtn.classList.remove('hidden');
             if (window.lucide) window.lucide.createIcons();
         })
         .catch((erro) => {

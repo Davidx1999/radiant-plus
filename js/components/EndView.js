@@ -85,10 +85,7 @@ export const EndView = (message, pattern, abandonou) => {
                     </div>
                 </div>
 
-                <div id="final-reset-button" class="ignorar-clique hidden pt-4 pb-12 flex flex-col items-center gap-4">
-                    <button onclick="window.app.resetLab()" class="px-10 py-4 ${btnColor} hover:opacity-80 text-brand-white font-bold rounded-xl transition-all border border-white/5 shadow-xl">
-                        Voltar ao Início
-                    </button>
+                <div class="pt-4 pb-12 flex flex-col items-center gap-4">
                     <p class="text-brand-white/20 text-[10px] uppercase tracking-[0.3em]">Radiant Plus v1.0.0 • Simulation Lab</p>
                 </div>
             </div>
