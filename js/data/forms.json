@@ -73,7 +73,7 @@
         ]
     },
     "formulario": {
-        "titulo": "Formulário visível ao usuário",
+        "titulo": "Perfil do Usuário",
         "visivel_ao_usuario": true,
         "secoes": [
             {

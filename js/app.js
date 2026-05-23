@@ -153,29 +153,14 @@ window.validateCurrentSection = () => {
 };
 
 window.surveyNextPage = () => {
-    const validationError = document.getElementById('survey-validation-error');
-    if (validationError) validationError.classList.add('hidden');
-    
-    if (!window.validateCurrentSection()) {
-        if (validationError) validationError.classList.remove('hidden');
-        return;
-    }
-    
-    if (window.currentSectionIndex < window.visibleSections.length - 1) {
-        window.currentSectionIndex++;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        window.renderSection();
+    if (window.app && typeof window.app.surveyNextPage === 'function') {
+        window.app.surveyNextPage();
     }
 };
 
 window.surveyPrevPage = () => {
-    const validationError = document.getElementById('survey-validation-error');
-    if (validationError) validationError.classList.add('hidden');
-    
-    if (window.currentSectionIndex > 0) {
-        window.currentSectionIndex--;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        window.renderSection();
+    if (window.app && typeof window.app.surveyPrevPage === 'function') {
+        window.app.surveyPrevPage();
     }
 };
 
@@ -684,6 +669,33 @@ class App {
                     screenRejected.classList.add('active');
                 }
             }, 300);
+        }
+    }
+
+    surveyNextPage() {
+        const validationError = document.getElementById('survey-validation-error');
+        if (validationError) validationError.classList.add('hidden');
+        
+        if (!window.validateCurrentSection()) {
+            if (validationError) validationError.classList.remove('hidden');
+            return;
+        }
+        
+        if (window.currentSectionIndex < window.visibleSections.length - 1) {
+            window.currentSectionIndex++;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.renderSection();
+        }
+    }
+
+    surveyPrevPage() {
+        const validationError = document.getElementById('survey-validation-error');
+        if (validationError) validationError.classList.add('hidden');
+        
+        if (window.currentSectionIndex > 0) {
+            window.currentSectionIndex--;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.renderSection();
         }
     }
 
