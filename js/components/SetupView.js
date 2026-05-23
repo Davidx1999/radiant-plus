@@ -1,86 +1,49 @@
 export const SetupView = () => {
     return `
-        <div class="min-h-screen flex items-center justify-center p-6 animate-fade-in bg-brand-bg">
-            <div class="max-w-2xl w-full space-y-6 py-12">
-
-                <!-- Header -->
-                <div class="text-center space-y-4 mb-2">
-                    <span class="inline-block text-xs font-black uppercase tracking-[0.3em] text-brand-white/80 bg-white/10 px-4 py-2 rounded-full">
-                        Estudo de Usabilidade
-                    </span>
-                    <h1 class="text-4xl sm:text-5xl font-black text-brand-white tracking-tighter leading-tight">
-                        Olá! Seja muito <span class="text-brand-white/60">bem-vindo(a)</span>.
-                    </h1>
-                    <p class="text-brand-white/80 text-base leading-relaxed text-justify w-full">
-                        Você foi convidado a nos ajudar em uma pesquisa de avaliação de desempenho. Para começar, navegue com tranquilidade: leia as telas se achar necessário e interaja com total naturalidade. Lembramos de que não existem respostas certas ou erradas.
-                    </p>
-                </div>
-
-                <!-- O que acontece a seguir? -->
-                <div class="bg-[#1a1f2e] rounded-2xl border border-white/5 p-8 shadow-2xl space-y-5">
-                    <div class="flex items-center gap-3 mb-1">
-                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center shrink-0">
-                            <i data-lucide="help-circle" class="text-brand-white w-5 h-5"></i>
-                        </div>
-                        <h2 class="text-xl font-black text-brand-white tracking-tight">O que acontece a seguir?</h2>
-                    </div>
+        <div class="flex-grow flex items-center justify-center p-4 sm:p-6 w-full max-w-4xl mx-auto animate-fade-in">
+            <div class="w-full bg-white shadow-xl rounded-2xl overflow-hidden relative min-h-[400px]">
+                <div id="screen-intro" class="p-8 sm:p-12">
+                    <header class="mb-8 border-b border-gray-100 pb-6 text-center">
+                        <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold tracking-wide mb-3">Pesquisa Acadêmica</span>
+                        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Avaliação de Usabilidade em Interfaces Web</h1>
+                    </header>
                     
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-brand-white">
-                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
-                            </div>
-                            <p class="text-brand-white/80 text-sm leading-relaxed">
-                                <strong class="text-brand-white font-bold">Ao concluir:</strong> pedimos que responda a apenas 3 perguntas rápidas de múltipla escolha para avaliar sua experiência.
-                            </p>
-                        </div>
+                    <div class="prose prose-blue max-w-none text-gray-600 space-y-6 text-base sm:text-lg leading-relaxed">
+                        <p>Você está sendo convidado(a) a participar de um estudo acadêmico conduzida por estudantes da <strong>Universidade Federal do Ceará (UFC)</strong>, vinculado à disciplina de Avaliação de Desempenho de Sistemas Computacionais de 2026.1.</p>
                         
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-brand-white">
-                                <i data-lucide="x" class="w-3.5 h-3.5"></i>
-                            </div>
-                            <p class="text-brand-white/80 text-sm leading-relaxed">
-                                <strong class="text-brand-white font-bold">Se quiser parar:</strong> se preferir desistir no meio do caminho, não há problema nenhum.
-                            </p>
+                        <div>
+                            <h3 class="text-gray-900 font-semibold text-xl mb-2 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                O que vou fazer?
+                            </h3>
+                            <p>Você acessará um simulador web que reproduz o funcionamento de plataformas de entretenimento digital para realizar uma tarefa comum de navegação orientada pelo sistema. Em seguida, responderá a um breve questionário de percepção. O tempo total estimado é de <strong>3 a 5 minutos</strong>.</p>
                         </div>
 
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-brand-white">
-                                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                            </div>
-                            <p class="text-brand-white/80 text-sm leading-relaxed">
-                                <strong class="text-brand-white font-bold">Dica de ouro:</strong> Estamos testando a funcionalidade, não você. Toda ajuda é muito bem-vinda!
-                            </p>
+                        <div>
+                            <h3 class="text-gray-900 font-semibold text-xl mb-2 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                Privacidade e Anonimato
+                            </h3>
+                            <p>Em estrita conformidade com a LGPD (Lei nº 13.709/2018), esta aplicação não coleta nenhum dado de identificação pessoal (como nome, e-mail, IP, áudio ou imagem). O sistema registrará exclusivamente dados técnicos de desempenho e métricas passivas de interação (como tempo de resposta e contagem de cliques na tela).</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-900 font-semibold text-xl mb-2 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                Voluntariado
+                            </h3>
+                            <p>Sua participação é inteiramente voluntária. Você pode desistir e fechar a aba do navegador a qualquer momento, sem qualquer tipo de justificativa ou penalidade.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Informações de Privacidade -->
-                <div class="bg-[#1a1f2e] rounded-2xl border border-white/5 p-6 flex gap-4">
-                    <i data-lucide="shield-check" class="text-brand-white/80 w-6 h-6 shrink-0 mt-0.5"></i>
-                    <div class="space-y-1">
-                        <p class="text-brand-white/90 text-sm font-black uppercase tracking-widest">Informações de Privacidade</p>
-                        <p class="text-brand-white/70 text-sm leading-relaxed">
-                            Nenhum dado pessoal seu será coletado ou identificado. Este estudo registra apenas métricas de interação anônimas (como o número de cliques e o tempo de conclusão da tarefa), exclusivamente para fins de pesquisa científica no âmbito de um projeto acadêmico.
-                        </p>
+                    <div class="mt-10 pt-6 border-t border-gray-100 flex flex-col items-center">
+                        <p class="text-sm text-gray-500 mb-4 text-center max-w-lg">Ao clicar em avançar, você declara ser <strong>maior de 18 anos</strong> e autoriza o início da atividade sob estas condições de privacidade.</p>
+                        <button onclick="window.app.prepareTest('radiant')" class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-medium text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center">
+                            Avançar para a Tarefa
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
                     </div>
                 </div>
-
-                <!-- CTA -->
-                <div class="pt-2">
-                    <button
-                        onclick="window.app.prepareTest('radiant')"
-                        class="w-full py-5 bg-brand-white hover:bg-brand-white/95 text-[#0a0a0a] font-black rounded-xl transition-all shadow-2xl uppercase tracking-widest text-base flex items-center justify-center gap-3"
-                    >
-                        Avançar para a Tarefa
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </button>
-                </div>
-
-                <div class="text-center opacity-20 hover:opacity-40 transition-opacity pt-2">
-                    <p class="text-xs font-medium uppercase tracking-[0.3em] text-brand-white">Experiment v1.0.0 • Simulation Lab</p>
-                </div>
-
             </div>
         </div>
     `;

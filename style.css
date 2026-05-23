@@ -123,3 +123,75 @@
     backdrop-filter: blur(12px);
     border-bottom-color: rgba(144, 221, 240, 0.1);
 }
+
+/* Custom Radio Style - Neutral Theme */
+.survey-radio {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #000000 !important;
+    margin: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 1px solid #d1d5db !important; /* borda cinza pro claro */
+    border-radius: 50%;
+    display: inline-grid;
+    place-content: center;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.survey-radio:hover {
+    border-color: #fcfcfc !important;
+}
+
+.survey-radio::before {
+    content: "";
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: #fcfcfc !important; /* elippse de marcado deve ser um branco #fcfcfc */
+}
+
+.survey-radio:checked::before {
+    transform: scale(1);
+}
+
+.survey-radio:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes revealUp {
+    0% {
+        clip-path: inset(100% 0 0 0);
+    }
+    100% {
+        clip-path: inset(0% 0 0 0);
+    }
+}
+
+.animate-reveal-up {
+    animation: revealUp 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Custom radio buttons styles */
+.radio-custom:checked + div {
+    border-color: #2563eb; /* blue-600 */
+    background-color: #eff6ff; /* blue-50 */
+}
+.radio-custom:checked + div .radio-dot-container {
+    border-color: #2563eb;
+}
+.radio-custom:checked + div .radio-dot {
+    transform: scale(1);
+    background-color: #2563eb;
+}
+
+/* Likert Scale styles */
+.likert-radio:checked + label {
+    background-color: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}

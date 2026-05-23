@@ -75,7 +75,7 @@ export const SettingsRadiant = (step) => {
                     <button onclick="window.clics_errados++; window.app.setRadiantStep(1)" class="px-8 py-4 border border-white/20 text-radiant-white hover:bg-white/5 font-bold rounded-xl transition-all text-lg">
                         Manter Assinatura
                     </button>
-                    <button onclick="window.app.setRadiantStep(3)" class="px-8 py-4 bg-radiant-blue hover:bg-radiant-blue/80 text-white font-bold rounded-xl transition-all shadow-lg shadow-radiant-blue/20 text-lg">
+                    <button onclick="window.app.confirmarCancelamentoRadiant(this)" class="px-8 py-4 bg-radiant-blue hover:bg-radiant-blue/80 text-white font-bold rounded-xl transition-all shadow-lg shadow-radiant-blue/20 text-lg flex items-center justify-center gap-2">
                         Confirmar Cancelamento
                     </button>
                 </div>
@@ -89,7 +89,7 @@ export const SettingsRadiant = (step) => {
                 </div>
                 <h2 class="text-5xl font-black text-radiant-white tracking-tight mb-4">Assinatura Cancelada</h2>
                 <p class="text-radiant-white/70 text-lg max-w-md mx-auto leading-relaxed font-medium mb-8">
-                    Tudo pronto! Você terá acesso até o fim do ciclo. Sentiremos sua falta!
+                    Tudo pronto! Você terá acesso até o fim do ciclo e não será cobrado após isso. Sentiremos sua falta!
                 </p>
 
                 <!-- Pesquisa Opcional -->
@@ -97,22 +97,23 @@ export const SettingsRadiant = (step) => {
                     <h4 class="font-black text-radiant-white mb-3 text-lg">Antes de ir, poderia nos contar o motivo? (Opcional)</h4>
                     
                     <div class="space-y-3">
-                        <select class="w-full bg-black/30 border border-white/10 rounded-lg p-3 text-radiant-white text-sm focus:ring-1 focus:ring-radiant-blue outline-none cursor-pointer">
-                            <option value="">Selecione uma opção (Se desejar)</option>
-                            <option value="price">O preço está alto demais</option>
-                            <option value="content">Não encontrei o que queria assistir</option>
-                            <option value="technical">Problemas técnicos com o app</option>
-                            <option value="other">Outros motivos</option>
+                        <select id="radiant-survey-select" onchange="window.app.checkRadiantSurveySelect(this.value)" class="w-full bg-[#1a1f2e] border border-white/10 rounded-lg p-3 text-radiant-white text-sm focus:ring-1 focus:ring-radiant-blue outline-none cursor-pointer" style="background-color: #1a1f2e; color: #f0edee;">
+                            <option value="" style="background-color: #1a1f2e; color: #f0edee;">Selecione uma opção (Se desejar)</option>
+                            <option value="price" style="background-color: #1a1f2e; color: #f0edee;">O preço está alto demais</option>
+                            <option value="content" style="background-color: #1a1f2e; color: #f0edee;">Não encontrei o que queria assistir</option>
+                            <option value="technical" style="background-color: #1a1f2e; color: #f0edee;">Problemas técnicos com o app</option>
+                            <option value="other" style="background-color: #1a1f2e; color: #f0edee;">Outros motivos</option>
                         </select>
-                        <textarea class="w-full bg-black/30 border border-white/10 rounded-lg p-3 text-radiant-white text-sm focus:ring-1 focus:ring-radiant-blue outline-none min-h-[50px] placeholder-radiant-white/20" placeholder="Algo mais que gostaria de compartilhar?"></textarea>
+                        <textarea id="radiant-survey-textarea" class="w-full bg-[#1a1f2e] border border-white/10 rounded-lg p-3 text-radiant-white text-sm focus:ring-1 focus:ring-radiant-blue outline-none min-h-[50px] placeholder-radiant-white/20" style="background-color: #1a1f2e; color: #f0edee;" placeholder="Algo mais que gostaria de compartilhar?"></textarea>
                     </div>
                 </div>
 
-                </div>
-
-                <div class="ignorar-clique">
-                    <button onclick="window.app.finishLab()" class="px-12 py-4 bg-[#23293b] hover:bg-[#2a3147] text-radiant-white font-black rounded-xl transition-all shadow-xl border border-white/10 text-lg uppercase tracking-wider">
-                        Finalizar Simulação
+                <div class="ignorar-clique flex flex-col sm:flex-row gap-4 justify-center">
+                    <button id="btn-radiant-send-survey" disabled onclick="window.app.finishLabWithSpinner('enviar', this)" class="px-8 py-4 bg-[#2a3147] text-white/30 font-black rounded-xl transition-all text-lg flex items-center justify-center gap-2 cursor-not-allowed">
+                        Enviar Resposta
+                    </button>
+                    <button onclick="window.app.finishLabWithSpinner('encerrar', this)" class="px-8 py-4 bg-[#23293b] hover:bg-[#2a3147] text-radiant-white font-black rounded-xl transition-all shadow-xl border border-white/10 text-lg flex items-center justify-center gap-2">
+                        Não, Encerrar
                     </button>
                 </div>
             </div>
