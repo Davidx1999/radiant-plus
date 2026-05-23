@@ -198,7 +198,7 @@ window.renderSection = () => {
         
         if (q.tipo === 'number') {
             const val = window.userAnswers[q.id] || '';
-            inputHtml = `<input type="number" id="${q.id}" class="w-full sm:w-1/2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors" placeholder="Digite um número..." value="${val}" onchange="window.saveAnswer('${q.id}', this.value)">`;
+            inputHtml = `<input type="number" id="${q.id}" class="w-full sm:w-1/2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6455E5] focus:border-[#6455E5] outline-none transition-colors" placeholder="Digite um número..." value="${val}" onchange="window.saveAnswer('${q.id}', this.value)">`;
         } 
         else if (q.tipo === 'single_choice' && q.id !== 'genero' && q.id !== 'area_atuacao') {
             inputHtml = '<div class="space-y-3">';
@@ -245,7 +245,7 @@ window.renderSection = () => {
                     const textVal = isOutrosSaved ? savedVal.replace('Outros: ', '') : '';
                     inputHtml += `
                         <div id="genero-outros-container" style="display: ${display};" class="mt-2 pl-8">
-                            <input type="text" id="genero-outros-input" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" placeholder="Por favor, especifique" value="${textVal}" oninput="window.saveOutrosAnswer(this.value)">
+                            <input type="text" id="genero-outros-input" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6455E5] focus:border-[#6455E5] outline-none" placeholder="Por favor, especifique" value="${textVal}" oninput="window.saveOutrosAnswer(this.value)">
                         </div>
                     `;
                 }
@@ -279,7 +279,7 @@ window.renderSection = () => {
                     const textVal = isOutrasSaved ? savedVal.replace('Outras: ', '') : '';
                     inputHtml += `
                         <div id="area-atuacao-outros-container" style="display: ${display};" class="mt-2 pl-8">
-                            <input type="text" id="area-atuacao-outros-input" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" placeholder="Por favor, especifique" value="${textVal}" oninput="window.saveAreaAtuacaoOutrasAnswer(this.value)">
+                            <input type="text" id="area-atuacao-outros-input" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6455E5] focus:border-[#6455E5] outline-none" placeholder="Por favor, especifique" value="${textVal}" oninput="window.saveAreaAtuacaoOutrasAnswer(this.value)">
                         </div>
                     `;
                 }
@@ -296,7 +296,7 @@ window.renderSection = () => {
                 inputHtml += `
                     <div class="w-full h-full">
                         <input type="radio" name="${q.id}" id="${id}" value="${opt}" class="peer sr-only likert-radio" ${checked} onchange="window.saveAnswer('${q.id}', this.value)">
-                        <label for="${id}" class="cursor-pointer flex items-center justify-center text-center h-full w-full p-3 text-sm text-gray-600 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition-colors select-none peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 leading-tight">
+                        <label for="${id}" class="cursor-pointer flex items-center justify-center text-center h-full w-full p-3 text-sm text-gray-600 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition-colors select-none peer-checked:bg-[#6455E5] peer-checked:text-white peer-checked:border-[#6455E5] leading-tight">
                             ${opt}
                         </label>
                     </div>
@@ -401,6 +401,7 @@ window.enviarTelemetria = function(usuarioAbandonou = false, surveyData = {}) {
 
     fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: dados })
         .then(() => {
+            localStorage.setItem('testeConcluido', 'true');
             if (btnSubmit) {
                 btnSubmit.disabled = false;
                 btnSubmit.innerHTML = 'Enviar Respostas ✓';
@@ -430,19 +431,17 @@ window.enviarTelemetria = function(usuarioAbandonou = false, surveyData = {}) {
             // Show Modal
             const modal = document.getElementById('custom-modal');
             const modalContent = document.getElementById('modal-content');
-            const jsonOutput = document.getElementById('modal-json-output');
-            if (jsonOutput) jsonOutput.textContent = JSON.stringify(debugOutput, null, 2);
             
             const summaryDiv = document.getElementById('modal-telemetry-summary');
             if (summaryDiv) {
                 summaryDiv.innerHTML = `
                     <ul class="space-y-1.5 leading-relaxed font-sans text-gray-700 text-left">
-                        <li><span class="opacity-60 font-medium">Variante:</span> <strong class="text-blue-600 font-bold">${nomeVariante}</strong></li>
-                        <li><span class="opacity-60 font-medium">Tempo Total (Usuário):</span> <strong class="text-blue-600 font-bold">${tempo_usuario_seg} s</strong></li>
-                        <li><span class="opacity-60 font-medium">Cliques Totais:</span> <strong class="text-blue-600 font-bold">${window.clics_totais}</strong></li>
+                        <li><span class="opacity-60 font-medium">Serviço de Streaming:</span> <strong class="text-[#6455E5] font-bold">${nomeVariante}</strong></li>
+                        <li><span class="opacity-60 font-medium">Tempo Total (Usuário):</span> <strong class="text-[#6455E5] font-bold">${tempo_usuario_seg} s</strong></li>
+                        <li><span class="opacity-60 font-medium">Cliques Totais:</span> <strong class="text-[#6455E5] font-bold">${window.clics_totais}</strong></li>
                         <li><span class="opacity-60 font-medium">Cliques Errados:</span> <strong class="text-red-500 font-bold">${window.clics_errados}</strong></li>
-                        <li><span class="opacity-60 font-medium">Abandonou a Aplicação:</span> <strong class="font-bold ${usuarioAbandonou ? 'text-red-500' : 'text-blue-600'}">${usuarioAbandonou ? 'Sim' : 'Não'}</strong></li>
-                        <li class="border-t border-gray-100 mt-2.5 pt-2.5"><span class="opacity-60 font-medium">Timestamp de Envio:</span> ${new Date().toLocaleTimeString()}</li>
+                        <li><span class="opacity-60 font-medium">Abandonou a Aplicação:</span> <strong class="font-bold ${usuarioAbandonou ? 'text-red-500' : 'text-[#6455E5]'}">${usuarioAbandonou ? 'Sim' : 'Não'}</strong></li>
+                        <li class="border-t border-gray-100 mt-2.5 pt-2.5"><span class="opacity-60 font-medium">Horário de Envio:</span> ${new Date().toLocaleTimeString()}</li>
                     </ul>
                 `;
             }
@@ -798,5 +797,10 @@ class App {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('testeConcluido') === 'true') {
+        document.body.innerHTML = "<div class='min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8'><h1 class='text-[#FFFBF5] text-3xl font-bold text-center'>Você já participou deste experimento. Obrigado!</h1></div>";
+        alert("Teste já realizado. Obrigado pela sua contribuição!");
+        return;
+    }
     new App();
 });

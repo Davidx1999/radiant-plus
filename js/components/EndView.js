@@ -19,7 +19,7 @@ export const EndView = (message, pattern, abandonou) => {
                         Prezado(a) participante, agradecemos por concluir a atividade no simulador. Para garantir o rigor ético desta pesquisa acadêmica da Universidade Federal do Ceará (UFC), realizamos agora a formalização sobre a natureza deste estudo.
                     </p>
                     
-                    <div class="max-w-none text-gray-600 space-y-3 mb-4 text-xs sm:text-sm leading-relaxed text-justify max-h-36 sm:max-h-40 overflow-y-auto pr-2 scrollbar-thin border border-gray-100 p-4 rounded-xl bg-gray-50">
+                    <div class="max-w-none text-gray-600 space-y-3 mb-4 text-xs sm:text-sm leading-relaxed text-justify border border-gray-100 p-4 rounded-xl bg-gray-50">
                         <div>
                             <h3 class="text-gray-900 font-semibold mb-1">1. Esclarecimento do Objetivo</h3>
                             <p>Este experimento estuda o desempenho humano e a usabilidade em interfaces digitais. A variante de interface que você utilizou foi projetada seguindo o conceito de Radiant Patterns (Padrões Positivos), que se baseia na filosofia de Safety by Design, promovendo transparência, eficiência e total autonomia do utilizador. O objetivo de coletar sua percepção agora é estabelecer uma linha de base (baseline) de eficiência ideal para tarefas de cancelamento.</p>
@@ -128,11 +128,7 @@ export const EndView = (message, pattern, abandonou) => {
                     <p class="text-purple-100 mt-1">Seus dados foram processados com sucesso.</p>
                 </div>
                 <div class="p-6 bg-gray-50 border-t border-gray-100 text-gray-700">
-                    <p class="text-sm text-gray-600 mb-3 font-semibold">Simulação de Saída de Dados (Payload para o backend):</p>
-                    <div class="bg-gray-900 rounded-lg p-4 max-h-64 overflow-y-auto mb-6">
-                        <pre id="modal-json-output" class="text-xs text-green-400 font-mono text-left"></pre>
-                    </div>
-                    <p class="text-sm text-gray-600 mb-3 font-semibold">Resumo da Telemetria Enviada:</p>
+                    <p class="text-sm text-gray-600 mb-3 font-semibold">Resumo dos Dados Enviados para Pesquisa:</p>
                     <div id="modal-telemetry-summary" class="bg-white border border-gray-200 rounded-xl p-4 text-sm text-gray-700 text-left">
                         <!-- Summary injected here -->
                     </div>
