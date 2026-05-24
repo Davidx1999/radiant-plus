@@ -802,21 +802,32 @@ class App {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Trava de Duplicidade pós-envio
+    const varianteAtual = window.location.href.includes("radiant-plus") ? "Radiant" : "Dark";
+
+    // 1. Trava de Duplicidade pós-envio (Se o cara já terminou a pesquisa inteira)
     if (localStorage.getItem('testeConcluido') === 'true') {
         document.body.innerHTML = "<div class='min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8'><h1 class='text-[#FFFBF5] text-3xl font-bold text-center'>Você já participou deste experimento. Agradecemos sua colaboração!</h1></div>";
         alert("Você já participou deste experimento. Agradecemos sua colaboração!");
         return;
     }
 
-    // 2. Manipulação do botão "Voltar" (Prende o usuário no próprio GitHub)
-    window.history.pushState(null, "", window.location.href);
+    // 2. Trava contra o "Abre e Fecha" do link original do WhatsApp
+    // Verifica se esse navegador já passou por algum sorteio antes
+    const varianteSalva = localStorage.getItem('variante_sorteada_bloco');
 
-    window.onpopstate = function () {
-        // Se o usuário clicar em "Voltar", força a página a recarregar a si mesma.
-        // Isso impede que ele volte para o link do Google Script e queime o contador!
-        window.location.reload();
-    };
+    if (varianteSalva && varianteSalva !== varianteAtual) {
+        // Se o cara foi sorteado para a OUTRA variante e tentou abrir essa pelo link antigo,
+        // redireciona ele imediatamente para o repositório correto dele!
+        const urlOutroRepo = varianteSalva === "Radiant"
+            ? "https://davidx1999.github.io/radiant-plus/#"
+            : "https://davidx1999.github.io/dark-max/";
+
+        window.location.href = urlOutroRepo;
+        return;
+    } else {
+        // Se é a primeira vez dele ou se ele está no repositório certo, carimba a memória
+        localStorage.setItem('variante_sorteada_bloco', varianteAtual);
+    }
 
     // 3. Inicializa o App de fato
     new App();
