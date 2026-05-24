@@ -32,7 +32,17 @@ export const EndView = (message, pattern, abandonou) => {
                         
                         <div>
                             <h3 class="text-gray-900 font-semibold mb-1">3. Direitos e Consentimento de Uso (LGPD)</h3>
-                            <p>A telemetria capturada de forma anônima em segundo plano pelo simulador (tempo de execução do usuário, tempo de processamento da CPU, total de cliques e consumo de memória RAM) só será computada em nossa base de dados estatística caso você dê o seu consentimento livre e esclarecido neste momento. Seus dados brutos serão mantidos em ambiente digital seguro e utilizados exclusivamente para este artigo acadêmico e potenciais publicações na área de Interação Humano-Computador.</p>
+                            <p>Os dados computacionais de telemetria, capturados de forma anônima em segundo plano pelo simulador (tempo de execução do usuário, tempo de processamento da CPU, total de cliques, cliques errados e consumo de memória RAM), só serão computados em nossa base de dados estatística caso você dê o seu consentimento livre e esclarecido neste momento. Seus dados brutos serão mantidos em ambiente digital seguro e utilizados exclusivamente para este artigo acadêmico e potenciais publicações na área de Interação Humano-Computador.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-900 font-semibold mb-1">4. Contatos e Canais de Comunicação</h3>
+                            <p class="mb-2">Caso você tenha alguma dúvida sobre a pesquisa, queira retirar o seu consentimento de uso de dados posteriormente ou deseje acompanhar os resultados deste estudo, entre em contato com a equipe responsável:</p>
+                            <ul class="space-y-1 list-none pl-1 text-gray-600">
+                                <li>• Pesquisador Integrante: David Salviano - <a href="mailto:david52@alu.ufc.br" class="text-[#6455E5] hover:underline">david52@alu.ufc.br</a></li>
+                                <li>• Pesquisadora Integrante: Aryely Matos - <a href="mailto:aryelymatos@alu.ufc.br" class="text-[#6455E5] hover:underline">aryelymatos@alu.ufc.br</a></li>
+                                <li>• Pesquisadora Integrante: Thais Farias - <a href="mailto:thais.fcardoso@alu.ufc.br" class="text-[#6455E5] hover:underline">thais.fcardoso@alu.ufc.br</a></li>
+                            </ul>
                         </div>
                     </div>
 

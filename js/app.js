@@ -627,6 +627,11 @@ class App {
     }
 
     resetLab() {
+        if (localStorage.getItem('testeConcluido') === 'true') {
+            document.body.innerHTML = "<div class='min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8'><h1 class='text-[#FFFBF5] text-3xl font-bold text-center'>Você já participou deste experimento. Agradecemos sua colaboração!</h1></div>";
+            alert("Você já participou deste experimento. Agradecemos sua colaboração!");
+            return;
+        }
         this.setState({
             pattern: 'radiant',
             view: 'setup',
@@ -798,8 +803,8 @@ class App {
 
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('testeConcluido') === 'true') {
-        document.body.innerHTML = "<div class='min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8'><h1 class='text-[#FFFBF5] text-3xl font-bold text-center'>Você já participou deste experimento. Obrigado!</h1></div>";
-        alert("Teste já realizado. Obrigado pela sua contribuição!");
+        document.body.innerHTML = "<div class='min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8'><h1 class='text-[#FFFBF5] text-3xl font-bold text-center'>Você já participou deste experimento. Agradecemos sua colaboração!</h1></div>";
+        alert("Você já participou deste experimento. Agradecemos sua colaboração!");
         return;
     }
     new App();
