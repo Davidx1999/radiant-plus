@@ -809,20 +809,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // 2. Blindagem contra o botão "Voltar" do navegador
-    try {
-        const urlDoMeuRoteador = "https://tinyurl.com/experimento-ihc-streaming";
-        const varianteAtual = window.location.href.includes("radiant-plus") ? "Radiant" : "Dark";
+    // 2. Manipulação do botão "Voltar" (Prende o usuário no próprio GitHub)
+    window.history.pushState(null, "", window.location.href);
 
-        window.history.replaceState(null, "", window.location.href);
-        window.history.pushState(null, "", window.location.href);
-
-        window.onpopstate = function () {
-            window.location.href = `${urlDoMeuRoteador}?v=${varianteAtual}`;
-        };
-    } catch (e) {
-        console.error("Erro ao gerenciar histórico de navegação:", e);
-    }
+    window.onpopstate = function () {
+        // Se o usuário clicar em "Voltar", força a página a recarregar a si mesma.
+        // Isso impede que ele volte para o link do Google Script e queime o contador!
+        window.location.reload();
+    };
 
     // 3. Inicializa o App de fato
     new App();
