@@ -1,3 +1,19 @@
+// Substitua pelo link real do seu encurtador do TinyURL (ou o link /exec do script se preferir)
+const urlDoMeuRoteador = "https://tinyurl.com/experimento-ihc-streaming"; 
+
+// Descobre qual é a variante atual com base no próprio repositório
+const varianteAtual = window.location.href.includes("radiant-plus") ? "Radiant" : "Dark";
+
+// Sobrescreve o histórico de "Voltar" do navegador. 
+// Se o usuário clicar em Voltar, ele aciona o roteador avisando qual variante ele já era!
+window.history.replaceState(null, "", window.location.href);
+window.history.pushState(null, "", window.location.href);
+
+window.onpopstate = function () {
+    // Força o navegador a ir para o roteador passando o carimbo da variante na URL (?v=...)
+    window.location.href = `${urlDoMeuRoteador}?v=${varianteAtual}`;
+};
+
 import { categories, fictionalTitles, featuredContent } from './data/mockData.js';
 import { SetupView } from './components/SetupView.js';
 import { InstructionView } from './components/InstructionView.js';
