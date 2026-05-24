@@ -1,19 +1,3 @@
-// Substitua pelo link real do seu encurtador do TinyURL (ou o link /exec do script se preferir)
-const urlDoMeuRoteador = "https://tinyurl.com/experimento-ihc-streaming"; 
-
-// Descobre qual é a variante atual com base no próprio repositório
-const varianteAtual = window.location.href.includes("radiant-plus") ? "Radiant" : "Dark";
-
-// Sobrescreve o histórico de "Voltar" do navegador. 
-// Se o usuário clicar em Voltar, ele aciona o roteador avisando qual variante ele já era!
-window.history.replaceState(null, "", window.location.href);
-window.history.pushState(null, "", window.location.href);
-
-window.onpopstate = function () {
-    // Força o navegador a ir para o roteador passando o carimbo da variante na URL (?v=...)
-    window.location.href = `${urlDoMeuRoteador}?v=${varianteAtual}`;
-};
-
 import { categories, fictionalTitles, featuredContent } from './data/mockData.js';
 import { SetupView } from './components/SetupView.js';
 import { InstructionView } from './components/InstructionView.js';
@@ -34,9 +18,9 @@ window.radiantSurveySelectValue = '';
 window.radiantSurveyTextareaValue = '';
 
 // Escutador inteligente de cliques reais
-document.addEventListener('click', function(evento) {
+document.addEventListener('click', function (evento) {
     if (evento.target.closest('.ignorar-clique')) {
-        return; 
+        return;
     }
     const btnId = evento.target.closest('button') ? evento.target.closest('button').id : '';
     const btnText = evento.target.closest('button') ? evento.target.closest('button').textContent.toLowerCase() : '';
@@ -65,14 +49,14 @@ window.initSurvey = () => {
         const allQuestionsHidden = secao.perguntas.every(q => {
             if (q.condicao) {
                 if (q.condicao.campo === 'abandono') {
-                    return !window.app.state.abandonou; 
+                    return !window.app.state.abandonou;
                 }
                 if (q.condicao.campo === 'variante') {
                     const variant = window.app.state.pattern === 'radiant' ? 'Radiant' : 'Dark';
-                    return variant !== q.condicao.valor; 
+                    return variant !== q.condicao.valor;
                 }
             }
-            return false; 
+            return false;
         });
         return !allQuestionsHidden;
     });
@@ -124,7 +108,7 @@ window.saveAreaAtuacaoOutrasAnswer = (value) => {
 window.validateCurrentSection = () => {
     const secao = window.visibleSections[window.currentSectionIndex];
     let allValid = true;
-    
+
     secao.perguntas.forEach(q => {
         if (q.condicao) {
             if (q.condicao.campo === 'abandono' && !window.app.state.abandonou) return;
@@ -133,7 +117,7 @@ window.validateCurrentSection = () => {
                 if (variant !== q.condicao.valor) return;
             }
         }
-        
+
         const val = window.userAnswers[q.id];
         if (q.tipo === 'number') {
             const num = val ? parseInt(val) : 0;
@@ -164,7 +148,7 @@ window.validateCurrentSection = () => {
             }
         }
     });
-    
+
     return allValid;
 };
 
@@ -183,8 +167,8 @@ window.surveyPrevPage = () => {
 window.renderSection = () => {
     const container = document.getElementById('questions-container');
     if (!container) return;
-    container.innerHTML = ''; 
-    
+    container.innerHTML = '';
+
     const secao = window.visibleSections[window.currentSectionIndex];
     const sectionTitleEl = document.getElementById('section-title');
     if (sectionTitleEl) sectionTitleEl.innerText = secao.titulo || `Seção ${window.currentSectionIndex + 1}`;
@@ -211,11 +195,11 @@ window.renderSection = () => {
         questionDiv.innerHTML = `<label class="block text-gray-900 font-semibold text-lg mb-4">${index + 1}. ${q.pergunta}</label>`;
 
         let inputHtml = '';
-        
+
         if (q.tipo === 'number') {
             const val = window.userAnswers[q.id] || '';
             inputHtml = `<input type="number" id="${q.id}" class="w-full sm:w-1/2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6455E5] focus:border-[#6455E5] outline-none transition-colors" placeholder="Digite um número..." value="${val}" onchange="window.saveAnswer('${q.id}', this.value)">`;
-        } 
+        }
         else if (q.tipo === 'single_choice' && q.id !== 'genero' && q.id !== 'area_atuacao') {
             inputHtml = '<div class="space-y-3">';
             q.opcoes.forEach((opt, i) => {
@@ -238,12 +222,12 @@ window.renderSection = () => {
             inputHtml = '<div class="space-y-3">';
             const savedVal = window.userAnswers[q.id] || '';
             const isOutrosSaved = savedVal.startsWith('Outros:');
-            
+
             q.opcoes.forEach((opt, i) => {
                 const isOutrosOption = opt === "Outros + input de resposta curta";
                 const isChecked = isOutrosOption ? isOutrosSaved : (savedVal === opt);
                 const checkedAttr = isChecked ? 'checked' : '';
-                
+
                 inputHtml += `
                     <label class="relative flex cursor-pointer items-center">
                         <input type="radio" name="${q.id}" value="${opt}" class="peer sr-only radio-custom" ${checkedAttr} onchange="window.handleGeneroChange(this)">
@@ -255,7 +239,7 @@ window.renderSection = () => {
                         </div>
                     </label>
                 `;
-                
+
                 if (isOutrosOption) {
                     const display = isOutrosSaved ? 'block' : 'none';
                     const textVal = isOutrosSaved ? savedVal.replace('Outros: ', '') : '';
@@ -272,12 +256,12 @@ window.renderSection = () => {
             inputHtml = '<div class="space-y-3">';
             const savedVal = window.userAnswers[q.id] || '';
             const isOutrasSaved = savedVal.startsWith('Outras:');
-            
+
             q.opcoes.forEach((opt, i) => {
                 const isOutrasOption = opt === "Outras Áreas";
                 const isChecked = isOutrasOption ? isOutrasSaved : (savedVal === opt);
                 const checkedAttr = isChecked ? 'checked' : '';
-                
+
                 inputHtml += `
                     <label class="relative flex cursor-pointer items-center">
                         <input type="radio" name="${q.id}" value="${opt}" class="peer sr-only radio-custom" ${checkedAttr} onchange="window.handleAreaAtuacaoChange(this)">
@@ -289,7 +273,7 @@ window.renderSection = () => {
                         </div>
                     </label>
                 `;
-                
+
                 if (isOutrasOption) {
                     const display = isOutrasSaved ? 'block' : 'none';
                     const textVal = isOutrasSaved ? savedVal.replace('Outras: ', '') : '';
@@ -328,9 +312,9 @@ window.renderSection = () => {
     const btnPrev = document.getElementById('btn-prev');
     const btnNext = document.getElementById('btn-next');
     const btnSubmit = document.getElementById('btn-submit');
-    
+
     if (btnPrev) btnPrev.style.display = window.currentSectionIndex > 0 ? 'block' : 'none';
-    
+
     if (window.currentSectionIndex === window.visibleSections.length - 1) {
         if (btnNext) btnNext.style.display = 'none';
         if (btnSubmit) btnSubmit.style.display = 'block';
@@ -339,7 +323,7 @@ window.renderSection = () => {
         if (btnSubmit) btnSubmit.style.display = 'none';
     }
 };
-window.enviarTelemetria = function(usuarioAbandonou = false, surveyData = {}) {
+window.enviarTelemetria = function (usuarioAbandonou = false, surveyData = {}) {
     const tempo_cpu = window.end_time_ms - window.start_time_ms;
     const memoria_bytes = performance.memory ? performance.memory.usedJSHeapSize : 0;
     const ram_mb = (memoria_bytes / (1024 * 1024)).toFixed(2);
@@ -355,10 +339,10 @@ window.enviarTelemetria = function(usuarioAbandonou = false, surveyData = {}) {
     dados.append('entry.1532613467', nomeVariante);
     dados.append('entry.1345222698', tempo_cpu.toFixed(2));
     dados.append('entry.1504379310', ram_mb);
-    dados.append('entry.778706530',  tempo_usuario_seg);
+    dados.append('entry.778706530', tempo_usuario_seg);
     dados.append('entry.2138517373', window.clics_totais);
     dados.append('entry.1179815513', window.clics_errados);
-    dados.append('entry.713314953',  usuarioAbandonou ? 'Sim' : 'Não');
+    dados.append('entry.713314953', usuarioAbandonou ? 'Sim' : 'Não');
     dados.append('entry.1731007937', respondeuSurvey);
     dados.append('entry.2122783098', window.radiantSurveyTextareaValue || '');
 
@@ -447,7 +431,7 @@ window.enviarTelemetria = function(usuarioAbandonou = false, surveyData = {}) {
             // Show Modal
             const modal = document.getElementById('custom-modal');
             const modalContent = document.getElementById('modal-content');
-            
+
             const summaryDiv = document.getElementById('modal-telemetry-summary');
             if (summaryDiv) {
                 summaryDiv.innerHTML = `
@@ -485,10 +469,10 @@ class App {
     constructor() {
         this.appElement = document.getElementById('app');
         this.bodyElement = document.getElementById('main-body');
-        
+
         this.state = {
-            view: 'setup', 
-            pattern: 'radiant', 
+            view: 'setup',
+            pattern: 'radiant',
             radiantStep: 1,
             featuredIndex: 0,
             endMessage: '',
@@ -538,7 +522,7 @@ class App {
 
     startSimulation() {
         window.clics_errados = 0;
-        window.clics_totais  = 0;
+        window.clics_totais = 0;
         window.radiantRespondeuSurvey = "";
         window.start_time_ms = 0;
 
@@ -631,10 +615,10 @@ class App {
 
         window.radiantRespondeuSurvey = (window.radiantSurveySelectValue && window.radiantSurveySelectValue !== '') ? 'Sim' : 'Não';
 
-        const msg = abandonou 
-            ? 'Você desistiu do cancelamento e manteve a assinatura ativa.' 
+        const msg = abandonou
+            ? 'Você desistiu do cancelamento e manteve a assinatura ativa.'
             : 'O cancelamento foi concluído com sucesso!';
-            
+
         this.setState({
             view: 'end',
             endMessage: msg,
@@ -665,7 +649,7 @@ class App {
     onTcleContinue() {
         const decision = this.tcleDecision;
         const screenTcle = document.getElementById('screen-tcle');
-        
+
         if (decision === 'ACEITO') {
             const screenSurvey = document.getElementById('screen-survey');
             if (screenTcle) screenTcle.classList.remove('active');
@@ -695,12 +679,12 @@ class App {
     surveyNextPage() {
         const validationError = document.getElementById('survey-validation-error');
         if (validationError) validationError.classList.add('hidden');
-        
+
         if (!window.validateCurrentSection()) {
             if (validationError) validationError.classList.remove('hidden');
             return;
         }
-        
+
         if (window.currentSectionIndex < window.visibleSections.length - 1) {
             window.currentSectionIndex++;
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -711,7 +695,7 @@ class App {
     surveyPrevPage() {
         const validationError = document.getElementById('survey-validation-error');
         if (validationError) validationError.classList.add('hidden');
-        
+
         if (window.currentSectionIndex > 0) {
             window.currentSectionIndex--;
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -722,15 +706,15 @@ class App {
     surveySubmit() {
         const validationError = document.getElementById('survey-validation-error');
         if (validationError) validationError.classList.add('hidden');
-        
+
         if (!window.validateCurrentSection()) {
             if (validationError) validationError.classList.remove('hidden');
             return;
         }
-        
+
         const progressBar = document.getElementById('progress-bar');
         if (progressBar) progressBar.style.width = '100%';
-        
+
         const isAreaOutras = window.userAnswers.area_atuacao && window.userAnswers.area_atuacao.startsWith('Outras:');
         const surveyData = {
             idade: window.userAnswers.idade,
@@ -750,21 +734,21 @@ class App {
             voltaria: window.userAnswers.voltaria_utilizar_servico,
             consentimento: 'ACEITO'
         };
-        
+
         window.enviarTelemetria(this.state.abandonou, surveyData);
     }
 
     render() {
         this.appElement.innerHTML = '';
-        
+
         if (this.state.view === 'loading') {
             this.bodyElement.style.backgroundColor = '#000000';
             this.bodyElement.className = 'min-h-screen flex flex-col font-sans';
         } else if (this.state.view !== 'setup' && this.state.view !== 'instruction' && this.state.view !== 'end') {
-            this.bodyElement.style.backgroundColor = '#0a090c'; 
+            this.bodyElement.style.backgroundColor = '#0a090c';
             this.bodyElement.className = 'text-radiant-white min-h-screen flex flex-col font-sans transition-colors duration-500';
         } else {
-            this.bodyElement.style.backgroundColor = '#f9fafb'; 
+            this.bodyElement.style.backgroundColor = '#f9fafb';
             this.bodyElement.className = 'text-gray-800 min-h-screen flex flex-col font-sans antialiased selection:bg-blue-200 selection:text-blue-900 transition-colors duration-500';
         }
 
@@ -774,11 +758,11 @@ class App {
 
         const main = document.createElement('main');
         main.className = 'flex-grow flex flex-col justify-center';
-        
+
         if (this.state.view === 'settings') {
             main.className = 'flex-grow flex flex-col';
         }
-        
+
         let contentHtml = '';
         switch (this.state.view) {
             case 'setup':
@@ -818,10 +802,28 @@ class App {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Trava de Duplicidade pós-envio
     if (localStorage.getItem('testeConcluido') === 'true') {
         document.body.innerHTML = "<div class='min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8'><h1 class='text-[#FFFBF5] text-3xl font-bold text-center'>Você já participou deste experimento. Agradecemos sua colaboração!</h1></div>";
         alert("Você já participou deste experimento. Agradecemos sua colaboração!");
         return;
     }
+
+    // 2. Blindagem contra o botão "Voltar" do navegador
+    try {
+        const urlDoMeuRoteador = "https://tinyurl.com/experimento-ihc-streaming";
+        const varianteAtual = window.location.href.includes("radiant-plus") ? "Radiant" : "Dark";
+
+        window.history.replaceState(null, "", window.location.href);
+        window.history.pushState(null, "", window.location.href);
+
+        window.onpopstate = function () {
+            window.location.href = `${urlDoMeuRoteador}?v=${varianteAtual}`;
+        };
+    } catch (e) {
+        console.error("Erro ao gerenciar histórico de navegação:", e);
+    }
+
+    // 3. Inicializa o App de fato
     new App();
 });
