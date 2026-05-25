@@ -402,9 +402,12 @@ window.enviarTelemetria = function (usuarioAbandonou = false, surveyData = {}) {
     fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: dados })
         .then(() => {
             localStorage.setItem('testeConcluido', 'true');
-            if (btnSubmit) {
-                btnSubmit.disabled = false;
-                btnSubmit.innerHTML = 'Enviar Respostas ✓';
+
+            // NOVA LINHA: Pega o e-mail que salvamos no Setup e avisa o Google Script para dar baixa
+            const emailSalvo = localStorage.getItem('email_usuario_experimento');
+            if (emailSalvo) {
+                const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbzttCYAEDYTG1wXXpL5lqrNYbmOf779yMfGEG_SwN7bfrluiNo5ilXky7ezPxRk3TiN/exec";
+                fetch(`${URL_SCRIPT}?acao=concluir&id=${emailSalvo}`).catch(e => console.error(e));
             }
 
             // Build the debug JSON object
@@ -802,33 +805,36 @@ class App {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const varianteAtual = window.location.href.includes("radiant-plus") ? "Radiant" : "Dark";
-
-    // 1. Trava de Duplicidade pós-envio (Se o cara já terminou a pesquisa inteira)
+    // 1. Trava de Duplicidade pós-envio (Se já terminou a pesquisa inteira)
     if (localStorage.getItem('testeConcluido') === 'true') {
         document.body.innerHTML = "<div class='min-h-screen bg-[#0a0a0a] flex items-center justify-center p-8'><h1 class='text-[#FFFBF5] text-3xl font-bold text-center'>Você já participou deste experimento. Agradecemos sua colaboração!</h1></div>";
-        alert("Você já participou deste experimento. Agradecemos sua colaboração!");
         return;
     }
 
-    // 2. Trava contra o "Abre e Fecha" do link original do WhatsApp
-    // Verifica se esse navegador já passou por algum sorteio antes
-    const varianteSalva = localStorage.getItem('variante_sorteada_bloco');
+    // 2. CAPTURA A VARIANTE (Do Google Script ou da Memória Local)
+    let varianteAtiva = localStorage.getItem('variante_sorteada_experimento');
 
-    if (varianteSalva && varianteSalva !== varianteAtual) {
-        // Se o cara foi sorteado para a OUTRA variante e tentou abrir essa pelo link antigo,
-        // redireciona ele imediatamente para o repositório correto dele!
-        const urlOutroRepo = varianteSalva === "Radiant"
-            ? "https://davidx1999.github.io/radiant-plus/#"
-            : "https://davidx1999.github.io/dark-max/";
+    if (!varianteAtiva) {
+        // Se é a primeira vez do usuário, pegamos a variante que o Google Script mandou na URL
+        // Ex de URL que o Google vai mandar: .../streaming-experiment-ihc/?v=Radiant
+        const urlParams = new URLSearchParams(window.location.search);
+        const varianteUrl = urlParams.get('v'); // Lê o "?v="
 
-        window.location.href = urlOutroRepo;
-        return;
-    } else {
-        // Se é a primeira vez dele ou se ele está no repositório certo, carimba a memória
-        localStorage.setItem('variante_sorteada_bloco', varianteAtual);
+        if (varianteUrl) {
+            varianteAtiva = varianteUrl.toLowerCase(); // 'radiant' ou 'dark'
+            // Salva na memória para blindar contra F5, voltar e abre-e-fecha
+            localStorage.setItem('variante_sorteada_experimento', varianteAtiva);
+        } else {
+            // Fallback de segurança: se o cara acessou o link do github direto sem passar pelo Google
+            varianteAtiva = Math.random() < 0.5 ? 'radiant' : 'dark';
+            localStorage.setItem('variante_sorteada_experimento', varianteAtiva);
+        }
     }
 
-    // 3. Inicializa o App de fato
-    new App();
+    // 3. INICIALIZA O APP E ALTERA O FAVICON
+    const app = new App();
+    app.setState({ pattern: varianteAtiva });
+
+    // Altera o favicon dinamicamente
+    mudarFavicon(varianteAtiva);
 });
